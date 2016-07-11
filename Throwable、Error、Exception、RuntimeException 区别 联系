@@ -1,3 +1,9 @@
+Java的Exception和Error面试题10问10答
+http://www.oschina.net/translate/10-java-exception-and-error-interview-questions-answers-programming?lang=eng
+
+异常处理
+http://wiki.jikexueyuan.com/project/java-interview-bible/exception.html
+
 1.Throwable 类是 Java 语言中所有错误或异常的超类。它的两个子类是Error和Exception；
 
 
