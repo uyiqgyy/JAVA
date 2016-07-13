@@ -1,0 +1,10 @@
+用Runnable与Callable接口的方式创建多线程的特点：
+
+线程类只是实现了Runnable接口或Callable接口，还可以继承其它类。
+在这种方式下，多个线程可以共享一个target对象，所以非常适合多个线程来处理同一份资源情况。
+如果需要访问当前线程，需要使用Thread.currentThread方法。
+Callable接口与Runnable接口相比，只是Callable接口可以返回值而已。
+用Thread类的方式创建多线程的特点：
+
+因为线程已经继承Thread类，所以不可以再继承其它类。
+如果需要访问当前线程，直接使用this即可。
