@@ -1,0 +1,1308 @@
+基础知识：
+1.	C++或Java中的异常处理机制的简单原理和应用。
+ 当JAVA程序违反了JAVA的语义规则时，JAVA虚拟机就会将发生的错误表示为一个异常。违反语义规则包括2种情况。一种是JAVA类库内置的语义检查。例如数组下标越界,会引发IndexOutOfBoundsException;访问null的对象时会引发NullPointerException。另一种情况就是JAVA允许程序员扩展这种语义检查，程序员可以创建自己的异常，并自由选择在何时用throw关键字引发异常。所有的异常都是java.lang.Thowable的子类。
+2. Java的接口和C++的虚类的相同和不同处。 由于Java不支持多继承，而有可能某个类或对象要使用分别在几个类或对象里面的方法或属性，现有的单继承机制就不能满足要求。与继承相比，接口有更高的灵活性，因为接口中没有任何实现代码。当一个类实现了接口以后，该类要实现接口里面所有的方法和属性，并且接口里面的属性在默认状态下面都是public static,所有方法默认情况下是public.一个类可以实现多个接口。
+ 3. 垃圾回收的优点和原理。并考虑2种回收机制。 Java语言中一个显著的特点就是引入了垃圾回收机制，使c++程序员最头疼的内存管理的问题迎刃而解，它使得Java程序员在编写程序的时候不再需要考虑内存管理。由于有个垃圾回收机制，Java中的对象不再有“作用域”的概念，只有对象的引用才有“作用域”。垃圾回收可以有效的防止内存泄露，有效的使用可以使用的内存。垃圾回收器通常是作为一个单独的低级别的线程运行，不可预知的情况下对内存堆中已经死亡的或者长时间没有使用的对象进行清楚和回收，程序员不能实时的调用垃圾回收器对某个对象或所有对象进行垃圾回收。回收机制有分代复制垃圾回收和标记垃圾回收，增量垃圾回收。 
+4. 请说出你所知道的线程同步的方法。 wait():使一个线程处于等待状态，并且释放所持有的对象的lock。 sleep():使一个正在运行的线程处于睡眠状态，是一个静态方法，调用此方法要捕捉InterruptedException异常。 notify():唤醒一个处于等待状态的线程，注意的是在调用此方法的时候，并不能确切的唤醒某一个等待状态的线程，而是由JVM确定唤醒哪个线程，而且不是按优先级。 Allnotity():唤醒所有处入等待状态的线程，注意并不是给所有唤醒线程一个对象的锁，而是让它们竞争。
+ 5. 请讲一讲析构函数和虚函数的用法和作用。 
+6. Error与Exception有什么区别？ Error表示系统级的错误和程序不必处理的异常， Exception表示需要捕捉或者需要程序进行处理的异常。
+ 7. 在java中一个类被声明为final类型，表示了什么意思？ 表示该类不能被继承，是顶级类。
+ 8. 描述一下你最常用的编程风格。
+ 9. heap和stack有什么区别。 栈是一种线形集合，其添加和删除元素的操作应在同一段完成。栈按照后进先出的方式进行处理。 堆是栈的一个组成元素
+10. 如果系统要使用超大整数（超过long长度范围），请你设计一个数据结构来存储这种超大型数字以及设计一种算法来实现超大整数加法运算）。 public class BigInt() { int[] ArrOne = new ArrOne[1000]; String intString=""; public int[] Arr(String s) { intString = s; for(int i=0;i<ArrOne.leght;i++) { 
+11. 如果要设计一个图形系统，请你设计基本的图形元件(Point,Line,Rectangle,Triangle)的简单实现 
+12，谈谈final, finally, finalize的区别。 final?修饰符（关键字）如果一个类被声明为final，意味着它不能再派生出新的子类，不能作为父类被继承。因此一个类不能既被声明为 abstract的，又被声明为final的。将变量或方法声明为final，可以保证它们在使用中不被改变。被声明为final的变量必须在声明时给定初值，而在以后的引用中只能读取，不可修改。被声明为final的方法也同样只能使用，不能重载。 finally?再异常处理时提供 finally 块来执行任何清除操作。如果抛出一个异常，那么相匹配的 catch 子句就会执行，然后控制就会进入 finally 块（如果有的话）。 finalize?方法名。Java 技术允许使用 finalize() 方法在垃圾收集器将对象从内存中清除出去之前做必要的清理工作。这个方法是由垃圾收集器在确定这个对象没有被引用时对这个对象调用的。它是在 Object 类中定义的，因此所有的类都继承了它。子类覆盖 finalize() 方法以整理系统资源或者执行其他清理工作。finalize() 方法是在垃圾收集器删除对象之前对这个对象调用的。
+ 13，Anonymous Inner Class (匿名内部类) 是否可以extends(继承)其它类，是否可以implements(实现)interface(接口)? 匿名的内部类是没有名字的内部类。不能extends(继承) 其它类，但一个内部类可以作为一个接口，由另一个内部类实现。 
+14，Static Nested Class 和 Inner Class的不同，说得越多越好(面试题有的很笼统)。 Nested Class （一般是C++的说法），Inner Class (一般是JAVA的说法)。Java内部类与C++嵌套类最大的不同就在于是否有指向外部的引用上。具体可见http: //www.frontfree.net/articles/services/view.asp?id=704&page=1 注： 静态内部类（Inner Class）意味着1创建一个static内部类的对象，不需要一个外部类对象，2不能从一个static内部类的一个对象访问一个外部类对象 第四，&和&&的区别。 &是位运算符。&&是布尔逻辑运算符。
+ 15，HashMap和Hashtable的区别。 都属于Map接口的类，实现了将惟一键映射到特定的值上。 HashMap 类没有分类或者排序。它允许一个 null 键和多个 null 值。 Hashtable 类似于 HashMap，但是不允许 null 键和 null 值。它也比 HashMap 慢，因为它是同步的。
+ 16，Collection 和 Collections的区别。 Collections是个java.util下的类，它包含有各种有关集合操作的静态方法。 Collection是个java.util下的接口，它是各种集合结构的父接口。
+ 17，什么时候用assert。 断言是一个包含布尔表达式的语句，在执行这个语句时假定该表达式为 true。如果表达式计算为 false，那么系统会报告一个 Assertionerror。它用于调试目的： assert(a > 0); // throws an Assertionerror if a <= 0 断言可以有两种形式： assert Expression1 ; assert Expression1 : Expression2 ; Expression1 应该总是产生一个布尔值。 Expression2 可以是得出一个值的任意表达式。这个值用于生成显示更多调试信息的 String 消息。 断言在默认情况下是禁用的。要在编译时启用断言，需要使用 source 1.4 标记： javac -source 1.4 Test.java 要在运行时启用断言，可使用 -enableassertions 或者 -ea 标记。 要在运行时选择禁用断言，可使用 -da 或者 -disableassertions 标记。 要系统类中启用断言，可使用 -esa 或者 -dsa 标记。还可以在包的基础上启用或者禁用断言。 可以在预计正常情况下不会到达的任何位置上放置断言。断言可以用于验证传递给私有方法的参数。不过，断言不应该用于验证传递给公有方法的参数，因为不管是否启用了断言，公有方法都必须检查其参数。不过，既可以在公有方法中，也可以在非公有方法中利用断言测试后置条件。另外，断言不应该以任何方式改变程序的状态。 
+18，GC是什么? 为什么要有GC? (基础)。 GC是垃圾收集器。Java 程序员不用担心内存管理，因为垃圾收集器会自动进行管理。要请求垃圾收集，可以调用下面的方法之一： System.gc() Runtime.getRuntime().gc() 
+19，String s = new String("xyz");创建了几个String Object? 两个对象，一个是“xyx”,一个是指向“xyx”的引用对象s。 
+20，Math.round(11.5)等於多少? Math.round(-11.5)等於多少? Math.round(11.5)返回（long）12，Math.round(-11.5)返回（long）-11; 
+21，short s1 = 1; s1 = s1 + 1;有什么错? short s1 = 1; s1 += 1;有什么错? short s1 = 1; s1 = s1 + 1;有错，s1是short型，s1+1是int型,不能显式转化为short型。可修改为s1 =(short)(s1 + 1) 。short s1 = 1; s1 += 1正确。
+ 22，sleep() 和 wait() 有什么区别? 搞线程的最爱 sleep()方法是使线程停止一段时间的方法。在sleep 时间间隔期满后，线程不一定立即恢复执行。这是因为在那个时刻，其它线程可能正在运行而且没有被调度为放弃执行，除非(a)“醒来”的线程具有更高的优先级 (b)正在运行的线程因为其它原因而阻塞。 wait()是线程交互时，如果线程对一个同步对象x 发出一个wait()调用，该线程会暂停执行，被调对象进入等待状态，直到被唤醒或等待时间到。 
+23，Java有没有goto? Goto?java中的保留字，现在没有在java中使用。 
+24，数组有没有length()这个方法? String有没有length()这个方法？ 数组没有length()这个方法，有length的属性。 String有有length()这个方法。 25，Overload和Override的区别。Overloaded的方法是否可以改变返回值的类型? 方法的重写Overriding和重载Overloading是Java多态性的不同表现。重写Overriding是父类与子类之间多态性的一种表现，重载Overloading是一个类中多态性的一种表现。如果在子类中定义某方法与其父类有相同的名称和参数，我们说该方法被重写 (Overriding)。子类的对象使用这个方法时，将调用子类中的定义，对它而言，父类中的定义如同被“屏蔽”了。如果在一个类中定义了多个同名的方法，它们或有不同的参数个数或有不同的参数类型，则称为方法的重载(Overloading)。Overloaded的方法是可以改变返回值的类型。
+ 26，Set里的元素是不能重复的，那么用什么方法来区分重复与否呢? 是用==还是equals()? 它们有何区别? Set里的元素是不能重复的，那么用iterator()方法来区分重复与否。equals()是判读两个Set是否相等。 equals()和==方法决定引用值是否指向同一对象equals()在类中被覆盖，为的是当两个分离的对象的内容和类型相配的话，返回真值。 
+27，给我一个你最常见到的runtime exception。 ArithmeticException, ArrayStoreException, BufferOverflowException, BufferUnderflowException, CannotRedoException, CannotUndoException, ClassCastException, CMMException, ConcurrentModificationException, DOMException, EmptyStackException, IllegalArgumentException, IllegalMonitorStateException, IllegalPathStateException, IllegalStateException, ImagingOpException, IndexOutOfBoundsException, MissingResourceException, NegativeArraySizeException, NoSuchElementException, NullPointerException, ProfileDataException, ProviderException, RasterFORMatException, SecurityException, SystemException, UndeclaredThrowableException, UnmodifiableSetException, UnsupportedOperationException 
+28，error和exception有什么区别? error 表示恢复不是不可能但很困难的情况下的一种严重问题。比如说内存溢出。不可能指望程序能处理这样的情况。 exception 表示一种设计或实现问题。也就是说，它表示如果程序运行正常，从不会发生的情况。
+29，List, Set, Map是否继承自Collection接口? List，Set是 Map不是 
+30，abstract class和interface有什么区别? 声明方法的存在而不去实现它的类被叫做抽象类（abstract class），它用于要创建一个体现某些基本行为的类，并为该类声明方法，但不能在该类中实现该类的情况。不能创建abstract 类的实例。然而可以创建一个变量，其类型是一个抽象类，并让它指向具体子类的一个实例。不能有抽象构造函数或抽象静态方法。Abstract 类的子类为它们父类中的所有抽象方法提供实现，否则它们也是抽象类为。取而代之，在子类中实现该方法。知道其行为的其它类可以在类中实现这些方法。 接口（interface）是抽象类的变体。在接口中，所有方法都是抽象的。多继承性可通过实现这样的接口而获得。接口中的所有方法都是抽象的，没有一个有程序体。接口只可以定义static final成员变量。接口的实现与子类相似，除了该实现类不能从接口定义中继承行为。当类实现特殊接口时，它定义（即将程序体给予）所有这种接口的方法。然后，它可以在实现了该接口的类的任何对象上调用接口的方法。由于有抽象类，它允许使用接口名作为引用变量的类型。通常的动态联编将生效。引用可以转换到接口类型或从接口类型转换，instanceof 运算符可以用来决定某对象的类是否实现了接口。 
+31，abstract的method是否可同时是static,是否可同时是native，是否可同时是synchronized? 都不能 
+32，接口是否可继承接口? 抽象类是否可实现(implements)接口? 抽象类是否可继承实体类(concrete class)? 接口可以继承接口。抽象类可以实现(implements)接口，抽象类是否可继承实体类，但前提是实体类必须有明确的构造函数。
+ 33，启动一个线程是用run()还是start()? 启动一个线程是调用start()方法，使线程所代表的虚拟处理机处于可运行状态，这意味着它可以由JVM调度并执行。这并不意味着线程就会立即运行。run()方法可以产生必须退出的标志来停止一个线程。 
+34，构造器Constructor是否可被override? 构造器Constructor不能被继承，因此不能重写Overriding，但可以被重载Overloading。
+ 35，是否可以继承String类? String类是final类故不可以继承。
+ 36，当一个线程进入一个对象的一个synchronized方法后，其它线程是否可进入此对象的其它方法? 不能，一个对象的一个synchronized方法只能由一个线程访问。
+ 37，try {}里有一个return语句，那么紧跟在这个try后的finally {}里的code会不会被执行，什么时候被执行，在return前还是后? 会执行，在return前执行。 
+38，编程题: 用最有效率的方法算出2乘以8等於几? 有C背景的程序员特别喜欢问这种问题。 2 << 3 
+39，两个对象值相同(x.equals(y) == true)，但却可有不同的hash code，这句话对不对? 不对，有相同的hash code。 
+40，当一个对象被当作参数传递到一个方法后，此方法可改变这个对象的属性，并可返回变化后的结果，那么这里到底是值传递还是引用传递? 是值传递。Java 编程语言只由值传递参数。当一个对象实例作为一个参数被传递到方法中时，参数的值就是对该对象的引用。对象的内容可以在被调用的方法中改变，但对象的引用是永远不会改变的。 
+41，swtich是否能作用在byte上，是否能作用在long上，是否能作用在String上? switch（expr1）中，expr1是一个整数表达式。因此传递给 switch 和 case 语句的参数应该是 int、 short、 char 或者 byte。long,string 都不能作用于swtich。 
+42，编程题: 写一个Singleton出来。 Singleton模式主要作用是保证在Java应用程序中，一个类Class只有一个实例存在。 一般Singleton模式通常有几种种形式： 第一种形式：定义一个类，它的构造函数为private的，它有一个static的private的该类变量，在类初始化时实例话，通过一个public的getInstance方法获取对它的引用,继而调用其中的方法。 public class Singleton { private Singleton(){} //在自己内部定义自己一个实例，是不是很奇怪？ //注意这是private 只供内部调用 private static Singleton instance = new Singleton(); //这里提供了一个供外部访问本class的静态方法，可以直接访问 public static Singleton getInstance() { return instance; } } 第二种形式： public class Singleton { private static Singleton instance = null; public static synchronized Singleton getInstance() { //这个方法比上面有所改进，不用每次都进行生成对象，只是第一次 //使用时生成实例，提高了效率！ if (instance==null) instance＝new Singleton(); return instance; } } 其他形式： 定义一个类，它的构造函数为private的，所有方法为static的。 一般认为第一种形式要更加安全些 Hashtable和HashMap Hashtable继承自Dictionary类，而HashMap是Java1.2引进的Map interface的一个实现 HashMap允许将null作为一个entry的key或者value，而Hashtable不允许 还有就是，HashMap把Hashtable的contains方法去掉了，改成containsvalue和containsKey。因为contains方法容易让人引起误解。 最大的不同是，Hashtable的方法是Synchronize的，而HashMap不是，在 多个线程访问Hashtable时，不需要自己为它的方法实现同步，而HashMap 就必须为之提供外同步。 Hashtable和HashMap采用的hash/rehash算法都大概一样，所以性能不会有很大的差异。
+ 43.描述一下JVM加载class文件的原理机制? JVM中类的装载是由ClassLoader和它的子类来实现的,Java ClassLoader 是一个重要的Java运行时系统组件。它负责在运行时查找和装入类文件的类。
+ 44.试举例说明一个典型的垃圾回收算法？ Java语言规范没有明确地说明JVM使用哪种垃圾回收算法，但是任何一种垃圾收集算法一般要做2件基本的事情：（1）发现无用信息对象；（2）回收被无用对象占用的内存空间，使该空间可被程序再次使用。大多数垃圾回收算法使用了根集(root set)这个概念；所谓根集就量正在执行的Java程序可以访问的引用变量的集合(包括局部变量、参数、类变量)，程序可以使用引用变量访问对象的属性和调用对象的方法。垃圾收集首选需要确定从根开始哪些是可达的和哪些是不可达的，从根集可达的对象都是活动对象，它们不能作为垃圾被回收，这也包括从根集间接可达的对象。而根集通过任意路径不可达的对象符合垃圾收集的条件，应该被回收。下面介绍几个常用的算法。引用计数法(Reference Counting Collector) 引用计数法是唯一没有使用根集的垃圾回收算法，该算法使用引用计数器来区分存活对象和不再使用的对象。一般来说，堆中的每个对象对应一个引用计数器。当每一次创建一个对象并赋给一个变量时，引用计数器置为1。当对象被赋给任意变量时，引用计数器每次加1。当对象出了作用域后(该对象丢弃不再使用)，引用计数器减1，一旦引用计数器为0，对象就满足了垃圾收集的条件。基于引用计数器的垃圾收集器运行较快，不会长时间中断程序执行，适宜地必须 实时运行的程序。但引用计数器增加了程序执行的开销，因为每次对象赋给新的变量 ，计数器加1，而每次现有对象出了作用域生，计数器减1。 
+45.请用java写二叉树算法，实现添加数据形成二叉树功能，并以先序的方式打印出来.
+ 46.请写一个java程序实现线程连接池功能？ 
+47.给定一个C语言函数，要求实现在java类中进行调用。 
+48、编一段代码，实现在控制台输入一组数字后，排序后在控制台输出； 
+49、列出某文件夹下的所有文件； public static void displayFile(String path){ File file = new File(path); if(file.isFile()){ System.out.println(file.getName()); } else{ System.out.println("<DIR> "+file.getName()); String [] fileList = file.list(); String pathName = file.getAbsolutePath(); for(int i = 0;i<fileList.length;i++){ displayFile(pathName+File.separator+fileList[i]); } } }
+ 50、调用系统命令实现删除文件的操作； public static void deleteFile(String path){ File file = new File(path); file.delete(); } 51、实现从文件中一次读出一个字符的操作； 
+52、列出一些控制流程的方法；
+ 53、多线程有哪些状态？ 新建、就绪(start方法调用后)、运行、睡眠(sleep方法)、等待(wait方法)、挂起、恢复、阻塞、死亡 
+54、编写了一个服务器端的程序实现在客户端输入字符然后在控制台上显示，直到输入"END"为止，让你写出客户端的程序； 
+55、作用域public,private,protected,以及不写时的区别 答：区别如下： 作用域 当前类 同一package 子孙类 其他package public √ √ √ √ protected √ √ √ × friendly √ √ × × private √ × × × 
+答：区别如下： 
+作用域 当前类 同一package 子孙类 其他package 
+public √ √ √ √ 
+protected √ √ √ × 
+friendly √ √ × × 
+private √ × × × 
+不写时默认为friendly 
+56、ArrayList和Vector的区别,HashMap和Hashtable的区别 
+答：就ArrayList与Vector主要从二方面来说. 
+一.同步性:Vector是线程安全的，也就是说是同步的，而ArrayList是线程序不安全的，不是同步的 
+二.数据增长:当需要增长时,Vector默认增长为原来一培，而ArrayList却是原来的一半 
+就HashMap与HashTable主要从三方面来说。 
+一.历史原因:Hashtable是基于陈旧的Dictionary类的，HashMap是Java 1.2引进的Map接口的一个实现 
+二.同步性:Hashtable是线程安全的，也就是说是同步的，而HashMap是线程序不安全的，不是同步的 
+三.值：只有HashMap可以让你将空值作为一个表的条目的key或value 
+57、char型变量中能不能存贮一个中文汉字?为什么? 
+答：是能够定义成为一个中文的，因为java中以unicode编码，一个char占16个字节，所以放一个中文是没问题的 
+58、多线程有几种实现方法,都是什么?同步有几种实现方法,都是什么? 
+答：多线程有两种实现方法，分别是继承Thread类与实现Runnable接口 
+同步的实现方面有两种，分别是synchronized,wait与notify 
+59、垃圾回收机制,如何优化程序? 
+希望大家补上，谢谢 
+60、float型float f=3.4是否正确? 
+答:不正确。精度不准确,应该用强制类型转换，如下所示：float f=(float)3.4 
+61、介绍JAVA中的Collection FrameWork(包括如何写自己的数据结构)? 
+答：Collection FrameWork如下： 
+Collection 
+├List 
+│├LinkedList 
+│├ArrayList 
+│└Vector 
+│　└Stack 
+└Set 
+Map 
+├Hashtable 
+├HashMap 
+└WeakHashMap 
+Collection是最基本的集合接口，一个Collection代表一组Object，即Collection的元素（Elements） 
+Map提供key到value的映射 
+62、Java中异常处理机制，事件机制？ 
+11、JAVA中的多形与继承？ 
+希望大家补上，谢谢 
+63、抽象类与接口？ 
+答：抽象类与接口都用于抽象，但是抽象类(JAVA中)可以有自己的部分实现，而接口则完全是一个标识(同时有多重继承的功能)。 
+编程题： 
+1．现在输入n个数字，以逗号，分开； 
+然后可选择升或者降序排序； 
+按提交键就在另一页面显示 
+按什么 排序，结果为， ， 
+提供reset 
+答案（1） public static String[] splitStringByComma(String source){ 
+if(source==null||source.trim().equals(“”)) 
+return null; 
+StringTokenizer commaToker = new StringTokenizer(source,”,”); 
+String[] result = new String[commaToker.countTokens()]; 
+int i=0; 
+while(commaToker.hasMoreTokens()){ 
+result[i] = commaToker.nextToken(); 
+i++; 
+} 
+return result; 
+} 
+循环遍历String数组 
+Integer.parseInt(String s)变成int类型 
+组成int数组 
+Arrays.sort(int[] a), 
+a数组升序 
+降序可以从尾部开始输出 
+2．金额转换，阿拉伯数字的金额转换成中国传统的形式如： 
+（￥1011）－>（一千零一拾一元整）输出。
+3、继承时候类的执行顺序问题,一般都是选择题,问你将会打印出什么? 
+答:父类： 
+package test; 
+public class FatherClass 
+{ 
+public FatherClass() 
+{ 
+System.out.println(“FatherClass Create”); 
+} 
+} 
+子类: 
+package test; 
+import test.FatherClass; 
+public class ChildClass extends FatherClass 
+{ 
+public ChildClass() 
+{ 
+System.out.println(“ChildClass Create”); 
+} 
+public static void main(String[] args) 
+{ 
+FatherClass fc = new FatherClass(); 
+ChildClass cc = new ChildClass(); 
+} 
+} 
+输出结果： 
+C:>java test.ChildClass 
+FatherClass Create 
+FatherClass Create 
+ChildClass Create 
+4、内部类的实现方式? 
+答：示例代码如下： 
+package test; 
+public class OuterClass 
+{ 
+private class InterClass 
+{ 
+public InterClass() 
+{ 
+System.out.println(“InterClass Create”); 
+} 
+} 
+public OuterClass() 
+{ 
+InterClass ic = new InterClass(); 
+System.out.println(“OuterClass Create”); 
+} 
+public static void main(String[] args) 
+{ 
+OuterClass oc = new OuterClass(); 
+} 
+} 
+输出结果: 
+C:>java test/OuterClass 
+InterClass Create 
+OuterClass Create 
+再一个例题： 
+public class OuterClass { 
+private double d1 = 1.0; 
+//insert code here 
+} 
+You need to insert an inner class declaration at line 3. Which two inner class declarations are 
+valid?(Choose two.) 
+A. class InnerOne{ 
+public static double methoda() {return d1;} 
+} 
+B. public class InnerOne{ 
+static double methoda() {return d1;} 
+} 
+C. private class InnerOne{ 
+double methoda() {return d1;} 
+} 
+D. static class InnerOne{ 
+protected double methoda() {return d1;} 
+} 
+E. abstract class InnerOne{ 
+public abstract double methoda(); 
+} 
+说明如下： 
+一.静态内部类可以有静态成员，而非静态内部类则不能有静态成员。 故 A、B 错 
+二.静态内部类的非静态成员可以访问外部类的静态变量，而不可访问外部类的非静态变量；return d1 出错。 
+故 D 错 
+三.非静态内部类的非静态成员可以访问外部类的非静态变量。 故 C 正确 
+四.答案为C、E 
+5、Java 的通信编程，编程题(或问答)，用JAVA SOCKET编程，读服务器几个字符，再写入本地显示？ 
+答:Server端程序: 
+package test; 
+import java.net.*; 
+import java.io.*; 
+public class Server 
+{ 
+private ServerSocket ss; 
+private Socket socket; 
+private BufferedReader in; 
+private PrintWriter out; 
+public Server() 
+{ 
+try 
+{ 
+ss=new ServerSocket(10000); 
+while(true) 
+{ 
+socket = ss.accept(); 
+String RemoteIP = socket.getInetAddress().getHostAddress(); 
+String RemotePort = “:”+socket.getLocalPort(); 
+System.out.println(“A client come in!IP:”+RemoteIP+RemotePort); 
+in = new BufferedReader(new 
+InputStreamReader(socket.getInputStream())); 
+String line = in.readLine(); 
+System.out.println(“Cleint send is :” + line); 
+out = new PrintWriter(socket.getOutputStream(),true); 
+out.println(“Your Message Received!”); 
+out.close(); 
+in.close(); 
+socket.close(); 
+} 
+}catch (IOException e) 
+{ 
+out.println(“wrong”); 
+} 
+} 
+public static void main(String[] args) 
+{ 
+new Server(); 
+} 
+}; 
+Client端程序: 
+package test; 
+import java.io.*; 
+import java.net.*; 
+public class Client 
+{ 
+Socket socket; 
+BufferedReader in; 
+PrintWriter out; 
+public Client() 
+{ 
+try 
+{ 
+System.out.println(“Try to Connect to 127.0.0.1:10000″); 
+socket = new Socket(“127.0.0.1″,10000); 
+System.out.println(“The Server Connected!”); 
+System.out.println(“Please enter some Character:”); 
+BufferedReader line = new BufferedReader(new 
+InputStreamReader(System.in)); 
+out = new PrintWriter(socket.getOutputStream(),true); 
+out.println(line.readLine()); 
+in = new BufferedReader(new InputStreamReader(socket.getInputStream())); 
+System.out.println(in.readLine()); 
+out.close(); 
+in.close(); 
+socket.close(); 
+}catch(IOException e) 
+{ 
+out.println(“Wrong”); 
+} 
+} 
+public static void main(String[] args) 
+{ 
+new Client(); 
+} 
+}; 
+6、用JAVA实现一种排序，JAVA类实现序列化的方法(二种)？ 如在COLLECTION框架中，实现比较要实现什么样的接口？ 
+答:用插入法进行排序代码如下 
+package test; 
+import java.util.*; 
+class InsertSort 
+{ 
+ArrayList al; 
+public InsertSort(int num,int mod) 
+{ 
+al = new ArrayList(num); 
+Random rand = new Random(); 
+System.out.println(“The ArrayList Sort Before:”); 
+for (int i=0;i< ) ;i++> 
+{ 
+al.add(new Integer(Math.abs(rand.nextInt()) % mod + 1)); 
+System.out.println(“al["+i+"]=”+al.get(i)); 
+} 
+} 
+public void SortIt() 
+{ 
+Integer tempInt; 
+int MaxSize=1; 
+for(int i=1;i=((Integer)al.get(MaxSize-1)).intValue()) 
+{ 
+al.add(MaxSize,tempInt); 
+MaxSize++; 
+System.out.println(al.toString()); 
+} else { 
+for (int j=0;j=tempInt.intValue()) 
+{ 
+al.add(j,tempInt); 
+MaxSize++; 
+System.out.println(al.toString()); 
+break; 
+} 
+} 
+} 
+} 
+System.out.println(“The ArrayList Sort After:”); 
+for(int i=0;i<> 
+{ 
+System.out.println(“al["+i+"]=”+al.get(i)); 
+} 
+} 
+public static void main(String[] args) 
+{ 
+InsertSort is = new InsertSort(10,100); 
+is.SortIt(); 
+} 
+} 
+JAVA类实现序例化的方法是实现java.io.Serializable接口 
+Collection框架中实现比较要实现Comparable 接口和 Comparator 接口 
+7、编程：编写一个截取字符串的函数，输入为一个字符串和字节数，输出为按字节截取的字符串。 但是要保证汉字不被截半个，如“我ABC”4，应该截为“我AB”，输入“我ABC汉DEF”，6，应该输出为“我ABC”而不是“我ABC+汉的半个”。 
+答：代码如下： 
+package test; 
+class SplitString 
+{ 
+String SplitStr; 
+int SplitByte; 
+public SplitString(String str,int bytes) 
+{ 
+SplitStr=str; 
+SplitByte=bytes; 
+System.out.println(“The String is:′”+SplitStr+”′;SplitBytes=”+SplitByte); 
+} 
+public void SplitIt() 
+{ 
+int loopCount; 
+loopCount=(SplitStr.length()%SplitByte==0)?(SplitStr.length()/SplitByte):(SplitStr.length()/Split 
+Byte+1); 
+System.out.println(“Will Split into “+loopCount); 
+for (int i=1;i<=loopCount ;i++ ) 
+{ 
+if (i==loopCount){ 
+System.out.println(SplitStr.substring((i-1)*SplitByte,SplitStr.length())); 
+} else { 
+System.out.println(SplitStr.substring((i-1)*SplitByte,(i*SplitByte))); 
+} 
+} 
+} 
+public static void main(String[] args) 
+{ 
+SplitString ss = new SplitString(“test中dd文dsaf中男大3443n中国43中国人 
+0ewldfls=103″,4); 
+ss.SplitIt(); 
+} 
+} 
+8、JAVA多线程编程。 用JAVA写一个多线程程序，如写四个线程，二个加1，二个对一个变量减一，输出。 
+希望大家补上，谢谢 
+9、STRING与STRINGBUFFER的区别。 
+答：STRING的长度是不可变的，STRINGBUFFER的长度是可变的。如果你对字符串中的内容经常进行操作，特别是内容要修改时，那么使用StringBuffer，如果最后需要String，那么使用StringBuffer的toString()方法 
+Jsp方面 
+1、jsp有哪些内置对象?作用分别是什么? 
+答:JSP共有以下9种基本内置组件（可与ASP的6种内部组件相对应）： 
+　request 用户端请求，此请求会包含来自GET/POST请求的参数 
+response 网页传回用户端的回应 
+pageContext 网页的属性是在这里管理 
+session 与请求有关的会话期 
+application servlet 正在执行的内容 
+out 用来传送回应的输出 
+config servlet的构架部件 
+page JSP网页本身 
+exception 针对错误网页，未捕捉的例外 
+2、jsp有哪些动作?作用分别是什么? 
+答:JSP共有以下6种基本动作 
+jsp:include：在页面被请求的时候引入一个文件。 
+jsp:useBean：寻找或者实例化一个JavaBean。 
+jsp:setProperty：设置JavaBean的属性。 
+jsp:getProperty：输出某个JavaBean的属性。 
+jsp:forward：把请求转到一个新的页面。 
+jsp:plugin：根据浏览器类型为Java插件生成OBJECT或EMBED标记 
+3、JSP中动态INCLUDE与静态INCLUDE的区别？ 
+答：动态INCLUDE用jsp:include动作实现 
+它总是会检查所含文件中的变化，适合用于包含动态页面，并且可以带参数 
+静态INCLUDE用include伪码实现,定不会检查所含文件的变化，适用于包含静态页面 
+4、两种跳转方式分别是什么?有什么区别? 
+答：有两种，分别为： 
+前者页面不会转向include所指的页面，只是显示该页的结果，主页面还是原来的页面。执行完后还会回来，相当于函数调用。并且可以带参数.后者完全转向新页面，不会再回来。相当于go to 语句。 
+Servlet方面 
+1、说一说Servlet的生命周期? 
+答:servlet有良好的生存期的定义，包括加载和实例化、初始化、处理请求以及服务结束。这个生存期由javax.servlet.Servlet接口的init,service和destroy方法表达。 
+2、Servlet版本间(忘了问的是哪两个版本了)的不同? 
+希望大家补上，谢谢 
+3、JAVA SERVLET API中forward() 与redirect()的区别？ 
+答:前者仅是容器中控制权的转向，在客户端浏览器地址栏中不会显示出转向后的地址；后者则是完全的跳转，浏览器将会得到跳转的地址，并重新发送请求链接。这样，从浏览器的地址栏中可以看到跳转后的链接地址。所以，前者更加高效，在前者可以满足需要时，尽量使用forward()方法，并且，这样也有助于隐藏实际的链接。在有些情况下，比如，需要跳转到一个其它服务器上的资源，则必须使用sendRedirect()方法。 
+4、Servlet的基本架构 
+public class ServletName extends HttpServlet { 
+public void doPost(HttpServletRequest request, HttpServletResponse response) throws 
+ServletException, IOException { 
+} 
+public void doGet(HttpServletRequest request, HttpServletResponse response) throws 
+ServletException, IOException { 
+} 
+} 
+Jdbc、Jdo方面 
+1、可能会让你写一段Jdbc连Oracle的程序,并实现数据查询. 
+答:程序如下： 
+package hello.ant; 
+import java.sql.*; 
+public class jdbc 
+{ 
+String dbUrl=”jdbc:oracle:thin:@127.0.0.1:1521:orcl”; 
+String theUser=”admin”; 
+String thePw=”manager”; 
+Connection c=null; 
+Statement conn; 
+ResultSet rs=null; 
+public jdbc() 
+{ 
+try{ 
+Class.forName(“oracle.jdbc.driver.OracleDriver”).newInstance(); 
+c = DriverManager.getConnection(dbUrl,theUser,thePw); 
+conn=c.createStatement(); 
+}catch(Exception e){ 
+e.printStackTrace(); 
+} 
+} 
+public boolean executeUpdate(String sql) 
+{ 
+try 
+{ 
+conn.executeUpdate(sql); 
+return true; 
+} 
+catch (SQLException e) 
+{ 
+e.printStackTrace(); 
+return false; 
+} 
+} 
+public ResultSet executeQuery(String sql) 
+{ 
+rs=null; 
+try 
+{ 
+rs=conn.executeQuery(sql); 
+} 
+catch (SQLException e) 
+{ 
+e.printStackTrace(); 
+} 
+return rs; 
+} 
+public void close() 
+{ 
+try 
+{ 
+conn.close(); 
+c.close(); 
+} 
+catch (Exception e) 
+{ 
+e.printStackTrace(); 
+} 
+} 
+public static void main(String[] args) 
+{ 
+ResultSet rs; 
+jdbc conn = new jdbc(); 
+rs=conn.executeQuery(“select * from test”); 
+try{ 
+while (rs.next()) 
+{ 
+System.out.println(rs.getString(“id”)); 
+System.out.println(rs.getString(“name”)); 
+} 
+}catch(Exception e) 
+{ 
+e.printStackTrace(); 
+} 
+} 
+} 
+2、Class.forName的作用?为什么要用? 
+答：调用该访问返回一个以字符串指定类名的类的对象。 
+3、Jdo是什么? 
+答:JDO是Java对象持久化的新的规范，为java data object的简称,也是一个用于存取某种数据仓库中的对象的标准化API。JDO提供了透明的对象存储，因此对开发人员来说，存储数据对象完全不需要额外的代码（如JDBC API的使用）。这些繁琐的例行工作已经转移到JDO产品提供商身上，使开发人员解脱出来，从而集中时间和精力在业务逻辑上。另外，JDO很灵活，因为它可以在任何数据底层上运行。JDBC只是面向关系数据库（RDBMS)JDO更通用，提供到任何数据底层的存储功能，比如关系数据库、文件、XML以及对象数据库（ODBMS）等等，使得应用可移植性更强。 
+4、在ORACLE大数据量下的分页解决方法。一般用截取ID方法，还有是三层嵌套方法。 
+答:一种分页方法 
+//输出内容 
+//输出翻页连接 
+合计:/第一页<> 
+href="List.jsp?page=“>上一页 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+选择题(没有注明多选，则为单选)，每题2分
+1.下面哪个不是Form的元素? (   )
+A. Input    B:  textarea        C:   select    D:  table
+2. HTML页面中，下面哪个表示空格(    )
+ A.&amp;    B.&nbsp;    C.&copy;    D.&lt;
+3.<td align=”XXX”>中的align属性是什么含义? (   )
+A. 加粗   B   斜体    C  对齐方式     D  边框样式
+4.单选按钮是下列哪一个? (       )
+ A.<input name=”sex” type=”text” value=”0” />
+ B. <input name=”sex” type=”checkbox” value=”0” />
+ C. <input name=”sex” type=”option” value=”0” />
+D.<input name=”sex” type=”radio” value=”0” />
+5.下边哪个不是JSP内置对象? (   )
+A. Session    B   request    C  cook    D   out
+6．下边哪个是JSP指令标记(  )
+ A.<%……%>
+ B. <%!……%>
+ C. <%@……%>
+D.<%=……%>
+7．当在JSP文件中要使用到ArrayList对象时，应在JSP文件中加入以下哪个语句？( )
+ A.<jsp:include file=”java.util.*” />
+ B. <jsp:include page=”java.util.*” />
+ C. <%@ page import=”java.util.*” />
+D.<%@ page include=”java.util.*” />
+8.关于JavaBean的说法，哪个是正确的？(  )
+A. JavaBean的具体类可以不是public的
+B. JavaBean可以只提供一个带参数的构造器
+C. JavaBean可以象Html标记一样不关闭
+D. JavaBean可以保存状态
+9. JavaBean的生命周期中，哪个是用来跟踪用户会话的(        )
+A. session
+B. request
+C. page
+D. application
+10．要在session对象中保存属性，可以使用以下哪个语句(      )
+A. session.getAttribute(“key”,”value”)
+B. session.setAttribute(“key”,”value”)
+C. session.setAttribute(“key”)
+D. session.getAttribute(“key”)
+11．Jsp:forward 和sendredirect 都是用来做页面跳转的，描述错误的是？(    )
+1.	forward之后可以使用原来的request对象，而且效率更高。 
+2.	sendredirect之后不可以使用原来的request对象，而且效率低。 
+3.	forward地址栏不变化，只能在web应用程序内的页面间跳转。 
+4.	forward地址栏变化，可以跳转到任何页面和机器。 
+12．关于两种请求，下列说法正确的是? (     )
+1.	get请求是默认的 
+2.	get请求处理的数据量大小不受限制 
+3.	post请求地址栏里是能够看到数据的 
+4.	post请求可以由doGet方法处理 
+13. 如果Tomcat安装后，想要修改它的端口号，可以通过修改<tomcat安装目录>/conf下
+的___文件来实现。(       )
+1.	web.xml 
+2.	server.xml 
+3.	server-minimal.xml 
+4.	tomcat-user.xml 
+14．JSP分页代码中，哪个步需次序是正确的？(    )
+1.	先取总记录数，得到总页数，再取所有的记录，最后显示本页的数据。 
+2.	先取所有的记录，得到总页数，再取总记录数，最后显示本页的数据。 
+3.	先取总记录数，得到总记录数，再取所有的记录，最后显示本页的数据。 
+4.	先取本页的数据，得到总页数，再取总记录数，最后显示本页的数据。 
+15.下边哪个不是MVC中的组成？(   )
+1.	JavaBean 
+2.	FrameWork 
+3.	JSP 
+4.	Servlet 
+16..客户化标签库文件myTags.tld,应当保存在哪一个目录下(    )
+1.	web应用程序的根目录 
+2.	自定义目录 
+3.	WEB-INF目录 
+4.	Lib目录 
+17．Oracle数据库的JDBC驱动程序类名及其完整包路径为(    )
+1.	jdbc.driver.oracle.OracleDriver 
+2.	jdbc.oracle.driver.OracleDriver 
+3.	driver.oracle. jdbc.OracleDriver 
+4.	oracle.jdbc.driver.OracleDriver 
+18．如果需要删除session中的某个属性key,可以调用下面的____方法(    )
+1.	remove(“key”); 
+2.	removeAttribute(“key”) 
+3.	invalidate() 
+4.	logout() 
+19．下面有关JSP和Servlet关系的论述正确的有：(两个正确答案) (     )
+1.	JSP能够实现的功能均可由Servlet实现 
+2.	Servlet能够实现的功能均可由JSP实现 
+3.	Servlet更适做表现层 
+4.	JSP更适合做控制层 
+20. 下面那一个是正确使用JavaBean的方法(    )
+A.<jsp:useBean id=”address” class=”AddressBean />
+B. <jsp:useBean name=”address” class=”AddressBean />
+C. <jsp:useBean bean=”address” class=”AddressBean />
+D. <jsp:useBean beanName=”address” class=”AddressBean />
+21．销毁一个session对象,应当调用下面哪一个方法(    )
+A. session.invalidate()
+B. session.expunge()
+C. session.destroy()
+D. session.end()
+22．ActionForm Bean 中验证表单数据方法的返回类型是(    )
+A. ActionError
+B. ActionErrors
+C. ActionForward
+D. ActionMapping
+23．以下哪个说法是正确的？(多选)(    )
+A. 每个Http请求对应一个单独的ActionServlet实例
+B. 对于每个请求访问HelloAction的Http请求，struts框架只创建一个单独的HelloAction实例
+C. 每个子应用对应一个单独的RequestProcessor实例
+D. 每个子应用对应一个单独的web.xml文件
+24．在struts应用的控制器中包含哪些组件(两个正确答案) (     )
+A. JSP
+B. ActionServlet
+C. Action
+D. 客户化标签
+25．对于以下这段配置Actionservlet的代码，哪些说法是正确的？(三个正确答案)
+` (       )
+ <servlet>
+ <servlet-name>action</servlet-name>
+ <servlet-class>org.apache.struts.action.ActionServlet</servlet-class>
+ <ini-param>
+ <param-name>config</param-name>
+ <param-value>/WEB-INF/myconfig.xml</param- value >
+ </ini-param>
+ <load-on-startup>0</load-on-startup>
+ <!—Standard Action Servlet Mapping 
+ <servlet-mapping>
+<servlet-name>action</servlet-name>
+ <url-pattern>*.do</url-pattern>
+ </servlet-mapping>
+ </servlet>
+ 
+A. Servlet容器在启动应用时，会初始化这个ActionServlet
+B. 对于所有URL中以”*.do”结尾的Http请求，都由ActionServlet处理
+C. 这段代码位于struts-config.xml中
+D. 这段代码位于web.xml中
+26. ActionForm组件的存在范围是(两个正确答案) (     )
+A. application
+B. session
+C. request
+D. page
+27. 如果同一页面中有多个提交按钮(<html:submit>)，要求用一个Action类处理，应当从
+下面哪一个扩展更合适 (     )
+ A. Action
+ B. DispatchAction
+ C. LookupDispatchAction
+ D. ForwardAction
+ E. SwitchAction
+28. 如果同一页面中有多个提交按钮(<html:submit>)，要求用一个Action类处理，在
+struts-config.xml文件的<action >元素中最重要的且必须配置的一个属性是(     )
+ A. parameter
+ B. validate
+ C. key
+ D. scope
+29. 如果在struts-config.xml配置了数据源，则在那个组件中可以获得这个数据源对象，
+进而获得Connection对象(     )
+A. Action组件
+B. 视图组件
+C. 模型组件
+D. JSP组件
+30. struts的中心控制器组件的完整类名是(     )
+A. org.apache.struts.action.ActionServlet
+B. org.apache.struts.action.Action
+C. org.apache.struts.action.Switch
+D. org.apache.struts.action.CoreController
+二．简述题(总分 40)：
+1．简述Servlet的生命周期（5分）
+Web容器加载servlet，生命收起开始，通过调用servlet
+的的init（）方法进行servlet的初始化，通过调用service（）方法实现，根据请求的不同调用不同的do***（）方法，结束服务，web容器调用servlet的destroy（）方法
+一个servlet的生命周期由部署servlet的容器控制，当一个请求映射到一个servlet是，
+容器执行下步骤：
+1.加载servlet类
+2.创建一个servlet类的实例
+3.调用init初始化servlet实例，
+2.调用service方法，传递一个请求和响应对象
+容器要移除一个servlet，调用servlet的destroy方法结束该servlet
+2．简述<jsp:forward>动作和response.sendRedirect()的异同（5分）
+重定向分为两类。一类是客户端重定向，一类是服务器端重定向。客户端重定向可以通过设置特定的HTTP头，或者写javaScirpt脚本实现。
+服务器端的重定向方式
+服务器的重定向有两种方式，一种是HttpServletResponse的sendRedirect（）方法，一个是使用RequestDispatcher的forward（）方法。
+HttpServletResponse.sendRedirect()方法
+HttpServletResponse接口定义了可用于转向的sendRedirect方法，这个方法将响应定向到指定的，新的URL，location可以是一个绝对的URL，如response.sendRedirect(“http://java.sun.com”)也可以使用相对的URL location可以是一个绝对的URL，如response.sendRedirect(”http://java.sun.com”)也可以使用相对的URL。如果location以“/”开头，则容器认为相对于当前Web应用的根，否则，容器将解析为相对于当前请求的URL。这种重定向的方法，将导致客户端浏览器的请求URL跳转。从浏览器中的地址栏中可以看到新的URL地址，作用类似于上面设置HTTP响应头信息的实现。
+RequestDispatcher.forward()方法
+RequestDispatcher是一个Web资源的包装器，可以用来把当前request传递到该资源，或者把新的资源包括到当前响应中。RequestDispatcher接口中定义了两个方法，参见如下代码：
+public interface RequestDispatcher {
+void forward(ServletRequest request, ServletResponse response);
+void include(ServletRequest request, ServletResponse response);
+}
+forward()方法将当前的request和response重定向到该RequestDispacher指定的资源。这在实际项目中大量使用，因为完成一个业务操作往往需要跨越多个步骤，每一步骤完成相应的处理后，转向到下一个步骤。比如，通常业务处理在Servlet中处理，处理的结果转向到一个JSP页面进行显示。这样看起来类似于Servlet链的功能，但是还有一些区别。一个RequestDispatcher对象可以把请求发送到任意一个服务器资源，而不仅仅是另外一个Servlet。 include()方法将把Request Dispatcher资源的输出包含到当前输出中。
+注意，只有在尚未向客户端输出响应时才可以调用forward()方法，如果页面缓存不为空，在重定向前将自动清除缓存。否则将抛出一个IllegalStateException异常。
+如何得到RequestDispatcher
+有三种方法可以得到Request Dispatcher对象。
+1.javax.servlet. ServletRequest的getRequestDispatcher(String path)方法，其中path可以是相对路径，但不能越出当前Servlet上下文。如果path以“/”开头，则解析为相对于当前上下文的根。
+2.javax.servlet. ServletContext的getRequestDispatcher(String path)方法，其中path必须以“/”开头，路径相对于当前的Servlet上下文。可以调用ServletContext的getContext(String uripath)得到另一个Servlet上下文，并可以转向到外部上下文的一个服务器资源链接。
+3.使用javax.servlet. ServletContext的getNamedDispatcher(String name)得到名为name的一个Web资源，包括Servlet和JSP页面。这个资源的名字在Web应用部署描述文件web.xml中指定。
+这三种方法的使用有细微的差别。比如，下面是一个应用的配置文件web.xml：
+<?xml version=”1.0″ ?>
+<!DOCTYPE web-app PUBLIC “-//Sun Microsystems, Inc.//DTD Web Application 2.2//EN”
+“http://java.sun.com/j2ee/dtds/web-app_2_2.dtd”>
+<web-app>
+<servlet>
+<servlet-name>FirstServlet</servlet-name>
+<servlet-class>org. javaresearch.redirecttest.ServletOne</servlet-class>
+</servlet>
+<servlet>
+<servlet-name>SecondServlet</servlet-name>
+<servlet-class>org.javaresearch. redirecttest.ServletTwo</servlet-class>
+</servlet>
+<servlet-mapping>
+<servlet-name>FirstServlet</servlet-name>
+<url-pattern>/servlet/firstservlet/</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+<servlet-name>SecondServlet</servlet-name>
+<url-pattern>/servlet/secondservlet/</url-pattern>
+</servlet-mapping>
+</web-app>
+其中定义了两个Servlet，名字分别为FirstServlet和SecondServlet，对应的类分别为org.javaresearch. redirecttest.ServletOne和org. javaresearch.redirecttest.ServletTwo。可以在浏览器中通过类似于下面的链接访问：
+http://localhost:8080/servlet/firstservlet/
+使用1中方法，例如在firstservlet可以写入下面的代码：
+RequestDispatcher rd = request.getRequestDispatcher(”secondservlet”);
+rd.forward(request, response);
+此时控制权将转向到第二个Servlet了。
+使用2中的方法，可以从Servlet Context中得到RequestDispatcher代码如下：
+RequestDispatcher rd = getServletContext().getRequest
+Dispatcher(”/servlet/secondservlet”);
+rd.forward(request, response);
+使用3中的方法，从上面的web. xml配置文件可以看到定义了两个Servlet，名字分别为FirstServlet和SecondServlet，所以可以得到命名的Dispatcher：
+RequestDispatcher rd = getServletContext().getNamedDispatcher(”SecondServlet”);
+rd.forward(request, response);
+这样也可以重定向到SecondServlet了。
+JSP页面中的重定向
+JSP在解析后编译为一个Servlet运行，所以在JSP中也可以使用上面的重定向代码，并且，JSP还提供了更便利的操作，如下：
+<jsp:forward page= “nextpage.jsp”/>
+JSP页面执行到这儿，将终止当前的处理，将控制权交由nextpage.jsp。
+如何选择
+RequestDispatcher.forward()方法和HttpServletResponse.sendRedirect()方法的区别是：前者仅是容器中控制权的转向，在客户端浏览器地址栏中不会显示出转向后的地址；后者则是完全的跳转，浏览器将会得到跳转的地址，并重新发送请求链接。这样，从浏览器的地址栏中可以看到跳转后的链接地址。所以，前者更加高效，在前者可以满足需要时，尽量使用Request Dispatcher.forward()方法，并且，这样也有助于隐藏实际的链接。在有些情况下，比如，需要跳转到一个其它服务器上的资源，则必须使用HttpServletResponse.sendRequest()方法
+3.。用图形画出一个web.应用程序部署在Tomcat5的基本目录结构，说明每个目录下
+保存哪些文件。（8分）
+4．提交表单请求时，post和get有哪些区别? （5分）
+以Get方式请求方式传输，所带参数附加在请求URL后直接传给服务器，并可以从服务器端的QUERY_STRING这个环境变量中读取；如果以POST请求方式传输则参数被打包在数据包中传给服务器
+使用Post方法数据由标准的输入设备读入，使用Get方法，数据由CGI变量Query_STRING传递给表单数据处理程序，即附加在请求地址的后面，在浏览器的地址栏可看到servlet会自动将以上两种方法得到的数据进行处理，对于两种方法servlet处理方法是一样的，用户只要调用HttpServletRequest的getParameter（）方法，给出变量名称即可取出变量的值。
+5.。MVC的各个部分都由那些技术来实现？（9分）
+MVC是Model－View－Controller的简写。”Model” 代表的是应用的业务逻辑（通过JavaBean，EJB组件实现）， “View” 是应用的表示面（由JSP页面产生），”Controller” 是提供应用的处理过程控制（一般是一个Servlet），通过这种设计模型把应用逻辑，处理过程和显示逻辑分成不同的组件实现。这些组件可以进行交互和重用。
+6. 什么叫DTO,简述基于struts的应用在模型层和视图层之间加入DTO的优点
+（8分）
+Data access object 数据访问对象
+主要用来封装对数据库的访问，通过她可以把POJO持久化PO，用PO组装出来的VO，DTO
+PO ：persistent Object持久对象，可以看成与数据库中的表相映射的java对象，最简单的PO就是对应数据库中某个表的一条记录，多个记录可以用PO的集合。PO应该不包含任何对数据库的操作。
+VO:value object值对象 通常用于业务层之间的数据传递，和PO一样也是仅仅包含数据而已，但应是抽象出的的业务对象，可以和表对应，也可以不
+DAO：data access object数据访问对象，此对象用于访问数据库，通常与PO结合使用，DAO中包含了各种数据库的操作方法，通过它的方法，结合PO对数据库进行相关的操作
+BO：business object 业务对象，封装业务逻辑的java对象，通过调用DAO方法，结合PO，VO进行业务操作
+POJO：plain ordinary java object 简单屋规则java对象
+Java---SSH(MVC)
+1.	谈谈你mvc的理解
+    MVC是Model—View—Controler的简称。即模型—视图—控制器。MVC是一种设计模式，它强制性的把应用程序的输入、处理和输出分开。
+    MVC中的模型、视图、控制器它们分别担负着不同的任务。
+    视图: 视图是用户看到并与之交互的界面。视图向用户显示相关的数据，并接受用户的输入。视图不进行任何业务逻辑处理。
+    模型: 模型表示业务数据和业务处理。相当于JavaBean。一个模型能为多个视图提供数据。这提高了应用程序的重用性
+    控制器: 当用户单击Web页面中的提交按钮时,控制器接受请求并调用相应的模型去处理请求。
+            然后根据处理的结果调用相应的视图来显示处理的结果。
+    MVC的处理过程：首先控制器接受用户的请求，调用相应的模型来进行业务处理，并返回数据给控制器。控制器调用相应的视图来显示处理的结果。并通过视图呈现给用户。
+
+Struts
+1.	struts1.2和struts2.0的区别？如何控制两种框架中的单例模式？
+   struts1.2和struts2.0的对比
+   a、Action类：
+      struts1.2要求Action类继承一个基类。struts2.0 Action要求继承ActionSupport基类
+   b、线程模式
+      struts1.2 Action是单例模式的并且必须是线程安全的,因为仅有一个Action的实例来处理所有的请求。
+      单例策略限制了Struts1.2 Action能做的事情,并且开发时特别小心。Action资源必须是线程安全的或同步的。
+      struts2.0 Action为每一个请求产生一个实例,因此没有线程安全问题。
+   c、Servlet依赖
+      struts1.2 Action依赖于Servlet API,因为当一个Action被调用时HttpServletRequest和HttpServletResponse被传递给execut方法。
+      struts2.0 Action不依赖于容器,允许Action脱离容器单独测试。如果需要,Struts2 Action仍然可以访问初始的Request和Response。
+      但是,其他的元素减少或者消除了直接访问HttpServletRequest和HttpServletResponse的必要性。
+   d、可测性
+      测试struts1.2 Action的一个主要问题是execute方法暴露了Servlet API(这使得测试要依赖于容器)。一个第三方扩展：struts TestCase
+      提供了一套struts1.2的模拟对象来进行测试。
+      Struts2.0 Action可以通过初始化、设置属性、调用方法来测试,“依赖注入”也使得测试更容易。
+ 
+2.	项目中为什么使用SSH
+    1. 使用Struts是因为struts是基于MVC模式的,很好的将应用程序进行了分层，使开发者更关注于业务逻辑的实现；第二，struts有着丰富的taglib,如能灵活运用，则能大大提高开发效率。
+    2. 使用Hibernate：因为hibernate为Java应用提供了一个易用的、高效率的对象关系映射框架。hibernate是个轻量级的持久性框架，功能丰富。
+    3. 使用Spring：因为spring基于IoC(Inversion of Control，反向控制)和AOP构架多层j2ee系统的框架，但它不强迫你必须在每一层中必须使用Spring，因为它模块化的很好，允许你根据自己的需要选择使用它的某一个模块；
+       采用IoC使得可以很容易的实现bean的装配，提供了简洁的AOP并据此实现事务管理(Transcation Managment),等等 
+ 
+3.	struts与spring是如何继承的
+    不懂题目之意：是否是说的struts的action都继承自org.apache.struts.action.Action
+    而Spring中的继承就不清楚了。
+
+4.	struts如何实现国际化
+    以下以两国语言(中文，英文)为例：
+    1. 在工程中加入Struts支持
+    2. 编辑ApplicationResource.properties文件,在其中加入要使用国际化的信息, 例如： lable.welcome.china=Welcome!!!
+    3. 创建英文资源文件ApplicationResource_en.properites
+    4. 创建临时中文资源文件ApplicationResource_temp.properites 例如：lable.welcom.china=中国欢迎您!
+    5. 对临时中文资源文件进行编码转换。可以使用myeclipse的插件,也可以在dos下执行:
+       native2ascii -encoding gb2312 ApplicationResource_temp.properties ApplicationResource_zh_CN.properties
+    6. 在jsp中加入struts的bean标记库 <%@ taglib uri="/WEB-INF/struts-bean.tld" prefix="bean"%>
+       显示信息： <bean:message key="label.welcome.china">
+可以在struts-config.xml文件中定义多个资源包，而每个资源包可使用key属性指定包的名称。
+
+5.	struts2.0的常用标签
+    1. 往action里传值：<input name="userName" type="text" class="input6" size="15"> 
+    2. 显示标签 property 用于输出指定值：<s:property value="userName "/>
+　　3. 用于从页面往action中(user)的对象内传值：<s:text name="user.userName " id="username"/> 
+    4. 判断<s:if> </s:if> 用于在页面中判断指定数据 <s:if test="userName == admin">…. </s:if> <s:else>…. </s:else>
+    5. 迭代<s:iterator>用于将List、Map、ArrayList等集合进行循环遍历 
+       <s:iterator value="userList" id="user" status="u"> 
+          <s:property value="userName"/></a> 
+       </s:iterator> 
+    6. URL地址标签，<s:url>用于生成一个URL地址，可以通过URL标签指定的<s:param>子元素向URL地址发送请求参数 
+       <s:url action=" "> 
+          <s:param name=" " value=""></s:param> 
+       </s:url>
+    7. 超链接 <a href >一般和<s:url>标签一起使用，用于带多个参数。 
+       <a href=" 
+          <s:url action=" "> 
+             <s:param name=" " value=""></s:param> 
+             <s:param name=" " value=""></s:param> 
+             <s:param name=" " value=""></s:param> 
+          </s:url>
+       ">超链接</a>
+    8. set标签，用于将某个值放入指定的范围内。例如application,session等。 
+       <s:set name="user" value="userName" scope=”request”/>
+
+6.	struts中怎么配置form-bean、action、tiles
+    此处配置的是struts1.2的
+    form-bean配置：(在配置文件struts-config.xml中)：
+    <form-beans >
+  	<form-bean name="" type=""></form-bean>
+   </form-beans>
+    name: 指定form的名字; type指定form的类型：包名+类名；
+   action配置：(在配置文件struts-config.xml中)
+   <action-mappings >
+  	<action path="" 
+  	        attribute=""
+  	        input=""
+  	        name=""
+  	        parameter=""
+  	        scope="request"
+  	        type=""
+  	        ></action>
+   </action-mappings>
+   path：请求Action的名字;   attribute：form的名字,与form-bean中的name对应;   input：输入页的路径; 
+   name：如果配置了attribute,name不起作用,与attribute一样;   parameter：使用分发Action时,指定调用分发Action中的方法名;
+   scope：Action的范围;    type：Action的类型：包名+类名；
+   
+   tites配置：
+   1. 新建一个 tiles-defs.xml文件,并在其中做如下配置：
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/tiles-config_1_1.dtd">
+      <tiles-definitions> 
+        <definition name="member-definition" path="/Jsp/layout.jsp">  
+          <put name="top" value="/mTop.do"/>  
+          <put name="left" value="/mLeft.do"/>
+          <put name="main" value="/defaultMmain.do"/> 
+        </definition>
+     </tiles-definitions>
+   2. 在web.xml和struts-config.xml和web.xml中做相应配置：
+      在struts-config.xml中配置如下：
+      ************
+      <plug-in className="org.apache.struts.tiles.TilesPlugin">
+         <set-property property="definitions-config" value="/WEB-INF/tiles-defs.xml"/>   
+         <set-property property="definitions-parser-validate" value="true"/> 
+      </plug-in>
+      ************
+      在web.xml中配置如下：
+      ************
+      <init-param>    
+         <param-name>definitions-config</param-name>    
+         <param-value>/WEB-INF/tiles-defs.xml</param-value>
+      </init-param>
+      *************
+   3. 调用Tiles组件
+      Tiles组件是通过Struts Action来调用的，在struts-config.xml中做如下action配置：
+      *************
+      <action
+        path="/member"
+        parameter="member-definition"
+        type="org.apache.struts.actions.ForwardAction"/>
+     **************
+7.	logic标签有哪几个？
+    此标签库可以分为三种类型：条件、循环、转发/重定向。
+    1. 条件类型 (没标注的都比较简单)
+       logic:empty, logic:notEmpty;
+       logic:equal, logic:notEqual, logic:lessThan, logic:greaterThan,logic:lessEqual, logic:greaterEqual;
+       logic:present, logic:notPresent;
+       logic:match, logic:notMatch; 比较两字符串是否相等，可以比较字符串的开始的、结尾的或其中的某个部分。location属性：指定从某个位置开始进行比较。
+    
+    2. 循环类型
+       logic:iterate
+    
+    3. 转发/重定向类型
+       logic:forward和logic:redirect 
+       logic:forward标签和jsp:forward标签相似，但它可以使用global forward中的一个ActionForward
+       例如：<logic:forward name="login" />
+       ------------------------------------------------------------------------------
+       与上面相关的global forward中的代码：
+       <global-forwards>
+          <forward name="login" path="/loginForm.jsp"/>
+       </global-forwards>
+       logic:redirect标签和上面的标签类似，但它默认调用的方法是response.sendRedirect()，
+       取代了上面的requestDispatcher.forward()。最大的不同是它支持所有html:link标签的属性，所以你能够指定request参数：
+       <logic:redirect name="login" paramId="employeeId" paramName="employee" property="id" /> 
+       在MVC框架下，不推荐使用这两个标签，你应该是从controller中选择下一个view，而不是从view中选择.在Jsp页面中不要过多的使用logic标签。
+ 
+8.	action是单实例还是多实例，为什么？
+    action是单实例的。当多个用户访问一个请求的时候，服务器内存中只有一个与之对应的action类对象。
+    因为当服务器第一次加载struts的配置文件的时候,创建了一个Action后,每发送一个请求,服务器都会先去检索相应的范围内(request,session)是否存在
+    这样一个action实例,如果存在,则使用这个实例,如果不存在,则创建一个action实例。
+
+9.	dispatchAction是用什么技术实现的？
+    DispatchAction　是Aciton的一个子类,主要解决了一个请求处理多个功能的问题 
+    普通的Action你只能写execute方法来处理业务,而想用这一个Action处理多个任务,你必须要请求参数进行解析,用if语句块来处理 
+    举一个小例子: 
+    有如下一个url:  http://localhost:8080/myApp/addUserAction.do 
+    如果你处理这个url的是一个普通的Action,那么就只能在execute里面执行插入的相关操作,如果换成一下url: 
+    http://localhost:8080/myApp/UserAction.do?method=add 
+    你就应该根据method对象的值来执行相应的操作,如再有一个路径http://localhost:8080/myApp/UserAction.do?method=delete 
+    这个还可以使用那个Action来处理的,只是多判断一下而已. 
+如果你用DispatchAction,就简单多了,所以dispatchAction还是用的Action的这么一个技术。
+
+10.	struts2.0的mvc模式？与struts1.0的区别?
+    struts2的mvc模式：当用户在页面提交用户请求时,该请求需要提交给struts2的控制器处理。struts2的控制器根据处理结果,
+    决定将哪个页面呈现给客户端。
+    与struts1最大的不同是：struts2的控制器。struts2的控制器不再像struts1的控制器,需要继承一个Action父类,甚至可以无需实现
+    任何接口,struts2的Action就是一个普通的POJO。实际上，Struts2 的Action就是一个包含execute方法的普通Java类
+    该类里包含的多个属性用于封装用户的请求参数。
+
+11.	STRUTS的配置文件是什么?	
+struts-config.xml
+
+12.	请写出Struts的工作原理。
+
+13.	struts的处理流程。
+一、ActionServlet的初始化
+ActionServlet作为Struts组件的前端控制器，由于web.xml的相应配置：
+<load-on-startup>0</load-on-startup>
+在应用一加载时即会被实例化并调用其init方法，init方法所做的主要工作有二：
+1. 加载struts配置文件，并创建用于封装配置信息的ModuleConfig对象
+2. 加载资源文件，并创建用于封装资源文件的MessageResources对象
+需要注意两点：如果web.xml有多模块配置，将创建多个ModuleConfig对象和MessageResources对象分别
+用于封装各个模块的struts配置文件和资源文件。
+针对各个模块所创建的ModuleConfig对象和MessageResources对象将存储在ServletContext中，对应的属
+性名中有该模块名称的相应标识。
+另外，如果有相应配置的话，init方法还将初始化数据源和PlugIn
+二、ActionServlet的process
+所有形如*.do的请求（根据web.xml中的相关配置）将提交给ActionServlet，最终将调用其process方法
+。process方法的主要工作有三：
+1.  根据请求信息获知所请求的模块名称，从ServletContext中获得与请求模块对应的的ModuleConfig对
+象，并存储到request中。
+2.  根据模块信息获得相应的RequestProcessor对象，一个模块对应一个RequestProcessor对象，
+RequestProcessor对象将关联与所属模块对应的ModuleConfig对象。
+3.  调用RequestProcessor对象的process方法，将request和response作为参数传递给它。
+三、RequestProcessor的process
+RequestProcessor对象的process方法的主要工作有五步：
+1.  调用自己的 processPreprocess(request, response)方法，该方法不进行任何操作，用于子类重写
+扩展其功能。
+2.  获得与请求地址所匹配的ActionMapping对象，AcionMapping对象用于封装一个特定acion的配置信息
+。
+3.  根据ActionMapping中的配置信息获得ActionForm对象（该对象将缓存到request或session中），并
+将表单数据填充到ActionForm中，然后根据ActionMapping的配置决定是否验证ActionForm，如果验证，
+将调用ActionForm的 validate方法，若其返回的ActionErros对象中包含ActionMessage对象则表示验证
+失败，将转向action配置信息 input属性所指示的地址。
+4.  如果ActionForm无需验证或验证通过将创建并缓存与请求地址匹配的Action对象，将ActionMapping
+对象、ActionForm对象、request和response作为参数调用其execute方法。
+5.  根据Action对象的execute方法返回的ActionForward对象，将请求转发或重定向到该ActionForward
+所封装的地址。
+
+14.	用struts +hibernate做一个增删查改(机试)
+
+15.	Struts2.0与Struts1.x有何区别。
+特征 
+ Struts的一 
+ Struts的2 
+
+行动班 
+ Struts的一要求采取行动班，以延长一个抽象的基类。 一个共同的问题在Struts的一，是编程抽象类而不是接口。 	 1 2 Struts的行动， 可能实施一项行动的界面，随着其他接口，使可选和定制服务。  Struts的2提供了相应的actionsupport一流的执行常用的接口。 虽然，这项行动的界面是不是必需的 。 任何波霍对象与执行的签名可以被用来作为一个Struts的二行动的对象。 
+线程模型 
+ Struts的一行动是单身，必须线程安全的，因为将只有一个实例一类来处理所有的请求采取行动。 单身人士策略地方的限制，可以做些什么与Struts的一行动，并要求加倍小心发展。 行动的资源，必须线程安全的或同步。 	 2 Struts的行动对象是实例对于每个请求，因此没有线程安全问题。  （在实践中， Servlet的容器，产生许多扔离家出走的对象，每次请求，并多一个对象不施加表现罚款，或影响垃圾收集） 。 
+ Servlet的依赖 	 Struts的一行动，依赖于该Servlet的空气污染指数以来， httpservletrequest和httpservletresponse传递给Execute方法，当一个行动是引用。 	 Struts的行动，二是不耦合的一个货柜。 最经常的Servlet的背景是派代表作为简单的地图，让行动，以测试陷入孤立的境地。  2 Struts的行动仍然可以使用原来的请求和响应，如果需要。 不过，其他建筑元素，减少或消除需要访问httpservetrequest或httpservletresponse直接。 
+测试 
+一个主要障碍，以测试Struts的一行动是Execute方法暴露了Servlet的空气污染指数。 第三党的扩展， Struts的testcase ，提供了一套模拟对象的Struts 1 。 	 2 Struts的行动可以测试实例化的行动，设置属性，引用的方法。 依赖注入的支持也使测试更简单。 
+收获的投入 	 Struts的一使用actionform对象捕获输入。 一样的行动，所有actionforms必须扩大基地，一流的。 由于其他的JavaBeans不能被用来作为actionforms ，开发商常常造成多余的班，以捕捉的投入。  dynabeans可以用来作为一种替代创造常规actionform班，但这里太，发展商可能会redescribing现有的JavaBeans 。 
+	 Struts的2使用性能的行动作为输入属性，不再需要第二个输入对象。 输入属性可能是丰富的对象类型可能有自己的属性。 行动性质可以从网页上通过taglibs 。  Struts的2还支持actionform模式，以及波霍形式，对象和波霍行动。 丰富的对象类型，其中包括商业利益或域对象，可以被用来作为输入/输出对象。 该modeldriven功能简化taglb的提述，波霍投入对象。 
+
+语言表达 
+ Struts的一整合与jstl ，所以它使用jstl下午。 的El已基本对象图遍历，但相对薄弱的收集和索引财产的支持。 	 Struts的二可以使用jstl ，但框架也支持一个更强大和灵活的语言表达所谓的“对象图形符号语言” （ ognl ） 。 
+有约束力的价值观纳入意见 	 Struts的一使用标准的JSP机制，有约束力的物体进入该网页的背景下访问。 	 Struts的2使用“ valuestack ”技术，使该taglibs可以访问的价值观没有耦合您的看法，以对象类型，这是渲染。 该valuestack策略允许重用的意见覆盖的类型可能有相同的属性名称，但不同的属性类型。 
+
+类型转换 
+ Struts的一actionform属性通常是所有字符串。  Struts的一用途的商品- beanutils为类型转换。 转换器每级的，而不是配置的每个实例。 	 Struts的2使用ognl为类型转换。 该框架包括转换为基本和共同的对象类型和原始。 
+验证 
+ Struts的一支持手册审定通过验证方法对actionform ，或通过一个扩展到商品校验。 班级可以有不同的验证背景为同一阶层，但不能链，以验证就分对象。 	 Struts的2支持手册审定通过验证的方法和xwork的验证框架。 该xwork的验证框架支持链接验证分为分性能的使用验证的定义为性能一流的类型和验证。 
+控制行动的执行 	 Struts的一支持独立的请求处理器（生命周期）为每个单元，但所有的行动，在该模块必须共用相同的生命周期。 	 2 Struts的支持，创造不同的生命周期对每行动的基础上通过拦截堆叠。 自定义栈，才能创造和使用不同的行动，视需要。 
+
+16.	Struts/webwork 的工作机制，它有哪些标签
+Struts 2框架的大致处理流程如下：
+  浏览器发送请求，例如请求/mypage.action、/reports/myreport.pdf等。
+  核心控制器FilterDispatcher根据请求决定调用合适的Action。
+  WebWork的拦截器链自动对请求应用通用功能，例如workflow、validation或文件上传等功能。
+  回调Action的execute方法，该execute方法先获取用户请求参数，然后执行某种数据库操作，既可以是将数据保存到数据库，也可以从数据库中检索信息。实际上，因为Action只是一个控制器，它会调用业务逻辑组件来处理用户的请求。
+  Action的execute方法处理结果信息将被输出到浏览器中，可以是HTML页面、图像，也可以是PDF文档或者其他文档。此时支持的视图技术非常多，既支持JSP，也支持Velocity、FreeMarker等模板技术。
+
+
+Hibernate
+1.	什么是Hibernate的并发机制？怎么去处理并发问题？
+   Hibernate并发机制：
+   a、Hibernate的Session对象是非线程安全的,对于单个请求,单个会话,单个的工作单元(即单个事务,单个线程),它通常只使用一次,
+      然后就丢弃。
+      如果一个Session 实例允许共享的话，那些支持并发运行的,例如Http request,session beans将会导致出现资源争用。
+      如果在Http Session中有hibernate的Session的话,就可能会出现同步访问Http Session。只要用户足够快的点击浏览器的“刷新”, 
+      就会导致两个并发运行的线程使用同一个Session。
+   b、多个事务并发访问同一块资源,可能会引发第一类丢失更新，脏读，幻读，不可重复读，第二类丢失更新一系列的问题。
+
+   解决方案：设置事务隔离级别。
+	     Serializable：串行化。隔离级别最高
+             Repeatable Read：可重复读
+             Read Committed：已提交数据读
+             Read Uncommitted：未提交数据读。隔离级别最差	
+             设置锁：乐观锁和悲观锁。
+             乐观锁：使用版本号或时间戳来检测更新丢失,在<class>的映射中设置 optimistic-lock="all"可以在没有版本或者时间戳属性映射的情况下实现 版本检查，此时Hibernate将比较一行记录的每个字段的状态 行级悲观锁：Hibernate总是使用数据库的锁定机制，从不在内存中锁定对象！只要为JDBC连接指定一下隔 离级别，然后让数据库去搞定一切就够了。类LockMode 定义了Hibernate所需的不同的锁定级别：LockMode.UPGRADE,LockMode.UPGRADE_NOWAIT,LockMode.READ;
+
+2.	Hibernate和spring中常出现的几个异常
+   org.springframework.beans.factory.BeanCreationException: 
+       Error creating bean with name 'sessionFactory' defined in ServletContext resource [/WEB-INF/applicationContext.xml]: 
+       Initialization of bean failed; nested exception is org.hibernate.MappingException: Repeated column in mapping for entity: com.xindeco.myregister.pojo.MyRegisterInfo column: 
+       password (should be mapped with insert="false" update="false")
+       出错原因：password 和repassword同时对应数据库表中的password一列，同时update和insert都设为true。xml文件如下：
+      <property name="password"
+                          type="java.lang.String"
+                          update="true"
+                          insert="true"
+                          access="property"
+                          column="password"
+                          length = "32"
+                          />
+
+                         <property name="repassword"
+                          type="java.lang.String"
+                          update="false"
+                          insert="false"
+                          access="property"
+                          column="password"
+                          length = "32"
+                          />
+       解决方法：将repassword的insert和update设为false。
+
+   org.springframework.beans.factory.BeanCreationException: 
+       Error creating bean with name 'sessionFactory' defined in ServletContext resource [/WEB-INF/applicationContext.xml]:
+       Initialization of bean failed;nested exception is org.hibernate.PropertyNotFoundException: Could not find a getter for ID in class 
+      错误原因：hibernate的映射文件中ID是大写的，而pojo的类中id是小写的
+      解决方法：要么将pojo类中的id改称大写，要么把hibernate的映射文件中的ID改称小写。
+
+3.	Hibernate与jdbc的联系
+    hibernate是jdbc的轻量级封装，包括jdbc的与数据库的连接（用hibernate.property的配置文件实现当然本质是封装了jdbc的forname），
+    和查询，删除等代码，都用面向对象的思想用代码联系起来，hibernate通过hbm 配置文件把po类的字段和数据库的字段关联起来比如数据库的id,
+    在po类中就是pravite Long id; public Long getId() ;public setId(Long id);
+    然后hql语句也是面向对象的，它的查询语句不是查询数据库而是查询类的,这些实现的魔法就是xml文件，其实hibernate=封装的jdbc+xml文件
+
+4.	Hibernate与spring的联系
+    hibernate中的一些对象可以给Spring来管理,让Spring容器来创建hibernate中一些对象实例化。例如：SessionFactory，HibernateTemplate等。
+    Hibernate本来是对数据库的一些操作,放在DAO层,而Spring给业务层的方法定义了事务,业务层调用DAO层的方法,很好的将Hibernate的操作也加入到事务中来了。
+
+5.	Hibernate自带的分页机制是什么？如果不使用Hibernate自带的分页，则采用什么方式分页？
+    1、hibernate自带的分页机制：获得Session对象后，从Session中获得Query对象。用Query.setFirstResult()：设置要显示的第一行数据,
+       Query.setMaxResults()：设置要显示的最后一行数据。
+    2、不使用hibernate自带的分页,可采用sql语句分页，
+       如：5:为每页显示的记录,2为当前页： select * top 5 from table where tabId not in (select tabId top (2-1)*5 from table);
+   
+6.	hibernate的对象的三种持久化状态，并给出解释？
+    不清楚hibernate的对象的三种持久化状态,只知道hibernate对象的三种状态,下面有介绍。
+
+7.	hibernate中一对多配置文件返回的是什么？
+    hibernate中一对多配置文件会相应的映射为两张表，并且它们之间的关系是一对多的。
+例如：一个student和classes表的关系 。一个学生只能是一个班的,一个班可以有多个学生。
+
+8.	update（）和saveOrUpdate（）的区别？
+    update()和saveOrUpdate()是用来对跨Session的PO进行状态管理的。
+    update()方法操作的对象必须是持久化了的对象。也就是说，如果此对象在数据库中不存在的话，就不能使用update()方法。
+    saveOrUpdate()方法操作的对象既可以使持久化了的，也可以使没有持久化的对象。如果是持久化了的对象调用saveOrUpdate()则会
+    更新数据库中的对象；如果是未持久化的对象使用此方法,则save到数据库中。
+
+9.	hibernate的三种状态之间如何转换
+    当对象由瞬时状态(Transient)一save()时，就变成了持久化状态。
+    当我们在Session里存储对象的时候，实际是在Session的Map里存了一份，
+    也就是它的缓存里放了一份，然后，又到数据库里存了一份，在缓存里这一份叫持久对象(Persistent)。
+    Session 一 Close()了，它的缓存也都关闭了，整个Session也就失效了，
+    这个时候，这个对象变成了游离状态(Detached)，但数据库中还是存在的。
+    当游离状态(Detached)update()时，又变为了持久状态(Persistent)。
+    当持久状态(Persistent)delete()时，又变为了瞬时状态(Transient),
+    此时，数据库中没有与之对应的记录。
+
+10.	hibernate拒绝连接、服务器崩溃的原因？最少写5个
+1. db没有打开  
+2. 网络连接可能出了问题
+3. 连接配置错了
+4. 驱动的driver，url是否都写对了
+5. LIB下加入相应驱动，数据连接代码是否有误
+6. 数据库配置可能有问题
+7. 当前联接太多了，服务器都有访问人数限制的
+8. 服务器的相应端口没有开，即它不提供相应的服务
+9  hibernate有哪些缓存，分别怎么使用?
+10  你对hibernate的了解到了一个什么样的程度？
+11 写出一个sql语句体现hibernate中一对多的关系
+
+
+
+11.	Hibernate介绍
+Hibernate是一个开放源代码的对象关系映射框架，它对JDBC进行了非常轻量级的对象封装，使得Java程序员可以随心所欲的使用对象编程思维来操纵数据库。 Hibernate可以应用在任何使用JDBC的场合，既可以在Java的客户端程序使用，也可以在Servlet/JSP的Web应用中使用，最具革命意义的是，Hibernate可以在应用EJB的J2EE架构中取代CMP，完成数据持久化的重任。
+　　Hibernate的核心接口一共有5个，分别为:Session、SessionFactory、Transaction、Query和Configuration。这5个核心接口在任何开发中都会用到。通过这些接口，不仅可以对持久化对象进行存取，还能够进行事务控制。下面对这五个核心接口分别加以介绍。
+　　·Session接口:Session接口负责执行被持久化对象的CRUD操作(CRUD的任务是完成与数据库的交流，包含了很多常见的SQL语句。)。但需要注意的是Session对象是非线程安全的。同时，Hibernate的session不同于JSP应用中的HttpSession。这里当使用session这个术语时，其实指的是Hibernate中的session，而以后会将HttpSesion对象称为用户session。
+　　·SessionFactory接口:SessionFactroy接口负责初始化Hibernate。它充当数据存储源的代理，并负责创建Session对象。这里用到了工厂模式。需要注意的是SessionFactory并不是轻量级的，因为一般情况下，一个项目通常只需要一个SessionFactory就够，当需要操作多个数据库时，可以为每个数据库指定一个SessionFactory。
+　　·Configuration接口:Configuration接口负责配置并启动Hibernate，创建SessionFactory对象。在Hibernate的启动的过程中，Configuration类的实例首先定位映射文档位置、读取配置，然后创建SessionFactory对象。
+　　·Transaction接口:Transaction接口负责事务相关的操作。它是可选的，开发人员也可以设计编写自己的底层事务处理代码。
+　　·Query和Criteria接口:Query和Criteria接口负责执行各种数据库查询。它可以使用HQL语言或SQL语句两种表达方式。 
+12.	Hibernate主键介绍
+　　Assigned
+　　Assigned方式由程序生成主键值，并且要在save()之前指定否则会抛出异常
+　　特点：主键的生成值完全由用户决定，与底层数据库无关。用户需要维护主键值，在调用session.save()之前要指定主键值。
+　　Hilo
+　　Hilo使用高低位算法生成主键，高低位算法使用一个高位值和一个低位值，然后把算法得到的两个值拼接起来作为数据库中的唯一主键。Hilo方式需要额外的数据库表和字段提供高位值来源。默认请况下使用的表是
+　　hibernate_unique_key，默认字段叫作next_hi。next_hi必须有一条记录否则会出现错误。
+　　特点：需要额外的数据库表的支持，能保证同一个数据库中主键的唯一性，但不能保证多个数据库之间主键的唯一性。Hilo主键生成方式由Hibernate 维护，所以Hilo方式与底层数据库无关，但不应该手动修改hi/lo算法使用的表的值，否则会引起主键重复的异常。
+　　Increment
+　　Increment方式对主键值采取自动增长的方式生成新的主键值，但要求底层数据库的支持Sequence。如Oracle，DB2等。需要在映射文件xxx.hbm.xml中加入Increment标志符的设置。
+　　特点：由Hibernate本身维护，适用于所有的数据库，不适合多进程并发更新数据库，适合单一进程访问数据库。不能用于群集环境。
+　　Identity
+　　Identity当时根据底层数据库，来支持自动增长，不同的数据库用不同的主键增长方式。
+　　特点：与底层数据库有关，要求数据库支持Identity，如MySQl中是auto_increment, SQL Server 中是Identity，支持的数据库有MySql、SQL Server、DB2、Sybase和HypersonicSQL。 Identity无需Hibernate和用户的干涉，使用较为方便，但不便于在不同的数据库之间移植程序。
+　　Sequence
+　　Sequence需要底层数据库支持Sequence方式，例如Oracle数据库等
+　　特点：需要底层数据库的支持序列，支持序列的数据库有DB2、PostgreSql、Qracle、SAPDb等在不同数据库之间移植程序，特别从支持序列的数据库移植到不支持序列的数据库需要修改配置文件
+　　Native
+　　Native主键生成方式会根据不同的底层数据库自动选择Identity、Sequence、Hilo主键生成方式
+　　特点：根据不同的底层数据库采用不同的主键生成方式。由于Hibernate会根据底层数据库采用不同的映射方式，因此便于程序移植，项目中如果用到多个数据库时，可以使用这种方式。
+　　UUID
+　　UUID使用128位UUID算法生成主键，能够保证网络环境下的主键唯一性，也就能够保证在不同数据库及不同服务器下主键的唯一性。
+　　特点;能够保证数据库中的主键唯一性，生成的主键占用比较多的存贮空间
+　　Foreign GUID
+　　Foreign用于一对一关系中。GUID主键生成方式使用了一种特殊算法，保证生成主键的唯一性，支持SQL Server和MySQL 
+13.	Hibernate源码中几个包的作用简要介绍
+　　net.sf.hibernate.* 　该包的类基本上都是接口类和异常类 
+　　net.sf.hibernate.cache.* 　JCS的实现类 
+　　net.sf.hibernate.cfg.* 　配置文件读取类 
+　　net.sf.hibernate.collection.* 　Hibernate集合接口实现类，例如List，Set，Bag等等，Hibernate之所以要自行编写集合接口实现类是为了支持lazy loading 
+　　net.sf.hibernate.connection.* 　几个数据库连接池的Provider 
+　　net.sf.hibernate.dialect.* 　支持多种数据库特性，每个Dialect实现类代表一种数据库，描述了该数据库支持的数据类型和其它特点，例如是否有AutoIncrement，是否有Sequence，是否有分页sql等等 
+　　net.sf.hibernate.eg.* 　Hibernate文档中用到的例子 
+　　net.sf.hibernate.engine.* 　这个包的类作用比较散 
+　　net.sf.hibernate.expression.* 　HQL支持的表达式 
+net.sf.hibernate.hq.* 　HQL实现 
+net.sf.hibernate.id.* 　ID生成器 
+　　net.sf.hibernate.impl.* 　最核心的包，一些重要接口的实现类，如果Session，SessionFactory，Query等 
+　　net.sf.hibernate.jca.* 　JCA支持，把Session包装为支持JCA的接口实现类
+　　net.sf.hibernate.jmx.* 　我不懂JMX，只知道JMX是用来编写App Server的管理程序的，大概是JMX部分接口的实现，使得App Server可以通过JMX接口管理Hibernate 
+　　net.sf.hibernate.loader.* 　也是很核心的包，主要是生成sql语句的 
+　　net.sf.hibernate.lob.* 　Blob和Clob支持 
+　　net.sf.hibernate.mapping.* 　hbm文件的属性实现 
+　　net.sf.hibernate.metadata.* 　PO的Meta实现 
+　　net.sf.hibernate.odmg.* 　ODMG是一个ORM标准，这个包是ODMG标准的实现类 
+　　net.sf.hibernate.persister.* 　核心包，实现持久对象和表之间的映射 
+　　net.sf.hibernate.proxy.* 　Proxy和Lazy Loading支持 
+　　net.sf.hibernate.ps.* 　该包是PreparedStatment Cache 
+　　net.sf.hibernate.sql.* 　生成JDBC sql语句的包 
+　　net.sf.hibernate.test.* 　测试类，你可以用junit来测试Hibernate 
+　　net.sf.hibernate.tool.hbm2ddl.* 　用hbm配置文件生成DDL 
+　　net.sf.hibernate.transaction.* 　Hibernate Transaction实现类 
+　　net.sf.hibernate.type.* 　Hibernate中定义的持久对象的属性的数据类型 
+　　net.sf.hibernate.util.* 　一些工具类，作用比较散 
+　　net.sf.hibernate.xml.* 　XML数据绑定 
+14.	缓存管理
+　　Hibernate 中提供了两级Cache，第一级别的缓存是Session级别的缓存，它是属于事务范围的缓存。这一级别的缓存由hibernate管理的，一般情况下无需进行干预；第二级别的缓存是SessionFactory级别的缓存，它是属于进程范围或群集范围的缓存。这一级别的缓存可以进行配置和更改，并且可以动态加载和卸载。 Hibernate还为查询结果提供了一个查询缓存，它依赖于第二级缓存。
+　　1. 一级缓存和二级缓存的比较：第一级缓存 第二级缓存 存放数据的形式 相互关联的持久化对象 对象的散装数据 缓存的范围 事务范围，每个事务都有单独的第一级缓存进程范围或集群范围，缓存被同一个进程或集群范围内的所有事务共享 并发访问策略由于每个事务都拥有单独的第一级缓存，不会出现并发问题，无需提供并发访问策略由于多个事务会同时访问第二级缓存中相同数据，因此必须提供适当的并发访问策略，来保证特定的事务隔离级别 数据过期策略没有提供数据过期策略。处于一级缓存中的对象永远不会过期，除非应用程序显式清空缓存或者清除特定的对象必须提供数据过期策略，如基于内存的缓存中的对象的最大数目，允许对象处于缓存中的最长时间，以及允许对象处于缓存中的最长空闲时间 物理存储介质内存内存和硬盘。对象的散装数据首先存放在基于内在的缓存中，当内存中对象的数目达到数据过期策略中指定上限时，就会把其余的对象写入基于硬盘的缓存中。缓存的软件实现 在Hibernate的Session的实现中包含了缓存的实现由第三方提供，Hibernate仅提供了缓存适配器(CacheProvider)。用于把特定的缓存插件集成到Hibernate中。启用缓存的方式只要应用程序通过Session接口来执行保存、更新、删除、加载和查询数据库数据的操作，Hibernate就会启用第一级缓存，把数据库中的数据以对象的形式拷贝到缓存中，对于批量更新和批量删除操作，如果不希望启用第一级缓存，可以绕过Hibernate API，直接通过JDBC　API来执行指操作。用户可以在单个类或类的单个集合的粒度上配置第二级缓存。如果类的实例被经常读但很少被修改，就可以考虑使用第二级缓存。只有为某个类或集合配置了第二级缓存，Hibernate在运行时才会把它的实例加入到第二级缓存中。 用户管理缓存的方式第一级缓存的物理介质为内存，由于内存容量有限，必须通过恰当的检索策略和检索方式来限制加载对象的数目。Session的evit()方法可以显式清空缓存中特定对象，但这种方法不值得推荐。 第二级缓存的物理介质可以是内存和硬盘，因此第二级缓存可以存放大量的数据，数据过期策略的maxElementsInMemory属性值可以控制内存中的对象数目。管理第二级缓存主要包括两个方面：选择需要使用第二级缓存的持久类，设置合适的并发访问策略：选择缓存适配器，设置合适的数据过期策略。
+　　2. 一级缓存的管理： 当应用程序调用Session的save()、update()、savaeOrUpdate()、get()或load()，以及调用查询接口的 list()、iterate()或filter()方法时，如果在Session缓存中还不存在相应的对象，Hibernate就会把该对象加入到第一级缓存中。当清理缓存时，Hibernate会根据缓存中对象的状态变化来同步更新数据库。 Session为应用程序提供了两个管理缓存的方法： evict(Object obj)：从缓存中清除参数指定的持久化对象。 clear()：清空缓存中所有持久化对象。
+　　3. 二级缓存的管理：
+　　3.1. Hibernate的二级缓存策略的一般过程如下：
+　　1) 条件查询的时候，总是发出一条select * from table_name where …. （选择所有字段）这样的SQL语句查询数据库，一次获得所有的数据对象。
+　　2) 把获得的所有数据对象根据ID放入到第二级缓存中。
+　　3) 当Hibernate根据ID访问数据对象的时候，首先从Session一级缓存中查；查不到，如果配置了二级缓存，那么从二级缓存中查；查不到，再查询数据库，把结果按照ID放入到缓存。
+　　4) 删除、更新、增加数据的时候，同时更新缓存。 
+　　Hibernate的二级缓存策略，是针对于ID查询的缓存策略，对于条件查询则毫无作用。为此，Hibernate提供了针对条件查询的Query Cache。
+　　3.2. 什么样的数据适合存放到第二级缓存中？ 1 很少被修改的数据 2 不是很重要的数据，允许出现偶尔并发的数据 3 不会被并发访问的数据 4 参考数据,指的是供应用参考的常量数据，它的实例数目有限，它的实例会被许多其他类的实例引用，实例极少或者从来不会被修改。
+　　3.3. 不适合存放到第二级缓存的数据？ 1 经常被修改的数据 2 财务数据，绝对不允许出现并发 3 与其他应用共享的数据。
+　　3.4. 常用的缓存插件 Hibernater 的二级缓存是一个插件，下面是几种常用的缓存插件：
+　　EhCache：可作为进程范围的缓存，存放数据的物理介质可以是内存或硬盘，对Hibernate的查询缓存提供了支持。
+　　OSCache：可作为进程范围的缓存，存放数据的物理介质可以是内存或硬盘，提供了丰富的缓存数据过期策略，对Hibernate的查询缓存提供了支持。
+　　SwarmCache：可作为群集范围内的缓存，但不支持Hibernate的查询缓存。
+　　JBossCache：可作为群集范围内的缓存，支持事务型并发访问策略，对Hibernate的查询缓存提供了支持。
+　　3.5. 配置二级缓存的主要步骤：
+　　1) 选择需要使用二级缓存的持久化类，设置它的命名缓存的并发访问策略。这是最值得认真考虑的步骤。
+　　2) 选择合适的缓存插件，然后编辑该插件的配置文件。
+
+
+Spring
+1.	你一般用spring做什么?
+控制反转IOC  AOP
+2.	spring中的哪个类的哪个方法可用于获取bean
+
+3.	spring是什么？根据你的理解详细谈谈你的见解。
+◆目的：解决企业应用开发的复杂性
+　　◆功能：使用基本的JavaBean代替EJB，并提供了更多的企业应用功能
+　　◆范围：任何Java应用
+　　简单来说，Spring是一个轻量级的控制反转(IoC)和面向切面(AOP)的容器框架。
+　　◆轻量——从大小与开销两方面而言Spring都是轻量的。完整的Spring框架可以在一个大小只有1MB多的JAR文件里发布。并且Spring所需的处理开销也是微不足道的。此外，Spring是非侵入式的：典型地，Spring应用中的对象不依赖于Spring的特定类。 
+　　◆控制反转——Spring通过一种称作控制反转（IoC）的技术促进了松耦合。当应用了IoC，一个对象依赖的其它对象会通过被动的方式传递进来，而不是这个对象自己创建或者查找依赖对象。你可以认为IoC与JNDI相反——不是对象从容器中查找依赖，而是容器在对象初始化时不等对象请求就主动将依赖传递给它。
+　　◆面向切面——Spring提供了面向切面编程的丰富支持，允许通过分离应用的业务逻辑与系统级服务（例如审计（auditing）和事务（）管理）进行内聚性的开发。应用对象只实现它们应该做的——完成业务逻辑——仅此而已。它们并不负责（甚至是意识）其它的系统级关注点，例如日志或事务支持。 
+　　◆容器——Spring包含并管理应用对象的配置和生命周期，在这个意义上它是一种容器，你可以配置你的每个bean如何被创建——基于一个可配置原型（prototype），你的bean可以创建一个单独的实例或者每次需要时都生成一个新的实例——以及它们是如何相互关联的。然而，Spring不应该被混同于传统的重量级的EJB容器，它们经常是庞大与笨重的，难以使用。 
+　　◆框架——Spring可以将简单的组件配置、组合成为复杂的应用。在Spring中，应用对象被声明式地组合，典型地是在一个XML文件里。Spring也提供了很多基础功能（事务管理、持久化框架集成等等），将应用逻辑的开发留给了你。 
+　　所有Spring的这些特征使你能够编写更干净、更可管理、并且更易于测试的代码。它们也为Spring中的各种模块提供了基础支持。 
+
+4.	项目中如何体现Spring中的切面编程，距离说明。
+   面向切面编程：主要是横切一个关注点,将一个关注点模块化成一个切面。在切面上声明一个通知(Advice)和切入点(Pointcut); 通知: 是指在切面的某个特定的连接点(代表一个方法的执行。通过声明一个org.aspectj.lang.JoinPoint类型的参数可以使通知（Advice）的主体部分获得连接点信息。)上执行的动作。通知中定义了要插入的方法。切入点：切入点的内容是一个表达式，以描述需要在哪些对象的哪些方法上插入通知中定义的方法。
+   项目中用到的Spring中的切面编程最多的地方：声明式事务管理。
+   a、定义一个事务管理器
+   b、配置事务特性(相当于声明通知。一般在业务层的类的一些方法上定义事务)
+   c、配置哪些类的哪些方法需要配置事务(相当于切入点。一般是业务类的方法上)
+   
+5.	spring中可以用注入获得属性值，还有其他的方式吗？
+读取配置文件 
+
+6.	spring在项目中如何充当粘合剂
+    1、在项目中利用spring的IOC(控制反转或依赖注入),明确地定义组件接口(如UserDAO)，开发者可以独立开发各个组件, 然后根据组件间的依赖关系组装(UserAction依赖于UserBiz,UserBiz依赖于UserDAO)运行，很好的把Struts(Action)和hibernate(DAO的实现)结合起来了。
+    2、spring的事务管理把hibernate对数据库的操作进行了事务配置。
+
+7.	spring的事务如何配置
+    spring的声明式事务配置：
+    1. <!-- 配置sessionFactory -->
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="configLocation">
+			<value>/WEB-INF/classes/hibernate.cfg.xml</value>
+		</property>
+	</bean>  
+    2. 配置事务管理器
+       <!-- 配置事务管理器 -->
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory">
+			<ref local="sessionFactory" />
+		</property>
+	</bean>
+    3. 配置事务特性
+       <tx:advice id="txAdvice"  transaction-manager="transactionManager">
+		<tx:attributes>
+ 		           <tx:method name="add*" propagation="REQUIRED"/>
+                    <tx:method name="update*" propagation="REQUIRED"/>
+                    <tx:method name="del*" propagation="REQUIRED"/>
+                    <tx:method name="*" read-only="true"/>
+                </tx:attributes>
+       </tx:advice>
+    4. 配置哪些类的哪些方法配置事务
+       <aop:config>
+           <aop:pointcut id="allManagerMethod" ession="execution(* com.yyaccp.service.impl.*.*(..))"/>
+           <aop:advisor advice-ref="txAdvice" pointcut-ref="allManagerMethod">
+       </aop:config>
+
+isolation设定事务的隔离级别，事务管理器根据它来控制另外一个事务可以看到本事务内的哪些数据。 
+定义的5个不同的事务隔离级别： 
+DEFAULT：默认的隔离级别，使用数据库默认的事务隔离级别 
+READ_COMMITTED：保证一个事务修改的数据提交后才能被另外一个事务读取。另外一个事务不能读取该事务未提交的数据。这种事务隔离级别可以避免脏读出现，但是可能会出现不可重复读和幻像读。 
+READ_UNCOMMITTED：这是事务最低的隔离级别，它充许别外一个事务可以看到这个事务未提交的数据。这种隔离级别会产生脏读，不可重复读和幻像读。 
+REPEATABLE_READ：这种事务隔离级别可以防止脏读，不可重复读。但是可能出现幻像读。它除了保证一个事务不能读取另一个事务未提交的数据外，还保证了避免不可重复读。 
+SERIALIZABLE：这是花费最高代价但是最可靠的事务隔离级别。事务被处理为顺序执行。除了防止脏读，不可重复读外，还避免了幻像读。
+propagation定义了7个事务传播行为 
+REQUIRED： 如果存在一个事务，则支持当前事务。如果没有事务则开启一个新的事务。 
+SUPPORTS： 如果存在一个事务，支持当前事务。如果没有事务，则非事务的执行。但是对于事务同步的事务管理器，SUPPORTS与不使用事务有少许不同。 
+REQUIRES_NEW 总是开启一个新的事务。如果一个事务已经存在，则将这个存在的事务挂起。 
+NOT_SUPPORTED 总是非事务地执行，并挂起任何存在的事务。 
+NEVER 总是非事务地执行，如果存在一个活动事务，则抛出异常 
+NESTED：如果一个活动的事务存在，则运行在一个嵌套的事务中. 如果没有活动事务, 则按TransactionDefinition.PROPAGATION_REQUIRED 属性执行。 
+嵌套事务一个非常重要的概念就是内层事务依赖于外层事务。外层事务失败时，会回滚内层事务所做的动作。而内层事务操作失败并不会引起外层事务的回滚。
+REQUIRED应该是我们首先的事务传播行为。它能够满足我们大多数的事务需求。
+
+
+8.	transaction有那几种实现(事务处理)(Spring)
+   在Spring中，事务处理主要有两种方式
+(1)	代码控制事务  
+在程序中引入新的模版类，这个类封装了事务管理的功能 
+(2)	参数配置控制事务,在Application-Context.xml增加一个事务代理（UserDAOProxy）配置
+
+2.	IBATIS中的事物属性怎么配置	
+SQL MAP XML配置文件中的transactionManager
+
+
