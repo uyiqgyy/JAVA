@@ -1,0 +1,4642 @@
+Java考试题
+一：单选题
+1.	下列哪一种叙述是正确的（D ）
+A． abstract修饰符可修饰字段、方法和类
+B． 抽象方法的body部分必须用一对大括号{ }包住
+C． 声明抽象方法，大括号可有可无
+D． 声明抽象方法不可写出大括号
+2.	如下代码
+public class Test {
+public int aMethod() {
+static int i = 0;
+i++;
+return i;
+}
+public static void main (String args[]) {
+Test test = new Test();
+test.aMethod();
+int j = test.aMethod();
+System.out.println(j);
+}
+}
+输出结果是什么？  D
+A. 0
+B. 1
+C. 2
+D. 编译失败
+3.	下列哪种说法是正确的（ D）
+　　A． 实例方法可直接调用超类的实例方法
+　　B． 实例方法可直接调用超类的类方法
+　　C． 实例方法可直接调用其他类的实例方法
+　　D． 实例方法可直接调用本类的类方法
+4.	如下代码：
+class Super {
+public Integer getLenght() { return new Integer(4); }
+}
+
+public class Sub extends Super {
+public Long getLenght() { return new Long(5); }
+public static void main(String[] args) {
+Super sooper = new Super();
+Sub sub = new Sub();
+System.out.println(sooper.getLenght().toString() + "," +
+ sub.getLenght().toString() );
+}
+}
+输出是什么?   E
+A. 4,4
+B. 4,5
+C. 5,4
+D. 5,5
+E. 编译失败.---------重定时不能改变返回类型
+5.	在Servlet处理请求的方式为:   C
+A.以进程的方式
+B.以程序的方式
+C.以线程的方式
+D.以响应的方式
+6.	JDBC中，用于表示数据库连接的对象是:   B
+A.Statement
+B.Connection
+C.DriverManager
+D.PreparedStatement
+7.	用于调用存储过程的对象是:   C
+A.ResultSet
+B.DriverManager
+C.CallableStatemet
+D.PreparedStatement
+8.	按照MVC设计模式，JSP用于实现:   B
+A.Model
+B.View
+C.Controller
+D.容器
+9.	如下代码
+10. public Object m() {
+11. Object o = new Float(3.14F);
+12. Object [] oa = new Object[1];
+13. oa[0] = o;
+14. o = null;
+15. oa[0] = null;
+16. print 'return 0';
+17. }
+当Float对象在第11行被创建后, 什么时候能够被垃圾回收?   C
+A. 13行以后.
+B. 14行以后.
+C. 15行以后.
+D. 16行以后.
+10.	如下代码：
+class Base {
+Base() { System.out.print("Base"); }
+}
+public class Alpha extends Base {
+public static void main( String[] args ) {
+new Alpha(); -----调用父类无参的构造方法
+new Base();
+}
+}
+结果是什么?   B
+A. Base
+B. BaseBase
+C. 编译失败.
+D. 代码运行但没有输出.
+E. 运行时抛出异常
+11.	在J2EE中属于Web层的组件有:   A
+A.Servlet 
+B.EJB
+C.Applet
+D.HTML
+12.	在Servlet的生命周期中，容器只调用一次的方法是:   C
+A.service
+B.getServletConfig
+C.init
+D.destroy
+13.	以下关于异常的说法正确的是：D
+Ａ. 一旦出现异常，程序运行就终止了 　
+Ｂ. 如果一个方法申明将抛出某个异常，它就必须真的抛出那个异常　
+Ｃ. 在catch子句中匹配异常是一种精确匹配
+Ｄ. 可能抛出系统异常的方法是不需要申明异常的
+14.	如下代码：
+public class Foo {
+public static void main(String[] args) {
+try {
+return;
+} finally {
+System.out.println( "Finally" );
+}
+}
+}
+输出结果是什么?   A
+A. Finally
+B.编译失败
+C. 代码正常运行但没有任何输出.
+D. 运行时抛出异常
+15.	 jsp指令中isELIgnored="boolean"的意思是（C ）
+A．决定是否实现Servler的单线程模式，
+B．决定改页面是否是一个错误处理页面，
+C．决定是否支持EL表示，
+D．没有具体的含义。
+16.	下面关于Java的引用，说法正确的是：B
+Ａ. 应用实际上就是指针 　
+Ｂ. 应用本身是Primitive 　???????????????????????????
+Ｃ. 引用就是对象本身
+Ｄ. 一个对象只能被一个引用所指引
+17.	对于import java.util包，以下那种说法是错误的？C
+Ａ. Vector类属于java.util包 　
+Ｂ. Vector类放在…／java/util/目录下 　
+Ｃ. Vector类放在java.util文件中 
+Ｄ. Vector类是Sun公司的产品
+18.	在一个线程中Sleep（1000）方法，将使得该线程在多少时间后获得对CPU的控制（假设睡眠过程中不会有其他事件唤醒该线程）？C
+Ａ. 正好1000毫秒 　
+Ｂ. 1000毫秒不到 　
+Ｃ. =>1000毫秒 
+Ｄ. 不一定
+19.	在WEB-INF目录下，必须存放的文件为:   B
+A.class文件
+B.web.xml
+B.jar文件
+D.html文件
+
+20.	下面关于垃圾收集的说法正确的是：D
+Ａ. 一旦一个对象成为垃圾，就立刻被收集掉。
+Ｂ. 对象空间被收集掉之后，会执行该对象的finalize方法
+Ｃ. finalize方法和C++的析构函数是完全一回事情
+Ｄ. 一个对象成为垃圾是因为不再有引用指着它，但是线程并非如此。
+21.	下面的语句会产生什么样的输出?  A
+System.out.println(4&7);
+  A.4
+  B.5
+  C.6
+  D.7
+  E.0
+22.	下面的程序中，temp的最终值是什么？  B
+long temp=(int)3.9;
+temp%=2;
+  A .0
+  B .1
+  C .2
+  D .3
+  E .4
+23.	下面哪个不是JAVA关键字  A
+  A  integer
+  B  double
+  C  float
+  D  default
+24.	Which method is used by a Servlet to place its session ID in a URL that is written to the servlet’s response output stream?    B
+A. The encodeURL method of the HttpServletRequest interface.
+B. The encodeURL method of the HttpServletResponse interface.
+C. The rewriteURL method of the HttpServletRequest interface.
+D. The rewriteURL method of the HttpServletResponse interface.
+25.	 每个使用Swing构件的程序必须有一个(   ).    D
+    A.按钮     B.标签     C.菜单     D.容器  
+26.	下列标识符（名字）命名原则中，正确的是( )  D
+  A. 类名的首字母小写 
+B. 变量和方法名的首写字母大写 
+C. 接口名的首写字母小写 
+D. 常量完全大写
+27.	类Test1定义如下： 
+1．public class Test1{ 
+2． public float aMethod（float a，float b）{ return 0;} 
+3． 
+4．} 
+将以下哪种方法插入行3是不合法的。（B） 
+A、public float aMethod（float a， float b，float c）{ return 0;} 
+B、public float aMethod（float c，float d）{ return 0;} 
+C、public int aMethod（int a， int b）{ return 0;} 
+D、private float aMethod（int a，int b，int c）{ return 0;}
+28.	哪个语句创建了一个数组实例？ A
+A. int[] ia = new int [15]; 
+B. float fa = new float [20]; 
+C. char[] ca = “Some String”; 
+D. int ia [][] = {4, 5, 6} {1, 2, 3};
+29.	以public修饰的类如：public class Car{…} 则Car( )   A
+A、可被其它程序包中的类使用 B、仅能被本程序包中的类使用 
+C、不能被任意其它类使用 D、不能被其它类继承
+30.	下列哪个属于容器型构件( )   C
+A .JEdit   B.JButton   C.JPanel   D.JTextField
+31.	Java程序的执行过程中用到一套JDK工具，其中java.exe是指( )   B
+A.Java文档生成器 B.Java解释器 
+C.Java编译器 D.Java类分解器
+32.	下列关于构造方法的叙述中，错误的是( )   C
+  A. Java语言规定构造方法名与类名必须相同 
+  B. Java语言规定构造方法没有返回值，但不用vold声明 
+  C. Java语言规定构造方法不可以重载 
+  D. Java语言规定构造方法只能通过new自动调用
+33.	构造函数何时被调用( )   B
+A.类定义时 B.创建对象时 
+C.调用对象方法时 D.使用对象的变量时
+34.	break语句( )   D
+A、只中断最内层的循环 B、只中断最外层的循环 
+C、借助于标号，可以实现任何外层循环中断 D、只中断某一层的循环
+35.	Java语言中下面哪个可以用作正确的变量名称（ ） B
+A、3D  B、name  C、extends  D、implements
+36.	在JavaScript中如何验证一个数据是否是数字（D）
+A.如果用Integer.parseInt(value)有误就不是数字
+B. int I = value 若报错就不是数字，
+C. 没有方法验证
+D .利用isNaN(value) 返回的boolean进行判断
+------返回一个 Boolean 值，指明提供的值是否是保留值 NaN （不是数字）。
+37.	下面哪一个不能作JSP的服务器( D) 
+A. IBM WebSphere   B. BEA WebLogic   C. Tomcat    D. pws 
+38.	下面哪项不是JSP操作指令( D ) ------???????????????????????
+A. getProperty       B. forward 
+C. include            D. import
+39.	如果希望控件在界面上按表格行分列排列，应使用下列那种布局管理器？( B)
+A、BoxLayout  B、GridLayout  C、BorderLayout  D、FlowLouLayout
+40.	下面哪一项不是Java类访问控制关键字( C ) 
+A. public B. protected 
+C. this D. private
+41.	在配置tomcat虚拟目录时，需要打开哪个文件？ ( C ) 
+A. index.jsp          B. web.xml          C.server.xml        D.以上都不是
+42.	下面哪个不是表单标记(  D  ) 
+A. INPUT  B.RADIO  C.CHECKBOX  D. TR
+43.	下面哪项不是response对象的方法( C ) 
+A. setContentType(String contentTypestr) 
+B. setHeader(String headername,String headervalue) 
+C. getParameter(String str) 
+D. sendError(int errorcode)
+44.	以下( B  )是编写Servlet必须导入的包. 
+A.java.sql.* B.java.servlet.* C.java.util.* D.java.lang.*
+45.	下面哪项不属于SQL语句的子类(  D ) 
+A. 数据定义语言(DDL) 
+B. 数据查询语言(DQL) 
+C. 事务控制语言(TCL) 
+D. 数据插入语言 (DIL)
+46.	选出所有正确的答案
+ public class Outer{
+ public void someOuterMethod() {
+ // Line 3
+ }
+ public class Inner{}
+ public static void main( String[]argv ) {
+ Outer o = new Outer();
+ // Line 8
+ }
+ }
+Which instantiates an instance of Inner?  A  
+A. new Inner(); // At line 3
+B. new Inner(); // At line 8
+C. new o.Inner(); // At line 8
+D. new Outer.Inner(); // At line 8
+二：多选题
+1.	下列属于jsp中注释的有(  AD )
+ A．<%--  与 --%>
+ B． /
+ C． /** 与 **/
+D．  <!-- 与 -->
+2.	按照学生平均成绩(avg_grade) 将students表中的数据检索出来，下面SQL语句正确的是(  ACD ) 
+A) SELECT * FROM students ORDER BY avg_grade 
+B) SELECT * FROM students GROUP BY avg_grade ASC 
+C) SELECT * FROM students ORDER BY avg_grade DESC 
+D) SELECT * FROM students ORDER by avg_grade asc
+3.	下列是jsp作用域的通信对象的有(  ABC    )
+ A．Session
+B.  application
+ C.pageContext
+D.cookie
+4.	在接口中以下哪条定义是正确的? ( AB  )
+A. void methoda();
+B. public double methoda();
+C. public final double methoda();
+D. static void methoda(double d1);
+E. protected void methoda(double d1);
+5.	  下面哪个语句正确地声明一个整型的二维数组？CDE 
+  A. int   a[][]   =   new   int[][]；     
+  B. int   a[10][10]   =   new   int[][]；     
+  C. int   a[][]   =   new   int[10][10]；     
+  D. int   [][]a   =   new   int[10][10]；     
+  E. int   []a[]   =   new   int[10][10]；
+6.	下面哪些不是java的简单数据类型?    BC
+A. short  B. Boolean  C. Double  D. float
+7.	下面哪些语句能够正确地生成5个空字符串？ AB         
+  A.String   a[]=new   String[5]；for(int   i=0；i<5；a[i++]=“”)；     
+  B.String   a[]={“”，“”，“”，“”，“”}；     
+  C.String   a[5]；     
+  D.String[5]a；     
+  E.String   []a=new   String[5]；for(int   i=0；i<5；a[i++]=null)；
+8.	下列说法错误的有（ BCD）
+　A． 数组是一种对象
+　B． 数组属于一种原生类
+　C． int number=[]={31,23,33,43,35,63}
+　D． 数组的大小可以任意改变
+9.	不能用来修饰interface的有（ACD ）
+　A．private  B．public  C．protected  D．static
+10.	下列说法错误的有（ACD ）
+　A． 在类方法中可用this来调用本类的类方法
+　B． 在类方法中调用本类的类方法时可直接调用
+　C． 在类方法中只能调用本类中的类方法
+　D． 在类方法中绝对不能调用实例方法
+11.	如下代码
+class A {
+A() { }
+}
+
+class B extends A {
+}
+哪两个说明是正确的？  BD
+A. B类的构造器应该是 public.
+B. B类的构造器应该是没有参数
+C. B类的构造器应该调用this().
+D. B类的构造器应该调用super().
+12.	下列标识符不合法的有（ ACD）
+　A．new  B．$Usdollars  C．1234  D．car.taxi
+13.	在接口中以下哪条定义是正确的?   AB
+A. void methoda();
+B. public double methoda();
+C. public final double methoda();
+D. static void methoda(double d1);
+E. protected void methoda(double d1);
+14.	以下哪四个能使用throw抛出?   ADEF
+A. Error
+B. Event
+C. Object
+D. Throwable
+E. Exception
+F. RuntimeException
+15.	javax.Servlet的包中，属于类的是:   BC
+A.Servlet
+B.GenericServlet
+C.ServletException
+D.ServletContext
+16.	如下代码:
+public class X {
+public X aMethod() { return this;}
+}
+public class Y extends X {
+  
+}
+哪两个方法能加到Y类的定义中?    CE
+A. public void aMethod() {}
+B. private void aMethod() {}
+C. public void aMethod(String s) {
+D. private Y aMethod() { return null; }
+E. public X aMethod() { return new Y(); }
+17.	对该段代码描述正确的有<% int i = Integer.parseInt(request.getParemeter(“value”)) %>(  BDC  )        
+A) 不会有错
+B)  当value与int 类型不匹配时回报错
+C )  当value＝＂＂时会报错
+D)　为了安全起见应该将该段代码放在try{}和catch(){}之间
+18.	选出所有正确的答案
+Which two are equivalent?     BG
+A. <%= YoshiBean.size%>
+B. <%= YoshiBean.getSize()%>
+C. <%= YoshiBean.getProperty("size")%>
+D. <JSP:getProperty id="YoshiBean" param="size"/>
+E. <jsp:getProperty name="YoshiBean" param="size"/>
+F. <jsp:getProperty id="YoshiBean" property="size"/>
+G. <jsp:getProperty name="YoshiBean" property="size"/>
+19.	下面哪三个描述是正确的？   BCE
+A. 默认构造器初始化方法变量
+B. 默认构造器有和它所在类相同的访问修饰词.
+C. 默认构造器调用其父类的无参构造器.
+D. 如果一个类没有无参构造器,编译器会它创建一个默认构造器.
+E. 只有当一个类没有任何构造器时，编译器会为它创建一个默认构造器
+20.	哪二种声明防止方法覆盖？   AD
+A、final void methoda() {}
+B、void final methoda() {}
+C、static void methoda() {}
+D、static final void methoda() {}
+E、final abstract void methoda() {}
+三：简答题
+1.	JSP和Servlet有哪些相同点和不同点，他们之间的联系是什么？ 
+JSP是Servlet技术的扩展，本质上是Servlet的简易方式，更强调应用的外表表达。JSP编译后是"类servlet"。Servlet和JSP最主要的不同点在于，Servlet的应用逻辑是在Java文件中，并且完全从表示层中的HTML里分离开来。而JSP的情况是Java和HTML可以组合成一个扩展名为.jsp的文件。JSP侧重于视图，Servlet主要用于控制逻辑。
+
+2.	swtich是否能作用在byte上，是否能作用在long上，是否能作用在String上?
+switch（expr1）中，expr1是一个整数表达式。因此传递给 switch 和 case 语句的参数应该是 int、 short、 char 或者 byte。long,string 都不能作用于swtich。
+3.	如何利用ServletContext和ServletConfig对象获得初始化参数
+	String psw = config.getInitParameter("psw");		
+	ServletContext ss = config.getServletContext();
+	String ppp = ss.getInitParameter("name");
+
+4.	如何用css约束一个层见不可？
+  <div style="display:none"> </div>  -----表示不可见
+  <div style="display:block"> </div>------表示可见
+  
+5.	在表单中存在一组名称为checkbox1的多选框，如何才能取得这些多选框内的值？
+在页面中用javaScript方式取值
+<script>
+      function  sss(){
+         var str = document.getElementsByName("checkbox1");   
+         var checkValue = new Array();      
+         for(var i=0;i<str.length;i++){
+            if(str[i].checked){
+              alert(str[i].value);
+            }
+         }      
+      }    
+</script>
+Function sss()
+ Var str=document.getElementsByName(“checkbox1”);
+ Var checkValue=new Array()
+For(var i=0;i<str.length;i++){
+If(str[i].checked){
+Alert(str[i].value);
+}
+}
+  在Servlet中取值
+   String str[] = request.getParameterValues("checkbox1");
+6.	说出数据连接池的工作机制是什么?
+J2EE服务器启动时会建立一定数量的池连接，并一直维持不少于此数目的池连接。客户端程序需要连接时，池驱动程序会返回一个未使用的池连接并将其标记为忙。如果当前没有空闲连接，池驱动程序就新建一定数量的连接，新建连接的数量由配置参数决定。当使用的池连接调用完成后，池驱动程序将此连接表记为空闲，其他调用就可以使用这个连接。
+
+7.	多线程有几种实现方法,都是什么?同步有几种实现方法,都是什么? 
+多线程有两种实现方法，分别是继承Thread类与实现Runnable接口 
+同步的实现方面有两种，分别是synchronized,wait与notify
+
+
+
+8.	一个页面在打开时，需要处理一些事情（比如弹出一个广告页），需要定义窗口的什么事件？
+<script>
+        window.onload=function(){…}
+</script>
+
+或是
+<body onload="">
+9.	HTML的Form和XFORM的区别
+
+10.	描述forward 和redirect的区别
+forward是服务器请求资源，服务器直接访问目标地址的URL，目标地址可以接收request 请求参数，然后把结果发给浏览器，浏览器根本不知道服务器发送的内容是从哪儿来的，所以它的地址栏中还是原来的地址。
+redirect就是服务端根据逻辑,发送一个状态码,告诉浏览器重新去请求哪个地址，浏览器会重新进行请求，此时不能用request传值，浏览器的地址栏会变成新的地址
+
+11.	Static变量是什么含义
+   static是静态变量,就是变量值不随函数执行结束而消失，下次调用同一函数时，上次所赋予的值仍存在。
+12.	垃圾回收器的基本原理是什么？垃圾回收器可以马上回收内存吗？有什么办法主动通知虚拟机进行垃圾回收
+对于GC来说，当程序员创建对象时，GC就开始监控这个对象的地址、大小以及使用情况。通常，GC采用有向图的方式记录和管理堆(heap)中的所有对象。通过这种方式确定哪些对象是"可达的"，哪些对象是"不可达的"。当GC确定一些对象为"不可达"时，GC就有责任回收这些内存空间。可以。程序员可以手动执行System.gc()，通知GC运行，但是Java语言规范并不保证GC一定会执行。
+
+13.	Overload和Override的区别。Overloaded的方法是否可以改变返回值的类型?
+   方法的重写Overriding和重载Overloading是Java多态性的不同表现。重写Overriding是父类与子类之间多态性的一种表现，重载Overloading是一个类中多态性的一种表现。如果在子类中定义某方法与其父类有相同的名称和参数，我们说该方法被重写 (Overriding)。子类的对象使用这个方法时，将调用子类中的定义，对它而言，父类中的定义如同被“屏蔽”了。如果在一个类中定义了多个同名的方法，它们或有不同的参数个数或有不同的参数类型，则称为方法的重载(Overloading)。Overloaded的方法是可以改变返回值的类型。
+
+14.	说出Servlet的生命周期，并说出Servlet和CGI的区别
+Servlet被服务器实例化后，容器运行其init方法，请求到达时运行其service方法，service方法自动派遣运行与请求对应的doXXX方法（doGet，doPost）等，当服务器决定将实例销毁的时候调用其destroy方法。
+与cgi的区别在于servlet处于服务器进程中，它通过多线程方式运行其service方法，一个实例可以服务于多个请求，并且其实例一般不会销毁，而CGI对每个请求都产生新的进程，服务完成后就销毁，所以效率上低于servlet
+四：编程题
+1.	请编写一JSP程序，它提供一个征求客户意见的文本区，在客户提交意见后，它能将意见及其他客户以前提交的意见一起显示出来。
+
+2.	写一个算法对1，8，5，2，4，9，7进行顺序排列。
+   public class OrderbyArray {
+	//冒泡排序 Bubble Sort 最简单的排序方法是冒泡排序方法
+    public int[] orderArray(int[] array){
+    	for(int i=0;i<array.length;i++){
+    		for(int j=i;j<array.length;j++){
+    			if(array[i]>array[j]){
+    				int s = array[i];
+    				array[i] = array[j];
+    				array[j] = s;
+    			}
+    		}
+    	}
+    	return array;
+    }
+	public static void main(String[] args) {
+		int [] array = {1,8,5,2,4,9,7};
+		OrderbyArray order = new OrderbyArray();
+		array = order.orderArray(array);          
+	}
+}
+3.	写一段Jdbc连接Oracle的程序,并实现数据查询。
+创建一个连接数据库的工具类
+  import java.sql.*;
+   public class DbUtil {
+   public static Connection getConnection(){
+	   String driver = "";
+	   String url = "";
+	   String name = "scot";
+	   String psw = "123";
+	   Connection conn = null;	   
+		try {
+			Class.forName(driver);
+			conn = DriverManager.getConnection(url,name,psw);
+		} catch (ClassNotFoundException e) {			
+			e.printStackTrace();
+		} catch (SQLException e) {			
+			e.printStackTrace();
+		}		
+		return conn;
+   }
+}
+import java.sql.*;
+public class SearchInfo {
+   public void searchInfo(int id){
+	   Connection conn = null;
+	   PreparedStatement pstat = null;
+	   ResultSet res = null;
+	   String sql = "select * from users where id=?";
+	   conn = DbUtil.getConnection();
+	   try {
+		pstat = conn.prepareStatement(sql);
+		pstat.setInt(1, id);
+		res = pstat.executeQuery();
+		while(res.next()){
+			String name = res.getString("name");
+		}
+	} catch (SQLException e) {		
+		e.printStackTrace();
+	}
+   }
+}
+4.	请利用JSP编写一简易的购物车程序，它包括一购物界面及往购物车中添加商品与删除商品功能，并能将用户当前已购的所有商品显示出来。
+
+
+5.	写一个Singleton（单例模式）出来。
+public class LazySingleton {
+	private static LazySingleton instance = null;
+
+	// 默认的私有的构造方法,保证外界无法直接实例化
+	private LazySingleton() {
+	}
+
+	// 静态方法,返回此类的唯一实例
+	public  static LazySingleton getInstance() {
+		if (instance == null) {
+			instance = new LazySingleton();
+		}
+		return instance;
+	}
+	
+	public void pp(){
+		System.out.println("lazy ok");
+	}
+}
+6.	用循环控制语句打印输出：1+3+5+…….+99=？结果。
+        int sum = 0;
+		for(int i=1;i<100;i+=2){
+			sum = sum+i;
+		}
+		System.out.println("1+3+5+...+99 = "+sum);
+7.	请编写一JSP程序，它能根据输入的订单号查寻出该订单的详细信息，包括订单用户名及价钱，其中订单号以请求参数的形式传给该JSP。订单信息都保存在SQLSERVER数据库中。并要求将查寻到的订单信息以表格的形式显示给用户。
+IBM笔试题
+注：IBM笔试题一小时之内完成，题目全部用英文描述，这里用中文表述
+
+一、名词解释
+此题大概有15个左右，还有一些记不清了
+1、Eclipse：是一个开放源代码的、基于Java的可扩展开发平台
+2、J2EE：是一套全然不同于传统应用开发的技术架构
+3、EJB：是sun的服务器端组件模型，设计目标与核心应用是部署分布式应用程序。
+4、Ajax：异步JavaScript和XML
+5、Web service
+6、
+二、找出以下代码问题
+
+public class test{
+
+public void print（String str）{
+  char[] s=str；
+} 
+
+}
+
+public class a{
+
+public static void main(String [] args){
+   puts()
+}
+
+}
+三、写出以下输出
+public class Parent{
+  public void method（）{
+    System.out.println("parent");
+  }
+  public static void smethod(){
+    Sysyem.out.println("parent");
+  } 
+}
+public class Child extends parent{
+  public void method（）{
+    System.out.println("child");
+  }
+  public static void smethod(){
+    Sysyem.out.println("child");
+  } 
+}
+public class test{
+  public static void print(String [] args){
+    Child c=new Child();
+    Parent p=(Parent)c;
+    p.method();
+    p.smethod();
+  }
+}
+Child
+Parent
+
+四、编程题（两题选其一）
+1、IBM全球有35万员工，名字由26个字母组成，长度不一。
+1）请设计一个算法，能够快速查找出要查询的名字。
+2）写出此算法的时间复杂度
+3）如果对此算法进行测试，请写出测试用例
+2、用熟悉的c/c++/java写出一个完成的函数，此函数能够将一个值插入一个排好序的二叉树中
+五、Unix命令题
+此题包含Unix操作系统的常用命令如建目录、系统启动、磁盘使用情况察看等，大概15个以上
+六、英文短文（两题选其一，不少于200字）
+1、描述一下你理想中的职业
+2、描述一下你心目中的中国文化以及它对于日常工作的影响
+　  
+
+JAVA面试题-CORE JAVA部分
+                   
+1．	在main(String[] args)方法内是否可以调用一个非静态方法？
+答案：不能
+2．	同一个文件里是否可以有两个public类？
+答案：不能
+3．	方法名是否可以与构造器的名字相同？   答案：可以。
+public class Test
+{
+	public Test(String iceboy)
+	{
+			System.out.println(iceboy);
+		}
+	public void Test(String iceboy)
+	{
+			System.out.println(iceboy);
+	}
+	public static void main(String[] args)
+	{
+			Test a = new Test("abc");//输出“abc”
+			a.Test("iceboy");//输出“iceboy”
+	}
+}
+4. 初始化了一个没有run()方法的线程类,是否会出错？
+	答案：不会。
+	第一种方法：直接继承Thread类。
+public class Test
+{
+	public static void main(String[] args)
+	{
+		ThreadClass t = new ThreadClass();
+		t.start();
+		System.out.println("end");//输出“end”
+	}
+}
+class ThreadClass extends Thread  //Thread类已经实现了空的run()方法。
+{		
+}
+第二种方法：实现Runnable接口
+public class Test
+{
+	public static void main(String[] args)
+	{
+		ThreadClass t = new ThreadClass();
+		Thread thread = new Thread(t);
+		thread.start();
+		System.out.println("end");
+	}
+}
+class ThreadClass implements Runnable 
+{	
+	public void run()  //必须有此方法否则编译报错。它是Runnable接口中的抽象方法。
+	{
+		System.out.println("Threads");
+	}
+}
+4．	局部内部类是否可以访问非final变量？
+答案：不能访问局部的，可以访问成员变量（全局的）。
+class Out
+{
+	private String name = "out.name";
+	void print()
+	{
+		final String work = "out.local.work";//若不是final的则不能被Animal 使用.
+		int age=10;
+		class Animal
+		//定义一个局部内部类.只能在print()方法中使用.
+//局部类中不能使用外部的非final的局部变量.全局的可以.
+		{
+			public void eat()
+			{
+				System.out.println(work);//ok
+				//age=20;error not final
+				System.out.println(name);//ok.
+			}
+		}
+		Animal local = new Animal();
+		local.eat();
+	}
+}
+5．	选择语句case中，允许使用的值有哪些？  答案：int,short,char,byte(都在int范围之内，且是整数)
+6．	Math,String是不可继承的。（final类）
+Instanceof 后面跟的应该是OBJECT。
+构造器可以是私有的。（private）
+=与==意义是完全不同的。一个是赋值，一个是等于。
+全局变量可以不进行初始化，如果使用一个局部变量，则这个局部变量要被初始化。
+7．	在try-catch-finally块中的退出语句。
+public class Test
+{
+	public static void main(String[] args)
+	{
+		int a=1;
+		try
+		{
+			a=a/0;
+		}catch(Exception e)
+		{
+			System.out.println("catch");
+			return;//当return时，finally中的语句会执行。
+			//System.exit(0);//若用上这句，finally中的语句不会执行。直接返回，退出程序。
+		}
+		finally //当没有System.exit(0);时，无论是否发生异常它都会执行。
+		{
+			System.out.println("finally");
+		}
+	}
+}
+注：   try-catch-finally块的顺序不能调换。
+8．	下面都是正确的main方法签名。
+public static void main(String[] args)
+public static final void main(String[] args)
+static public void main(String[] args)
+static public synchronized void main(String[] args)
+static public abstract void main(String[] args)//错误
+9．	if(-0.0 == 0.0)是相等还是不等？
+答案：相等。
+10．一个抽象类是否可以没有抽象方法？
+	答案：可以。
+11．RandomAccessFile 类继承Object，并且实现了DataInput和DataOutput接口。
+	答案：正确
+12．Collection与Collections的区别？
+答案：Collection是一个接口，但 Collections却是一个辅助类，里面有很多静态的工具方法。而且很有用的。如：reverse(List list)；sort(List list, Comparator c)等。Collections没有实现任何接口。它直接继承了Object。
+13．class Child extends Parents{}
+        class Parents{}
+是否可以这样声明类，在一个文件中？
+答案：可以。无所谓的。
+14. 数组，无论是当前的，还是类等级的，都会被初始化。
+	 String 是被初始化为 null,不是空字符。		
+	null,““,” “,都是不同的。
+	“continue”只能在一个循环里(如for,do,while)，它不能在case语句中出现。
+	Primitive(int,char,long等)数组是不能互相赋值的，即使它们本身可以。
+	一个Constructor可以抛出任何异常。
+	初始化块是按照声明的顺序执行的。
+	 所有关于 NaN(Not a Number) 和 non-NaN 的比较，都返回false. 这条很重要。
+	 ==会产生编译错误，如果两边类型不匹配的话。
+	 equals() 返回 false 如果对象类型不同，但不产生 编译错误。
+15．Java成员变量默认初始化的值。
+	成员变量类型        取值
+                   byte-0    short-0     int-0       long-0L
+                   char-'\u0000'     float-0.0F    double-0.0D   boolean-false
+        所有引用类型          null
+16.  integer和long 操作 /和% 的话， 可能会抛出ArithmeticException，比如除0。但是 float与
+double不会，即使是除以0。
+	double a=0;a=a/0;则a等于NaN。
+17．普通内部类不可以拥有静态变量，但静态内部类可以。
+	 File类没有 任何 处理文件内容的方法。
+InputStream 和 OutputStream 是 抽象类， DataInput 和 DataOutput是 接口。DataInputStream实现了DataInput接口。
+
+18．面向对象的特征有哪些方面 ？
+	答案：最基本特征：封装，继承，多态。
+		其他特征：抽象关联，聚合，组合，内聚，耦合
+19．String是最基本的数据类型吗? String 和StringBuffer的区别？
+	答案：String不是一最基本的数据类型。
+	STRING的长度是不可变的，STRINGBUFFER的长度是可变的。如果你对字符串中的内容经常
+进行操作，特别是内容要修改时，那么使用StringBuffer，如果最后需要String，那么使用StringBuffer的toString()方法 
+20．int 和 Integer 有什么区别 
+	答案：int是基本类型。Integer是引用类型。Integer可以把String转换成int。
+21.运行时异常与一般异常有何异同？ 
+答案：异常表示程序运行过程中可能出现的非正常状态，运行时异常表示虚拟机的通常操作中可能遇到的异常，是一种常见运行错误。java编译器要求方法必须声明抛出可能发生的非运行时异常，但是并不要求必须声明抛出未被捕获的运行时异常。
+22．说出一些常用的类，包,接口，请各举5个？
+答案：常用类-System,ArrayList,FileInputStream,Thread,Socket.
+		常用的包-java.io,java.util,java.sql,java.javax.naming,java.net
+	常用接口-Collection,Connection, Cloneable, Comparable, Serializable
+23.说出ArrayList,Vector, LinkedList的存储性能和特性.
+答案：ArrayList和Vector都是使用数组方式存储数据，此数组元素数大于实际存储的数据以便增加和插入元素，它们都允许直接按序号索引元素，但是插入元素要涉及数组元素移动等内存操作，所以索引数据快而插入数据慢，Vector由于使用了synchronized方法（线程安全），通常性能上较ArrayList差，而LinkedList使用双向链表实现存储，按序号索引数据需要进行前向或后向遍历，但是插入数据时只需要记录本项的前后项即可，所以插入速度较快。 
+24．设计4个线程，其中两个线程每次对j增加1，另外两个线程对j每次减少1。写出程序。 
+注：因为这4个线程共享J，所以线程类要写到内部类中。
+加线程：每次对j加一。
+减线程：每次对j减一。
+public class TestThreads
+{
+	private int j=1;
+	//加线程
+	private class Inc implements Runnable
+	{
+		public void run()
+		{
+			for(int i = 0;i < 10;i++)
+			{
+				inc();
+			}
+		}
+	}
+	//减线程
+	private class Dec implements Runnable
+	{
+		public void run()
+		{
+			for(int i = 0;i < 10;i++)
+			{
+				dec();
+			}
+		}
+	}
+	//加1
+	private synchronized void inc()
+	{
+		j++;
+		System.out.println(Thread.currentThread().getName()+"-inc:"+j); 
+	}
+	//减1
+	private synchronized void dec()
+	{
+		j--;
+		System.out.println(Thread.currentThread().getName()+"-dec:"+j); 
+	}
+	//测试程序
+	public static void main(String[] args)
+	{
+		TestThreads test = new TestThreads();
+		//创建两个线程类
+		Thread thread = null;
+		Inc inc = test.new Inc();
+		Dec dec = test.new Dec();
+		//启动4个线程
+		for(int i = 0;i < 2;i++)
+		{
+			thread = new Thread(inc);
+			thread.start();
+			thread = new Thread(dec);
+			thread.start();
+		}
+	}
+}
+25．数组转换问题。
+	Object[] object  =  new Person[2];
+	Person [] person  =  new Person [3];
+	person  =  (Person [])object;//可以转换
+	int[] i = new int[2];
+	long[] l = new int[3];
+	i = (long[])l;//不可以转换
+26．用socket通讯写出客户端和服务器端的通讯，要求客户发送数据后能够回显相同的数据。 
+	Server.java:源代码
+	import java.net.*;
+import java.io.*;
+
+class  Server
+{
+		public Server()
+		{
+			BufferedReader br = null;
+			PrintWriter pw = null;
+			try
+			{
+				ServerSocket server = new ServerSocket(8888);//建立服务器端
+				Socket socket = server.accept();//监听客户端
+				//得到该连接的输入流
+				br = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+				//得到该连接的输出流
+				pw = new PrintWriter(socket.getOutputStream(),true);
+				//先读后写
+				String data = br.readLine();
+				System.out.println(data);//输出到控制台
+				pw.println(data);//转发给客户端
+			}catch(Exception e)
+			{
+				e.printStackTrace();
+			}
+			finally
+			{
+				try
+				{
+					//关闭读写流
+					br.close();
+					pw.close();
+				}catch(Exception e)
+				{}
+			}
+		}
+		public static void main(String[] args) 
+		{
+			Server server = new Server();
+		}
+}
+Client.java:源代码
+import java.net.*;
+import java.io.*;
+
+class  Client
+{
+	public Client()
+	{
+		BufferedReader br = null;
+		PrintWriter pw = null;
+		try
+		{
+		  Socket socket = new Socket("localhost",8888);//与服务器建立连接，服务器要先启
+		  //得到Socket的输入与输出流
+		  br = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+		  pw = new PrintWriter(socket.getOutputStream(),true);
+		  //先写后读
+		  pw.println("Client:你好！");
+		  String data = null;
+		  while(true)
+		  {
+		  	data = br.readLine();
+		  	if(data!=null) break;
+		  }
+		  System.out.println(data);
+		}catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		finally
+		{
+			try
+			{
+				br.close();
+				pw.close();
+			}catch(Exception e)
+			{}
+		}
+	}
+	public static void main(String[] args) 
+	{
+		Client c = new Client();
+	}
+}
+27．谈谈final, finally, finalize的区别。
+答案：final 用于声明属性，方法和类，分别表示属性不可变,注意：如果是基本类型说明变
+量本身不能改变，如果是引用类型，说明它不能指向其他的对象了。但对象还是可以改变
+的。方法不可覆盖，类不可继承。
+finally是异常处理语句结构的一部分，表示无论是否出现异常总是执行。
+finalize是Object类的一个方法，在垃圾收集器执行的时候会调用被回收对象的此方法，可以覆盖此方法提供垃圾收集时的其他资源回收，例如关闭文件等。
+28．Anonymous Inner Class (匿名内部类) 是否可以extends(继承)其它类，是否可以implements(实现)interface(接口)? 
+    答案：可以继承其他类或完成其他接口，在swing编程中常用此方式。
+29.Static Nested Class 和 Inner Class的不同，说得越多越好(面试题有的很笼统)。 
+    答案：Static Nested Class是被声明为静态（static）的内部类，它可以不依赖于外部类实例       
+被实例化。而通常的内部类需要在外部类实例化后才能实例化。
+
+
+30.&和&&的区别。 
+    答案：&是位运算符，表示按位与运算，&&是逻辑运算符，表示逻辑与（and）.
+另外，＆也可以用于逻辑运算，与＆＆的区别在于＆是非短路运算符，＆＆是短路运算符
+31.HashMap和Hashtable的区别。 
+    答案：HashMap是Hashtable的轻量级实现（非线程安全的实现），他们都实现了Map接口，  
+主要区别在于HashMap允许空（null）键值（key）与空值（value）,由于非线程安全，效率上可能高于Hashtable,Hashtable不允许有空（null）键值（key）与空值（value）。
+32．什么时候用assert? 
+答案：1.4新增关键字（语法），用于测试boolean表达式状态，可用于调试程序。使用方法 assert <boolean表达式>，表示如果表达式为真（true）,则下面的语句执行，否则抛出AssertionError。
+33．GC是什么? 为什么要有GC? 
+答案：GC是垃圾收集的意思（Gabage Collection）,内存处理是编程人员容易出现问题的地方，忘记或者错误的内存回收会导致程序或系统的不稳定甚至崩溃，Java提供的GC功能可以自动监测对象是否超过作用域从而达到自动回收内存的目的，Java语言没有提供释放已分配内存的显式操作方法。 
+34．String s = new String("xyz");创建了几个String Object? 
+答案：两个，一个是对象，一个是对象的引用。
+35．Math.round(11.5)等於多少? Math.round(-11.5)等於多少? 
+答案：Math.round(11.5)==12
+Math.round(-11.5)==-11，总是返回接近0的数。
+36．short s1 = 1; s1 = s1 + 1;有什么错? short s1 = 1; s1 += 1;有什么错? 
+答案：short s1 = 1; s1 = s1 + 1; 有错（s1+1运算结果是int型，需要强制转换类型）
+short s1 = 1; s1 += 1;（没有错，s1==2）
+37.sleep() 和 wait() 有什么区别? 
+答案：sleep是线程类（Thread）的方法，导致此线程暂停执行指定时间（休息），把执行机会给其他线程，但是监控状态依然保持，到时后会自动恢复，时间到了会继续运行。调用sleep不会释放对象锁。
+wait是Object类的方法，对此对象调用wait方法导致本线程放弃对象锁，进入等待此对象的等待锁定池，只有针对此对象发出notify方法（或notifyAll）后本线程才进入对象锁定池准备获得对象锁进入运行状态。
+38．Java有没有goto语句? 
+答案：没有
+39．数组有没有length()这个方法? String有没有length()这个方法？
+答案：数组没有length()这个方法，有length的属性。
+String有length()这个方法。
+40．数组是不是基本类型？
+	答案：不是。
+41．Overload和Override的区别。Overloaded的方法是否可以改变返回值的类型?
+答案：方法的重写Overriding和重载Overloading是Java多态性的不同表现。
+重载Overload是一个类中多态性的一种表现，方法名必需相同,参数列表必需不同.(长度不同或类型不同),与返回值类型没有关系. 构造器也可以重载.方法名和参数列表都相同,只有返回类型不相同则是方法重复定义.编译出错. Overloaded的方法是可以改变返回值的类型。
+重写Override是父类与子类之间多态性的一种表现。如果在子类中定义某方法与其父类有相同的名称和参数，我们说该方法被重写 (Overriding)。子类的对象使用这个方法时，将调用子类中的定义，对它而言，父类中的定义如同被“屏蔽”了。
+42．Set里的元素能重复吗？那么用什么方法区分是否重复?
+    答案：Set里的元素是不能重复的，如果重复就重复的就不加到里面。用iterator()方法来区分      
+重复与否。应该覆盖equals()判断两个Set是否相等。
+
+43.”==”与equal有何区别？
+答案：“==”比较的是内存地址，equal比较的是内容本身。
+44．给我一个你最常见到的runtime exception。
+	答案：IndexOutOfBoundsException 数组越界
+	NullPointerException 空指针异常
+	SystemException 系统异常
+45．error和exception有什么区别?
+答案：Error表示系统级的错误和程序不必处理的异常，我们无法处理它。 
+Exception表示是可以捕捉或者需要程序进行处理的异常。 
+46．List, Set, Map是否继承自Collection接口?
+答案：List，Set是。Map不是
+47．abstract class和interface有什么区别?
+答案：一个只能继承一个抽象类，但却可以实现多个接口。抽象类中可以有也可以没有抽象方法。并且可以定义和常规类一样的变量和方法。而接口中所有的方法都是抽象的，所
+有的变量都是静态不可修改的。
+48．abstract的method是否可同时是static,是否可同时是native，是否可同时是synchronized?
+	答案：都不能。
+49．接口是否可继承接口? 抽象类是否可实现(implements)接口? 抽象类是否可继承实体类答(concrete class)?
+答案：接口可以继承接口。接口间继承（extends）,不能实现（implements）。
+抽象类可以实现(implements)接口，但接口不能实现抽象类。抽象类间也用继承（extends）。
+抽象类是否可继承实体类，但前提是实体类必须有无参的构造函数。
+
+50．启动一个线程是用run()还是start()?有什么区别？
+答案：启动一个线程是调用start()方法，这并不意味着线程就会立即运行，只是进入了可运行状态。直接调用run()方法不会产生线程，而是把它当作普通的方法调用，马上执行。
+51．Constructor是否可被override?
+	答案：不可以，但可以重载。
+52. Class.forName的作用?
+答：调用该访问返回一个类名为指定字符串的类的对象。
+53．文件读写的基本类有哪些？
+		答案：FileInputStream,FileOutputStread,File,IOException等。
+54．写一个冒泡排序的程序。
+		public class Sort
+{
+	     public static void main(String[] args)
+	     {
+		        int[] array = {2,3,4,1,43,432,1,344,234,2,3,43,32,434,3432,43,2432,432,4,43};
+		        int num = 0;
+		        /*
+			       冒泡排续
+		        */
+		        for(int i = 0;i < array.length;i++)
+		        {
+			        /*
+				        每下底一个元素，则调换的次数减一。
+				        注意：j<array.length-i-1,不减一则数组下标越界。
+			        */
+			        for(int j = 0;j<array.length-i-1;j++)
+			        {
+				         int temp = 0;
+				         /*
+					        两两比较若前面的大于后面的则进行调换。
+				         */
+				         if(array[j] > array[j+1])
+				         {
+					          temp = array[j];
+					          array[j] = array[j+1];
+					          array[j+1] = temp;
+				          }
+			         }
+		          }
+		         /*
+			       输出排序后的数组
+		         */
+		        System.out.println("****************已排序的数组********");
+		        for(int i = 0;i < array.length;i++)
+		        {
+			        System.out.print(array[i]+"	");
+			        num++;
+			        if(num == 5)//每行输出5个。
+			        {
+				        System.out.println();
+				        num = 0;
+			        }
+		         }
+	      }
+ }
+55．串行化的注意事项以及如何实现串行化？（Serializable）
+	答案：*******************************
+56．线程的基本概念、线程的基本状态以及状态之间的关系
+	答案：*******************************
+57．线程的同步、如何实现线程的同步？
+	答案：*******************************
+58．几种常用的数据结构及内部实现原理。
+	答案：*******************************
+59．Socket通信(TCP、UDP区别及Java实现方式) 
+	答案：*******************************
+60．Java的事件委托机制和垃圾回收机制
+	答案：*******************************
+61．作用域public,private,protected,以及不写时的区别。
+	答案：private-类可见，不写-包可见
+		protected-包可见，并子类可见   public-都可见
+62．Java的国际化 
+	答案：*******************************
+63．怎样让程序到后台去运行？
+	答案：*******************************
+64．怎么把一个文件中的东西做全文替换。
+	答案：*******************************
+65．ArrayList和Vector的区别？
+	答案：就ArrayList与Vector主要从二方面来说. 
+同步性:Vector是线程安全的，也就是说是同步的，而ArrayList是线程序不安全的，不是同步的 
+数据增长:当需要增长时,Vector默认增长为原来一倍，而ArrayList却是原来的一半。
+66．char型变量中能不能存贮一个中文汉字?为什么? 
+答：是能够定义成为一个中文的，因为java中以unicode编码，一个char占16个字节，所以放一个中文是没问题的。
+67．多线程有几种实现方法,都是什么?同步有几种实现方法,都是什么? 
+答：多线程有两种实现方法，分别是继承Thread类与实现Runnable接口 
+同步的实现方面有两种，分别是synchronized,wait与notify 
+68．垃圾回收机制,如何优化程序? 
+答案：*******************************
+69．float型float f=3.4是否正确? 
+答:不正确。类型不匹配,应该用强制类型转换，如下所示：float f=3.4f;
+70. Java中异常处理机制，事件机制？
+	答案：*******************************
+71.现在输入n个数字，以逗号，分开； 然后可选择升或者降序排序； 
+import java.util.StringTokenizer;
+import java.util.Arrays;
+public class Test
+{
+		public static void main(String[] args)
+		{
+			String s = "2,654,24,6554,3234,3544,666,354,5435,11";
+			StringTokenizer  tok  = new StringTokenizer(s,",");
+			//返回有多少个被分割元素
+			int count = tok.countTokens();
+			int[] result = new int[count];
+			//把分割得到的数字存到数组中去。
+			for(int i = 0;i<count;i++)
+			{
+				String temp = (String)tok.nextElement();
+				result[i] = Integer.parseInt(temp);
+			}
+			//排序
+			Arrays.sort(result);
+			for(int i = 0;i<result.length;i++)
+			{
+				if(i==0)
+				{
+					System.out.print(result[i]);
+					continue;//第一个元素的前面不打印“，”
+				}
+				System.out.print(","+result[i]);
+			}
+			System.out.println();//输出：2,11,24,354,654,666,3234,3544,5435,6554
+		}
+}
+72．金额转换，阿拉伯数字的金额转换成中国传统的形式如： 
+（￥1011）－>（一千零一拾一元整）输出。 
+答案：************************************
+73.当一个线程进入一个对象的一个synchronized方法后，其它线程是否可进入此对象的其它方法? 
+    答案：能，一个对象的synchronized方法只能由一个线程访问。但其他线程可以同时访问这个对象的非synchronized方法 
+74.try {}里有一个return语句，那么紧跟在这个try后的finally {}里的code会不会被执行，什么时候被执行，在return前还是后? 
+    答案：会执行，在return前执行。 
+75．编程题: 用最有效率的方法算出2乘以8等於几? 有C背景的程序员特别喜欢问这种问题。 
+答案：2 << 3 。如果是2的10次方则是：1<<10.
+76.两个对象值相同(x.equals(y) == true)，但却可有不同的hash code，这句话对不对? 
+答案：两个对象的值是否相同，根据的是equals方法，而hash code是由hashCode()方法决定。因此值相同的对象hash code可能不同。 
+77．当一个对象被当作参数传递到一个方法后，此方法可改变这个对象的属性，并可返回变化后的结果，那么这里到底是值传递还是引用传递? 
+    答案：是值传递。Java 编程语言只由值传递参数。当一个对象实例作为一个参数被传递到方法
+中时，参数的值就是对该对象的引用。对象的内容可以在被调用的方法中改变，但对象的引用
+是永远不会改变的。 
+78。编程题: 写一个Singleton出来。
+方式一：醉汉式
+public class Singleton
+{
+private static Singleton test  = new Singleton();//静态的。保留自身的引用。
+//必须是私有的构造函数
+private Singleton(){}
+public static Singleton getInstance()//公共的静态的方法。
+{
+return test;
+}
+}
+方式二：懒汉式
+public class Singleton
+{
+private static Singleton test  =  null;//静态的。保留自身的引用。
+//必须是私有的构造函数
+private Singleton(){}
+public static Singleton getInstance()//公共的静态的方法。
+{
+if(test == null)
+{
+	test = new Singleton();
+}
+return test;
+}
+}
+79.描述一下JVM加载class文件的原理机制?
+	答案：***********************
+80．试举例说明一个典型的垃圾回收算法？
+	答案：***********************
+81．请写一个java程序实现线程连接池功能？
+	答案：***********************
+82．给定一个C语言函数，要求实现在java类中进行调用。
+	答案：***********************
+83．编一段代码，实现在控制台输入一组数字后，排序后在控制台输出。
+	答案：***********************
+84．列出某文件夹下的所有文件； 
+答案：***********************
+85．实现从文件中一次读出一个字符的操作；
+	答案：***********************
+86．列出一些控制流程的方法；
+	答案：***********************
+87．多线程有哪些状态？ 
+答案：***********************
+88．编写了一个服务器端的程序实现在客户端输入字符然后在控制台上显示，直到输入"END"为止，让你写出客户端的程序。
+	答案：***********************
+99．请用java写二叉树算法，实现添加数据形成二叉树功能，并以先序的方式打印出来.
+	答案：****************************************
+100．调用系统命令实现删除文件的操作；
+	答案：****************************************
+101．C++或Java中的异常处理机制的简单原理和应用。 
+答案：当JAVA程序违反了JAVA的语义规则时，JAVA虚拟机就会将发生的错误表示为一个异常。违反语义规则包括2种情况。一种是JAVA类库内置的语义检查。例如数组下标越界,会引发IndexOutOfBoundsException;访问null的对象时会引发NullPointerException。另一种情况就是JAVA允许程序员扩展这种语义检查，程序员可以创建自己的异常，并自由选择在何时用throw关键字引发异常。所有的异常都是java.lang.Thowable的子类。 
+102．Java的接口和C++的虚类的相同和不同处。 
+答案：由于Java不支持多继承，而有可能某个类或对象要使用分别在几个类或对象里面的方法或属性，现有的单继承机制就不能满足要求。与继承相比，接口有更高的灵活性，因为接口中没有任何实现代码。当一个类实现了接口以后，该类要实现接口里面所有的方法和属性，并且接口里面的属性在默认状态下面都是public static,所有方法默认情况下是public.一个类可以实现多个接口。 
+103．垃圾回收的优点和原理。并考虑2种回收机制。 
+答案：Java语言中一个显著的特点就是引入了垃圾回收机制，使c++程序员最头疼的内存管理的问题迎刃而解，它使得Java程序员在编写程序的时候不再需要考虑内存管理。由于有个垃圾回收机制，Java中的对象不再有“作用域”的概念，只有对象的引用才有“作用域”。垃圾回收可以有效的防止内存泄露，有效的使用可以使用的内存。垃圾回收器通常是作为一个单独的低级别的线程运行，不可预知的情况下对内存堆中已经死亡的或者长时间没有使用的对象进行清楚和回收，程序员不能实时的调用垃圾回收器对某个对象或所有对象进行垃圾回收。回收机制有分代复制垃圾回收和标记垃圾回收，增量垃圾回收。 
+104．描述一下你最常用的编程风格。
+	答案：****************************************
+105．heap和stack有什么区别。 
+答案：栈是一种线形集合，其添加和删除元素的操作应在同一段完成。栈按照后进先出的方式进行处理。 
+堆是栈的一个组成元素
+106.Static Nested Class 和 Inner Class的不同，说得越多越好(面试题有的很笼统)。 
+答案：Nested Class （一般是C++的说法），Inner Class (一般是JAVA的说法)。Java内部类与C++嵌套类最大的不同就在于是否有指向外部的引用上。
+注： 静态内部类（Inner Class）意味着1创建一个static内部类的对象，不需要一个外部类对象，2不能从一个static内部类的一个对象访问一个外部类对象 
+107．JAVA类实现序列化的方法？在collection中，实现比较要实现什么样的接口？
+	答案：java类实现序列化需要实现java.io.Serializable接口。
+	在collection中实现比较要实现java.lang.Comparable接口或java.util.Comparator接口。
+NHN CHINA公司笔试题
+1．在这写代码
+Var array1 = [10,20];
+Var array2 = [8,5];
+Var result = array1.add(array2);
+Alert(result);
+输出结果18，25
+
+2．解析dom tree
+<html>
+	<body>
+		<input type=”text” name=”username” value=”请填写姓名”>
+</body>
+</html>
+
+3．要求按按钮后my word 向下移10px
+Function fun(){
+	//在这填写代码
+}
+<style>
+	#name{
+		Color:red,
+		Height:100px,
+		Weight:110px
+        Left:50px;
+        Top:50px;
+}
+</style>
+<div id=”name”>
+	My word
+</div>
+<input type=”button” onclick=”fun()”>
+
+4．给出一段代码去替代addEventListener和attachEvent
+Function myAttachEvent(o,evt,fun){};
+
+-----------Alert(o.Xclient+o.Yclient);
+
+myAttachEvent(document,’click’,onClick);
+5．用js写段代码，当按按钮后自动在div层中添加组建
+<javascript>
+	//在这填写代码
+	
+</javascript>
+<div  /*todo something*/>
+<select  /*todo something*/></select>
+</div>
+<input type=”button” id=”bu” onclick=”fun(/*todo something*/)” value=”add….”>
+
+6．当选中后背景色改变
+
+<javascript>
+	//在这填写代码
+	
+</javascript>
+<body>
+<select  /*todo something*/>
+	<option value=”red”>red</option>
+<option value=”gray”>gray</option>
+<option value=” blue”>blue</option>
+</select>
+</body>
+
+7．给出一些js代码，说出他们适用于什么浏览器
+	//这写代码忘了
+(1)var xhr = new XMLHttpRequest();
+.
+.
+.
+.
+8．说出一下4个this中哪个this与其他三个不同
+	//这写代码忘了
+
+
+
+
+9,编写一个函数(addAll()),实现如何结果:
+addAll(1,8);  //结果:9
+addAll(5,8,-7);  结果:6
+
+
+10,  结果相同的语句
+
+var o = {};
+  Var o = [];
+  Var o = //;
+  Var o = new Object();
+  Var o = new Array();
+  Var o = new reg(); //这个不正确,忘怎么写的了
+
+11.邮箱的正则表达式
+12,实现数字每1秒增加10个
+//这里写Js代码
+<input type=”text” id=”num” value=”0”>
+<input type=”button” onclick=”addNum()”/>
+           T4game 呈天游软件公司笔试题目
+  大部分时J2SE 的知识点。
+1.	JAVA的基本数据类型有哪几种？String是基本数据类型吗？它们之间的区别是什么？
+2.	怎样将数值类型转化为数字类型（Interger、Double）怎样将数字类型转化为字符串类型？怎样取得小数点的前两位，并且进行四舍五入？
+3.	JSP的内置对象有那些，他们的方法是什么？
+4.	Servlet的生命周期是什么？
+5.	Socket（TCP、UDP）和JAVA中的通信有什么却别，它们是怎样实现的？
+6.	启动一个线程的方式run()还是start（）？
+7.	当一个数据类型的长度超过了long型，请设计一种数据结构来存储这个数据。
+8.	内部类是以什么方式实现的？
+9.	JAVA三大特征是什么？
+
+10 你希望公司能给你什么回报？
+11.你进入公司后将为公司创造怎样的价值？
+12.你玩过什么游戏，到几级了？
+13.游戏的分类有那些？
+14.你不喜欢和什么样的人在一起工作？
+15.你了解什么历史典故？可以谈一个吗？
+
+
+
+笔试
+基础部分
+A．面向对象
+1.	谈谈你对多态的理解。
+2.	你是如何使用public,private,protected,default这些访问修饰符的？
+3.	final修饰引用类型和原始类型时有什么不同？
+4.	java中是值传递还是引用传递？
+5.	请你例举出两个使用重载的原因。
+6.	你在编程时，何时使用组合，何时使用继承？
+7.	请你分析一下JAVA的加载过程。
+8.	接口可以包含字段吗？如果可以，它们默认的修饰符是什么？
+9.	static的方法和一般的方法有什么区别?
+10.	低聚合低耦合，还是高聚合低耦合？
+B．异常处理
+1.	Error和Exception继承自哪个类？
+2.	在子类中覆盖父类的方法，如何处理父类方法声明的异常。
+3.	例举一下你经常使用的异常类。
+C．类型问题
+1.	RTTI是什么？
+2.	Class.forName(“类名”)与直接调用构造方法新建对象有什么不同？
+3.	boolean.class与Boolean.type有什么不同？
+4.	java在何时获得对象的确切类型？
+D．数据结构
+1.	数组和容器的区别？
+2.	方法的返回值可以是数组吗？
+3.	java一共有几种容器，例举出来。
+4.	ArrayList和LinkedList的底层实现有什么不同？
+5.	常用的几种排序算法的时间复杂度？
+6.	用java代码实现一个双向链表。
+E．多线程:
+1.	JAVA中是单进程多线程还是多进程多线程？
+2.	列举出一种出现死锁的情况？java是否解决了死锁问题？
+3.	如何解决死锁问题？
+4.	一个对象被锁定之后，其他的方法是否可以访问这个对象？
+JSP/SERVLET：
+1.	jsp的内置对象及其作用
+2.	servlet的生命周期
+3.	转发和重定向的区别
+4.	Filter和Servlet的区别。
+5.	何时使用转发何时使用重定向
+JDBC：
+1.	实现一个数据库的链接。
+2.	简述链接数据库的步骤。
+数据库：
+1.	连接查询，视图
+2.	数据表的设计（一对一，一对多，多对多）
+3.	为什么会发生事务死锁，解决方法？
+
+上机题：
+1.	设计一个程序，在页面输入SQL语句查询数据库，并在另一个页面显示查询结果
+2.	写程序判断一个IP地址是否合法？
+3.	写程序获取一百个不重复的随机数。
+4.	计算字符串“23743298”基数位的和，偶数位的和。
+
+
+
+
+爱嘉途公司笔试题
+
+主要做出境旅游网站，用的是RUBY ＯＮ RAILS。关于RUBY ＯＮ RAILS只是在上课听老师稍提出了一下。主考官很和善，主要问的是：1：说出PROTOTYPE里的一个类或方法（这是AJAX里的一个框架，但是为RUBY ＯＮ RAILS而产生的，后来被AJAX延用了）
+2：WEBLOGIC的内部架构及相关知识。
+3：平时的SVN怎么用的？还用过其它的插件没有？
+4：除JAVASCRIPT外你还知道哪种动态脚本语言？
+5：HASH的工作原理
+6：怎么遍历一个树形数组？
+
+北京安托系统集成有限公司笔试题
+1.#include<filename.h>和#include"filename.h"有什么区别
+2.const有什么作用？
+3，4记不清了
+5.c++改错题
+6.C++语言里面的String类，让重写普通构造函数，拷贝构造函数，析构函数，还有一个改值函数
+7.双向链表里面，在P后面的值之前插入s，用C语言写出逻辑代码
+8.用VB语言实现冒泡排序
+9.将“销售部”里面工资小于600的员工的工资提高%10；写出SQL语句。
+10.五段英译汉。
+北京东华合创数码科技股份有限公司
+笔试试卷（Java 语言部分）
+姓名：                
+联系方式：                                
+
+1. which won’t cause a compiler warning or error？(多选)
+a) float f = 1.3;
+b) char c = ‘a’;
+c) byte b = 257;
+d) boolean b = null;
+e) int i = 10;
+
+
+2. 请选择下面这段代码的输出结果?
+int i = 0;
+switch (i) {
+case 0:
+System.out.println("zero");
+case 1:
+System.out.println("one");
+case 2:
+System.out.println("two");
+break;
+case 3:
+    System.out.println("three");
+}
+
+1) zero
+2) zero,one
+3) zero,one,two
+4) zero,one,two,three
+
+
+3.  public class Test{ 
+   private static int j=0; 
+   public static boolean methodB(int k){ 
+     j+=k; 
+    return true; 
+   } 
+   public static void methodA(int i){ 
+    boolean b; 
+    b=i>10&methodB(1); 
+    b=i>10&&methodB(2); 
+     } 
+    public static void main(String args){ 
+     methodA(0); 
+17) 
+     } 
+     } 
+   what is the value of j at line 17? 
+
+1）0 
+2）1 
+3）2
+4）3
+
+
+4. If we execute the code below with “java Test Red Green Blue”, what is the result? 
+
+public class Test{ 
+public static void main(String[] args){ 
+   		String  foo=args[1]; 
+   		String  bar=args[2]; 
+   		String  baz=args[3]; 
+    } 
+} 
+what is the value of baz? 
+A. baz has value of "" 
+B. baz has value of null 
+C. baz has value of "Red" 
+D. baz has value of "Blue" 
+E. baz has value of "Green" 
+F. the code does not compile 
+G. the program throw an exception
+
+
+5. 请选择下面这段代码的输出结果?
+1)public class Test{ 
+2)public static void main(String[] args){ 
+3) class Foo{ 
+4) public int i=3; 
+5) } 
+6)Object o=(Object)new Foo(); 
+7) Foo foo=(Foo)o; 
+8)System.out.println(foo.i); 
+9) } 
+10) } 
+
+A.compile error at line 6 
+B.compile error at line 7 
+C.compile error at line 8 
+D.print out 3
+
+
+6. 
+int index=1; 
+  String[] test=new String[3]; 
+  String foo=test[index]; 
+  what is the result of foo? 
+   A. ""   B.null    C.throw a Exception   D.not compile
+
+
+7. 下面的五个选择中哪两个描述是正确的？（多选）
+  A. static inner class requires a static initializer 
+  B. A static inner class requires an instance of the enclosing class 
+  C. A static inner class has no reference to an instance of the enclosing class 
+  D. A static inner class has accesss to the non-static member of the other class 
+  E. static members of a static inner class can be referenced using the class 
+     name of the static inner class
+
+
+8. 请选择下面这段代码的输出结果? 
+class A{ 
+   public int getNumber(int a){ 
+    return a+1; 
+    } 
+    } 
+   class B extends A{ 
+     public int getNumber(int a, char c){ 
+     return a+2; 
+    } 
+    public static void main(String[] args){ 
+     B b=new B(); 
+     System.out.println(b.getNumber(0)); 
+    } 
+   }       
+   
+  A. compilation succeeds and 1 is printed 
+  B. compilation succeeds and 2 is printed 
+  C. An error at line 8 cause compilation to fail 
+  D. An error at line 14 cause compilation to fail
+
+
+9. class ExceptionTest{ 
+  public static void main(String args[]){ 
+  	try{ 
+methodA(); 
+} 
+  	catch(IOException e){ 
+System.out.println("caught IOException"); 
+  	} 
+  	catch(Exception e){ 
+  		System.out.println("caught Exception"); 
+   	} 
+  } 
+}
+If methodA() throws a IOException, what is the result?
+
+
+If we change the sequence of catch,what’s the result？
+
+
+10. 请写出下面这段代码的输出结果?
+public class Test{ 
+public static void main(String[] args){ 
+   StringBuffer a=new StringBuffer("A"); 
+   StringBuffer b=new StringBuffer("B"); 
+   operate(a,b); 
+   System.out.pintln(a+","+b); 
+} 
+public static void operate(StringBuffer x, StringBuffer y){ 
+    x.append(y); 
+    y=x; 
+} 
+} 
+
+
+
+11. 请写出下面这段代码的输出结果?
+class Shape{
+  Shape(int i){
+    System.out.println("This is Shape" + i);
+  }
+}
+public class Circle extends Shape{
+  static Shape s1 = new Shape(1);
+  Shape s2 = new Shape(3);
+  Circle(int i){
+    super(i);
+    System.out.println("This is Circle" + i);
+  }
+
+  public static void main(String args[]){
+    Circle c1 = new Circle(2);
+  }
+}
+
+12. 数组有没有length()这个方法? String有没有length()这个方法?
+
+
+北京伽文信息技术公司笔试题
+
+请写出十种以上的java开源软件，并用一句话说明功能
+
+写出你认为做为一名程序员必须要阅读的三本书
+
+简述abstract class和 interface的区别
+
+构筑工具ant使用的缺省xml文件名是什么
+
+简述什么是SOA
+
+简述什么是工作流
+
+XML在java中有哪些解析方法
+
+说说下面语句是否有错误，并指出错在哪里
+1)
+import java.util.List;
+...
+  List list = new List();
+
+2)
+public class MyString extends String{
+  ......
+}
+
+3)
+public class MyServlet extends HttpServlet{
+	private map myInput;
+	public void dGet(HttpServletRequest request,HttpServletResponst response)throws Exception{
+		myInput.put(request.getParameter("command"));
+	}
+}
+
+4)
+public class MyData extends MyData1,MyData2{
+	......
+}
+
+WAR包中jar一般放在哪个目录中
+
+简述JUnit和单元测试的作用
+
+GOF的设计模式中提到多少中设计模式，分为哪三种类型
+
+你任务软件开发人员的哪个素质最重要，沟通能力、技术能力、业务需求能力
+
+尽可能多的列出一个企业“机构管理”应具备哪些功能
+
+列举权限管理中有哪些表、表关系、各表哪些功能
+
+
+
+孙文中总结笔试题
+1 写出十种开源框架，用一句话说明他们的作用。
+2 什么是SOP。
+3 什么是工作流。
+4 多少种设计模式，三种分类。
+5 找错，都很简单
+  有一道题认真就行
+	Class MyServlet extends HttpServlet {
+	Private map myMap;
+	Public void doPost (req,res) throws Exception {
+		myMap.put(req.getParamater(“name”));
+}
+}
+以上有哪些错误，还会问到用hashTable和hashMap，和线程安全的问题。
+6 设计简单的权限控制的表和结构(user,role,menu,function)。
+	（写汽车租赁的就行，然后他问的时候给他讲解一下）
+7 你认为在“部门管理”中有哪些功能
+8 jUnit相关（谈的时候会问到一些，使用的版本，怎么用，什么时候用，居然连标签首字母大小写都问了，哈哈）
+   剩下的都是一些简单的东西，忘记了
+   单独问的时候，问到了关于js构建对象有几种方式，是什么，json用得是什么格式的
+
+这家感觉考得比较基础，技术部人问的时候相关的比较多。
+
+
+
+畅子伟总结
+
+名词解释：Ajax和AOB
+描述什么环境下用一下三种模式 
+单例模式：确保某一个类只有一个实例，而且自行实例化并向整个系统提供这个实例。
+代理模式：
+工厂模式：有时候需要单例或者创建时隐藏过程细节或者加一些扩展，比如日志记录等，需要用工厂模式.
+你经常去的有关IT技术的网站有哪些，它们各有什么特点？
+改错
+A.
+public class Mylist extends list{
+  ......
+}
+设计一个JUnit单元测试
+（这题用简单的Helloword实现就行了 判断字符串中是否包含空字符）
+6.tomcat的缺省端口号是什么？修改端口号在那个目录下的那个文件中？
+
+张强总结：
+车源找货源，或是货源找车源，以一放为用户设计需求分析，用文字或是图。
+
+
+卿佐晨总结：
+找错,多处错误
+public class MyFile1 implements Runnable {
+
+	public void run() {
+		while(true){//死循环不知道算不算错
+			try {
+				FileReader fr = new FileReader(new File("a.txt"));//这具体的文件路径记不清了,可能有错
+				String line = fr.readLine();//FileReader没有readLine()
+				System.out.println(line);
+			} catch (FileNotFoundException e) {
+				
+				e.printStackTrace();
+			}
+			sleep(1000);//该处应为Thread.sleep(1000);
+		}
+	}
+}
+
+北京伽文信息技术有限公司     地址：北京市海淀区中关村东路123号 都市网景大厦B座1401  电话：01062525698
+
+
+路线：知春路翠宫饭店南或者北三环联想桥向北路西
+北京润乾软件笔试题
+问答题
+1. 排序方法有多种包括有：冒泡排序，插入排序，快速排序、选择排序。请用任何一种语言或伪代码（最好用java语言），写出选择排序。
+2. 你熟悉javaScript语言吗？如果table表格的属性中有个id，如果id=‘td1’，请问你如何获取第4行第3个单元格对象？
+3. 数组有没有length()这个方法? String有没有length()这个方法？
+4. 假如你知道北京润乾公司，你如何解说明白给陌生人找到本公司确切的地址：
+1)   要求用文字叙述
+2)    要求用图形绘画出来
+5. 在Servlet中完成正确接受中文及向显示页面响应的代码。试写一段程序 ，用来接收从SERVLET用POST和GET方法传来得中文参数
+public void service (HttpServletRequest request,HttpServletResponse response)
+{
+…………………………………..
+}
+6.基于J2EE的Web应用的目录结构，以及各目录下的部署文件
+7.完成数据库查询：
+  员工表：（emp表）
+empId	empName	empSal（员工薪水）
+1	ABC	1200
+2	BCD	2000
+  薪水级别表：（sal表）
+minSal	maxSal	salClass（薪水级别）
+1000	1500	1
+1500	2200	2
+问题：请查询出员工号为“1”的薪水级别？
+8. 假如有5个信封中，分别装有5，10，20，50，100，每个信封中只能装有一张，每个人只能持有一个信封，且只知道自己信封中钱数，当你知道自己持有的信封为10元时，你会和别人的信封交换吗？为什么？
+
+复试时的面试题（技术）
+1.谈谈struts的作用
+2.谈谈ajax的作用
+3.你了解那些设计模式？说说在什么情况下必须使用你了解的设计模式
+4.说说软件的开发周期
+5.谈谈arraylist与hashtable的区别
+
+
+孟庆欢总结面试题
+1.站在客户角度怎么去理解MVC模式和单例模式
+2.Spring和EJB有什么区别？各有什么优点？
+3.ArrayList和hashtable有什么区别？
+4.谈谈你的项目经验和项目中的角色
+5.Ajax的优点是什么？
+
+
+
+
+
+北京润乾软件技术有限公司    地址：北京市海淀区上地信息路19号商服中心402室  邮编：100085  010-51295366  网址：http://www.runqian.com.cn 公交车站：上地环岛   华联商场旁边
+北京市东方爱婴咨询面试题
+吴安民总结（2009-2-19）  
+
+1.	写出三个你常用的技术论坛，并写出用户名。如果你要搜索不懂的技术会选择哪个搜索引擎？怎样搜？(比如，你不知道怎么把正在运行的java写的动态网站静态化，在搜索引擎里该怎么写？写出关键字。)
+2.	你最喜欢的和你最熟悉的编程语言是什么？为什么？
+3.	写出你熟悉的编码方式和命名规范。
+4.	英文翻译题。(多线程的问题)
+5.	一个应用程序的开发环境是windowsXP+eclipse+Tomcat，生产环境是linux+Tomcat,在开发环境下正确，但在生产环境下出现异常，请问你用什么样的方式来检查？
+6.	如果给你一个任务，开发800客服电话，要求记录通话记录和回访记录，你决定用怎样的工作流程来完成？
+7.	一个网站有免费会员跟付费会员，他们都能积分，积分都能抽奖，这些信息都放在一个会员表里面，积分的回报率不同，如果你遇到这样的情况你该怎么解决？
+8.	脑筋急转弯：有由8根火柴组成的两个菱形，只动两根使其变成一个菱形。
+        
+
+                                                                              
+北控三兴笔试题
+
+1.	写出jsp的9各内置对象
+2.	一道javascript题：
+<% var a;
+for(int i= 0;i<5;i++){a=a+2;}%>
+<script>
+  
+  <%=a>;
+  alert(--a-1);
+</script>
+….还有一点记不清楚了
+反正也是alert()出一个值
+
+3.	用数据库语句写出sqlserver和orcal的左外连接语句
+4.	递归的算法求出n的阶乘
+5.	m,n的最大公约数
+6.	一个员工表，字段有员工号，员工姓名，员工的年龄。写一个SQL语句，要求删除
+年龄大于30，并且姓李的员工信息。 
+7.	web.xml中都要配置那些信息，试举例说明。
+8.	解释数据库中关系,事务,和事务的原子性
+9.	给出父类子类算结果的程序题：
+class A {
+   new A(){
+   System.out.print(“2”);
+}
+} 
+
+class B extends A{
+   public B(){
+ System.out.print(“b”);
+}
+} 
+class C{
+  public static void mian(String[] args){
+  A  a = new B();
+  a = new B();  
+}
+}
+请写出程序运行的结果：
+
+
+ 
+10.	猴子有100个香蕉,到家有50米的距离,猴子每走一米就要吃一个香蕉,一次最多只能带50只香蕉,问猴子最多能带回家多少香蕉?请详细给出如何搬的。
+
+技术面试：
+针对简历上上的技术发问，问的都不算很深。问问你做过的项目，项目中所用到的技术。你负责的那块是怎么做的。
+
+ 特别还问道，会不是使用oracle做管理。。。
+
+ 对数据库要求好像蛮多，怀疑要招dba，，，只是猜测。。。。
+
+博思永拓笔试题
+1、找出程序中的错误，并修改
+public class Test
+{
+	public void aMethod(String str)
+	{
+		System.out.println("Hello" + str);
+	}
+public static void main(String[] args)
+{
+	String s = "Tom";
+	Test.aMethod(s);
+}
+}
+
+2、找出程序中的错误，并修改
+interface Test1
+{
+	void show();
+}
+interface Test2
+{
+void show();
+}
+interface Test3 extends Test1,Test2
+{
+	Deom d = new Deom();
+}
+
+public class Test implements Test3
+{
+	public void show()
+	{
+		Deom d=new Deom();
+	}
+}
+3、试图编译运行下面的代码会发生什么情况
+public class Q {
+public static void main(String argv[]){
+int anar[]=new int[]{1,2,3};
+System.out.println(anar[1]);
+}
+}
+博彦科技笔试题
+尹俊总结：
+一．选择题：
+我记不清了，选择题有5-6道，有两到是计算机基础方面的题，不是编程题。都是用英语问的，选项也是英语
+判断数据类型 和 int有关的（选择题，也是用英语问的）
+
+二．	填空题：
+Int sum ( int a[],int n ) 
+{ 
+if (n>0) return___________________________; 
+else return________________________; 
+}
+
+
+三．问答题：
+String 和StringBuffer的区别    （用英语问的）
+abstract class和interface有什么区别  （用英语问的）
+list set map 之间的关系  （用英语问的）
+黑盒测试和白盒测试     （用英语问的）
+单元测试jutil有关的（用英语问的）
+数组有没有length()这个方法? String有没有length()这个方法？（英语问的）
+
+
+
+幺雪娜总结：
+应聘博彦科技有限公司软件测试实习工程师面试：
+
+笔试内容：（半个小时）
+专业知识部分：
+1.xcopy  F:\  backup  E:\
+以上这句命令实现的是什么功能
+2.ps/2的键盘接口不能识别，分析可能的原因
+3.显示器如果不亮了，分析可能的原因
+
+4.英文Windows操作系统下如何正确显示中文字符
+5.你是如何理解工作组和域的概念的（选作题）
+必做题还有一道，抱歉想不起来了。
+
+英文水平部分：
+1.有关MS/DOS的一段文章（英译汉）
+2.有关MSN的有关文章（汉译英）
+
+面试部分（半个小时）
+以下是能想起来的：
+1.四级成绩
+2.做的项目中遇到过什么问题，你是如何解决的
+3.自认为自己是一个办事认真，有责任心的人么
+4.如何看待加班这个问题
+5.在使用计算机时发生的一些小问题，能自己解决么
+6.能否保证上班时间
+7.如果给你个任务，你在自己看不懂的情况下你会怎么做
+8.假如让你测试别人做的软件，你会怎么去测
+9.能否用英文描述自己的功能模块
+10.以前是否自己写过文档
+
+希望能对以后的学员有所帮助
+
+
+
+
+
+长峰科技面试总结
+王涛总结：
+（注意：以下问题他们会根据你的回答继续提问）
+1、请做一个自我介绍。
+2、请谈谈你最熟悉的技术？ 
+3、你为什么从上一家单位辞职？
+4、解释一下Spring
+5、谈谈Struts
+6、描述JSP和Servlet的区别、共同点、各自应用的范围
+7、Oracle数据库存储过程的特征
+8、你熟悉的Web容器有哪些，如何在tomcat中配置数据库连接池、如何处理以get方式提交过来的字符编码
+9、对面向对象的理解？
+10、项目中用到什么框架？
+11、项目中用什么方式进行的数据库操作？
+12、用什么做的页面显示，JavaScript的相关问题。
+13、面向对象的三大特征，封装，继承，多态在什么地方用过。
+14、介绍一下MVC模式
+15、你是否熟悉Webwork简单介绍一下
+16、如何整合Struts和Spring，如何整合Spring和Hibernate
+17、hibernate的优缺点分别是什么
+18、请说出struts框架的几大组件？
+19、Spring是什么？优点是什么？
+20、什么是AOP，AOP的作用是什么？
+21、你是否熟悉iBatis
+22、谈一下hibernate中的多对多关系，以及他是怎么实现的
+23、Weblogic的热发布
+24、EJB容器提供的服务
+25、Dom与Sax相比它们的优缺点是什么?
+
+
+
+创娱天下笔试题
+1.阐述你对mvc的理解，结合框架？
+2.列举同步和异步在实际项目中的应用？
+3.Abstract和interface的实际应用？
+4.常用设计模式，结合框架？
+5.java比.Net；和php的优势？
+6．阐述所用到的框架的优缺点？
+7．打印自然数N以内的所有质数？
+8．阐述你对单点登录的理解？
+姓名：___________         日期：___________
+创原天地Java笔试题目
+1.	下列结论不正确的是（5分）cd
+A． call by value不会改变实际参数的数值
+B． call by reference能改变实际参数的参考地址(reference)
+C． call by reference不能改变实际参数的参考地址(reference)
+D． call by reference能改变实际参数的内容
+2.	检查以下代码，并选择答案（5分）c
+public  class  Test{
+public void  printStr(final  String str)
+{
+  	   str =str+”！”
+}
+public static void main(String args[])
+{
+Test  test=new Test();
+Test.printStr(“Hello world”);
+}
+     
+A:执行打印出”Hello world!”
+B: 执行期间抛出异常
+C:编译不通过
+D:以上答案都不是
+3.	下面关于变量及其范围的陈述哪些是不对的（5分）	b	
+A. 实例变量是类的成员变量。 
+B. 实例变量用关键字static声明。 
+C. 在方法中定义的局部变量在该方法被执行时创建 
+D. 局部变量在使用前必须被初始化
+4.	请写出如下代码的运行结果(5分)
+　　public class Test extends TT{ 
+　　　　public static void main(String args[]){ 
+　　　　Test t = new Test("Tom"); 
+　　　} 
+　　　public Test(String s){ 
+　　　　super(s); 
+　　　　System.out.println("How do you do?"); 
+　　　} 
+　　　public Test(){ 
+　　　　this("I am Tom"); 
+　　　} 
+　　} 
+　　class TT{ 
+　　　　public TT(){ 
+　　　　　System.out.println("What a pleasure!"); 
+　　　　} 
+　　　　public TT(String s){ 
+　　　　　this(); 
+　　　　　System.out.println("I am "+s); 
+　　　　} 
+}
+5.	请写出如下代码的运行结果（5分）
+　class Aclass{ 
+　　　void go(){ 
+　　　　System.out.println("Aclass");
+　　　} 
+　　} 
+　　public class Bclass extends Aclass{ 
+　　　void go{ 
+　　　　System.out.println("Bclass"); 
+　　　} 
+　　public static void main(String args[]){ 
+　　　	Aclass a=new Aclass(); 
+　　　	Aclass a1=new Bclass(); 
+　　	a.go(); 
+　　	a1.go(); 
+　　}
+6.	请写出如下代码的运行结果（5分）
+class Userful {
+public void f() {System.out.println(“Now in f  method of super class”);}
+public void g() {System.out.print(“Now in g method of super class”);}
+}
+class MoreUserfuld extends Userful {
+		pubic void f() {System.out.println(“Now in f method of derived class”);}
+pubic void g() {System.out.println(“Now in g method of derived class”);}
+public void u() {}{System.out.println(“Now in u method of derived class”);}
+public void v() {}{System.out.println(“Now in v method of derived class”);}
+pubic void w() {}{System.out.println(“Now in w method of derived class”);}
+}
+public class Test {
+public static void main(String[] args) {
+    		Userful[] x = { new Userful(), new MoreUserful() };
+			x[0].f();
+    		x[1].g();
+    		((MoreUserful)x[1]).u();
+		}
+}
+	
+7.	请说明Java中访问修饰符public、protected、private和缺省修饰符修饰数据成员和成员方法时所限定的访问范围（10分）
+   在同一类中    同一包中   不同包中      同一包的子类中  不同包子类中
+public     yes     yes            yes              yes          yes
+protected   yes     yes            no              yes           yes
+package    yes     yes            no              yes           no
+private     yes     no             no              no            no
+编写程序：创建一个链表（ArrayList或LinkedList），并把如下字符串（red，green，yellow，black，white，blue，cyan，grey）增加到链表中，然后用迭代子在控制台打印输出链表中的所有元素（20分）
+8.	 public class test {
+ public static void main(String[] args) throws Exception{
+ 
+  ArrayList al= new ArrayList();
+ al.add(“red”); al.add(“green”); al.add(“yellow”); …..
+  Iterator it = al.iterator();
+  while(it.hasNext()){
+    system.out.println(it.next());
+  }
+9.	请用Struts完成以下描述的功能（20分）
+用户从IE客户端输入字符串Hello，并提交给HellAction，在Action中给Hello转换成”hello world!” 并显示给用户 
+
+下面为处理流程的配置文件
+ 
+  				
+<action    path      = "HelloWorld"    type = "hello.HelloAction"    name     = "HelloForm"    scope     = "request"   validate   = "true"  input     = "hello.jsp”>
+<forward name="SayHello" path="sayhello.jsp" />
+</action>
+
+表单HelloForm.java
+public Class HelloForm{
+private  String content;
+
+public String getContent(){
+return this.content;
+}
+
+public void setContent(String content){
+		this.content = content;
+}	
+}
+请实现hello.jsp 、HelloAction.java 、sayhello.jsp
+      Hello.jsp:
+ <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
+  <head><title>Simple jsp page</title></head>
+  <body>
+<form action=”HelloWorld.do” name=”HelloForm”method=”post” > 
+  <input id=”msg” name=”msg” type=”text”/>   
+  <input type=”button” value=”submit” onclick=”submit()”/>
+</form>
+  </body>
+</html>
+
+      HelloAction.java:
+public class HelloWorld extends Action
+{ public ActionForward execute(ActionMapping actionMapping, ActionForm actionForm, HttpServletRequest servletRequest, HttpServletResponse servletResponse) throws Exception
+{   String msg= servletRequest.getParameter(“msg”);
+    If(msg.equals(“Hello”)){
+servletRequest.setAttribute("msg", "hello World ");
+         return actionMapping.findForward("SayHello ");
+    }
+}
+}
+Sayhello.jsp:
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
+  <head><title>Simple jsp page</title></head>
+  <body>
+    <font>${msg}</font>
+  </body>
+</html>
+10.	现在有一名为UserTab.java的 POJO对象，请编程这个对象的数据写入到数据库对应的表USERTAB中（20分）
+表UERTAB的表结构如下
+ 
+public class  UserTab
+{
+	private java.lang.Integer userID
+	private String userName;
+	privtae String address;
+	
+     public UserTab(java.lang.Integer userID)
+	{
+		this.userID=userID;
+	}
+	
+	public String getUserName()
+	{
+		return this.userName;
+}
+
+public void setUserName(String userName)
+{
+	this.userName = userName;
+}
+
+public String getAddress()
+{
+	return this.address;
+}
+
+public void setAddress(String address)
+{
+	this.address=address;
+}
+
+public java.lang.Integer getUserID()
+{
+	return this.userID;
+}
+
+
+public void setUserID(java.lang.Integer userID)
+{
+	this.userID =userID;
+}
+
+}
+
+请实现方法insertUser(int userID,String userName,String address)通过UserTab.java的 POJO对象将用户信息插入到数据库的表USERTAB中
+public  class UserDAO{
+private Session session
+public UserDAO(Session session){
+	this.session =session;
+}
+//请实现此方法
+public void  insertUser(int userID,String userName,String address){
+		UserTab user=new UserTab();
+        user.set userID(“userID”);……
+Configuration cfg = new Configuration().configure();
+		SessionFactory sf = cfg.buildSessionFactory();
+		Session session = sf.openSession();
+		Transaction tx = session.beginTransaction();
+		session.save(user);
+		tx.commit();
+	}
+}
+
+}
+11.	写作题目：请描述一个项目的开发过程（20分）
+    项目过程
+
+1、项目启动
+1）、项目组成立（公司成员、客户成员）
+2）、制定项目预期目标
+3）、制定项目计划周期
+4）、建立好项目组成员沟通机制
+
+2、需求调研
+1）、创建调研计划、协调调研时间
+2）、收集客户资料，获取客户需求
+   所有的资料都需要保留一份，资料中存疑的需要及时询问
+3）、编写需求文档
+   重点描述出客户的业务流程和性能要求。
+   采用Word、Excel、Rose等形式。
+4）、需求变更记录
+5）、确定开发环境和运行环境
+6）、扩展性要求
+7）、与旧系统的接驳要求。
+8）、估算出项目工作量
+
+本阶段需要一套需求管理系统来进行需求的管理。
+
+   本阶段的需求文档也是用户测试的依据。
+
+3、系统设计/详细设计
+一个系统可以分为基础平台和应用模块两部分。
+1）、选择基础平台，无论是采用第三方平台还是自行开发平台，都需要深入了解，查看是否符合要求。
+2）、应用模块设计（针对业务流程）
+3）、中间件的采用或自行开发，需要深入了解。
+4）、用户界面的设计
+   如果用户界面设计完毕并确认，即可初步写出用户使用手册、管理员使用手册。
+5）、变更记录
+
+本阶段的系统设计是集成测试的依据。
+
+4、程序开发
+创建开发任务计划表、开发计划日程表
+1）、优先编写测试用例
+2）、按照编码规范编写代码
+3）、按照文档注释规范注释
+    以上形成开发文档。
+
+   本阶段需要一套版本管理系统。
+
+   本阶段的测试用例也是单元测试的依据。
+   如果能做到，最好每日构建。
+
+5、测试
+   本阶段需要一套Bug管理系统，形成需求、设计、开发、测试互动。
+
+1）、编写测试计划和测试方案
+2）、功能测试
+   单元测试、集成测试
+3）、性能测试
+   集成测试、压力测试
+
+如果能做到，最好能进行自动化测试。 
+如果能做到，做分析统计工作。
+
+最后形成测试报告。
+
+6、试用、培训、维护
+本阶段需要解决：
+1）、解决异地修改和公司修改的同步问题。
+2）、用户测试中的Bug修改问题，按照级别分为
+   a）、程序Bug
+   b）、设计变更
+   c）、需求变更
+尽量按照a b c的顺序来进行修改，尽量避免b、c级的修改。
+
+最后形成安装手册、维护记录。
+大唐笔试题
+简答题：
+1、String与stringBuffer的区别，你在什么情况下使用这两个类？
+2、abstract class与interface的区别，分别在什么情况下运用？
+3、你常见的设计模式有哪些？写出工厂模式及单例模式
+4、xml解析方式有哪些？各有什么有缺点？
+5、手写一个排序算法。
+6、简述hibernate工作机制及常用类及方法
+7、private与final修饰符
+8、面向对象的特征有哪些方面？
+9、java中跳转的实现方式。之间的区别?
+10、运行时异常与一般异常的区别？
+11、你对事物控制的理解？
+12、运用匿名内部类启动一个线程，并打印出字符串”Running“。
+13、MVC的各个部分都有那些技术来实现?如何实现? 
+14、ArrayList、Vector、HashMap、Hashtable中那些是线程安全的。HashMap、Hashtable那个可以有空的key及value
+
+数据库方面：
+
+sql语句：
+exists与in执行效率上那个更好，为什么？
+
+union与union all方面（具体问题记不太清了）
+
+delete、drop、Truncate方面（具体问题记不太清了）
+---------------------------------------------------------------------------------------------------------------------------------
+表A 字段 m ，n， x， y，其中m,n为number类型,x为字符类型，y为日期类型
+
+1、创建表A并且m不能重复，n初始值为0，m、n、y不能为空 
+
+2、修改表A把n的初始化值改为1
+
+3、更新表A中m值在5到15之间的数据，将n该为”datang“，y为系统当前日期。
+
+4、假设y为员工的生日，查询出生日相同人的x。
+当乐网笔试题
+1.	说说 vector ，arraylist 和linkedlist的异同。
+2.	接口和抽象类的区别，开发中应该如何选择。
+3.	设有n 种不同面值的硬币，各硬币的面值存于数组T［1:n］中。现要用这些面值的硬
+币来找钱。用编程的方式实现找k 分钱，所需要的最少的硬币数。
+4.	写出一个购物车的接口，只要写出方法和参数即可。
+5.	如果你快要下班时，接到上次下达的一个任务，不知道任务的重要程度，而你又和同学约好了去聚会，你给怎么办？
+6.	写一个你认为效率最高的数组排序方法。
+定谊科技面试题
+
+基础题 基本都是蓝点发122到里面的几道
+其他基础题是： 
+1.DOM事件冒泡用JAVASCRPIT代码实现
+ 
+2.DOM节点数量用JAVASCRPIT实现
+
+问答题：
+
+1.一个5升水桶一个3升水桶怎么计算出4升水？
+2.12个小球 其中只有一个小球重量 可能轻可能重，用天平不能超过三次 找到这个重量不一的小球？
+3.冒泡排序法
+
+选择题是英文的我没记
+东方国信面试题总结
+那人事好象是姓马，女的。我办入职是她办的。(不好意思。只能提供这些了)
+
+下边是我面试东方国信的题，没有机试。可能有出入，我是凭印象写的
+1.有两个表：
+表userlist			
+telephone	rent	accounts	
+10041	aaaa	12.05	
+10042	aaaa	22.12	
+10043	ccc	33	
+10044	bbb	25.01	
+			
+表charger			
+telephone	fee01	fee02	fee03
+10041	11	22	9
+10042	12	10	10
+10043	24	33	12
+			
+写sql语句，查询结果为：
+telephone	user(int)	rent	accounts	fee01	fee02	fee03	
+10041	2	aaaa	34.17	23	32	19	
+10043	1	ccc	24	24	33	10	
+10044	1	bbb	25.01				
+
+2.叙述js中class的创建，以及js中怎么样扩展property文件。
+3.还有一个是一段代码，找错。是关于运算优先级的。
+
+4.有如下html
+<html>
+<table>
+    <tr onClick=”insertTr()”>
+    <td></td>
+</tr>
+</table>
+
+<html>
+如果在点击后，添加一个<tr>
+5.写出在js中常用的导入文件。
+6.写一个函数，实现如下功能：
+1元钱用5角，2角，1角，5分，2分，1分，可以有多少种组合方式。
+例2分可以有两种组合方式，2个1分和1个2分。1分有一种组合方式，1个1分。函数只需返回组合方式的个数，不需显示具体怎样组合的。
+
+恩世教育投资有限公司笔试题
+一、选择题
+1．public class ExSuper {
+	String name;
+	String nick_name;
+	public ExSuper(String s, String t) {
+		name = s;
+		nick_name = t;
+	}
+	public String toString() {
+		return name;
+	}
+}
+public class Example extends ExSuper{
+	public Example(String s, String t) {
+		super(s, t);
+	}
+	public String toString(){
+		return name+" a.k.a "+nick_name;
+	}
+	public static void main(String[] args) {
+		ExSuper a=new ExSuper("First","1st");
+		ExSuper b=new Example("Second","2nd");
+		System.out.println("a is "+a.toString());
+		System.out.println("b is "+b.toString());
+	}
+}
+A 编译时会出现异常。
+B 运行结果为：
+				a is First
+				b is second
+C运行结果为：
+				a is First
+b is Second a.k.a 2nd
+D运行结果为：
+				a is First a.k.a 1nd
+b is Second a.k.a 2nd
+2.abstract class MineBase{
+	abstract void amethod();
+	atatic int i;
+	}
+Public class Mine extends MineBase {
+	public static void main(String argv[]){
+		int[] ar=new int[5];
+		for(i=0;i<ar.length;i++){
+		System.out.println(ar[i]);
+		}
+}
+}
+A 打印5个0。                           B编译出错，数组ar[]必须初始化。
+C 编译错误， Mine 应声明为abstract。    D 出现IndexOutOfBoundes的例外。
+3.public class Foo{
+	public static void main(String[] srgs){
+	 try{
+		return;}
+		finally{System.out.println(“Finslly”);
+	     }
+   }
+}
+A 程序运行正常，但不输出任何结果。  B 程序正常运行，并输出“Finall”。
+C 编译能通过，但运行时会出现一个例外D因为没有catch语句块，所以不能通过编译。
+4.以下sql语句正确的是：
+A select studentid,depart,count(*) from student group by depart;
+B select studentid,count(*) from student;
+C select depart,max(avg(age)) from student group by depart;
+D select tudentid,avg(score),max(score) from score group by studentid;
+5.<jsp:useBean>标签中scope的范围由小到大是
+A page session request application B application page request session
+C application request session page D page request session application
+6.要让不同用户共享一个JavaBean的对象则该对象的范围应该设置为：
+A session  B page  Capplication Drequest
+7.关于自定义标签的使用不正确的是：
+A 必须在JAP页面中使用<@taglib>   B必须经过web.xml映射
+C 必须存在.tld文件                 D自定义标签的类必须是public的。
+8.关于外键约束不正确的是：
+A 外键约束与唯一键约束不能同时存在与一个字段
+B 子表外键列的值必须在主表参照列值的范围内，或者为空
+C 主表外键值被子表参照时，主表记录不允许被删除
+D 外键参照的是主表的主键或者唯一键
+9.下面的类，正确的描述是：
+	public class Example{
+		public static void main(String[] arge){
+			static int x[]=new int[15];
+			system.out.println(x[5]);
+		}
+	}
+A 编译错误 B编译正确，执行错误 C输出0  D输出是null
+
+10.关于Oracle中存储过程与函数错误的是：
+A 函数必须定义返回类型   B存储过程不能定义返回类型
+C函数可以用out类型参数   D存储过程可以用in out类型参数
+11．关于Servlet错误的是：
+A 在MVC模式中Servlet一般用作控制器
+B Tomcat5.0中Servlet必须通过web.xml映射访问
+C Servlet中可以直接使用内置对象out调用out.println()进行输出，而不用声明
+D Servlet中可以跳转到另一个Servlet
+
+二、简答题
+1.Vector与ArrayList有什么区别，在Java.util包中还有哪两个类有类似区别？
+2.response.sendRedirect()与<jsp:forward>都能跳转，它们有什么区别？
+3.<jsp:include>与<%@ include %>都能包含有什么区别？
+4.存在学生表，课程表，分数表三个表：
+Create table student(studentid number(10)primary key,name 
+varchar2(30),depart varchar2(20);
+create table lesson(lesson number(10)primary key,lessonname
+varchar2(20));
+create table score(studentid number(10)foreign key references
+student(studentid),lessonid number(10) foreign key references
+lesson(lessonid),score number(3));
+写一个SQL语句求出考试科目名称为“Java语言”的科目中分数为前10名的学生
+的id，姓名，专业。
+5.struts框架应用了那些设计模式？
+6.请阐述spring IOC思想。
+7阐述hibernate的延迟加载机制。
+8.设置本用户每小时第15，30，59分钟都将目录~aint/info/log及目录下所有文件
+大小记录到日志文件/tmp/chechdir.log中。
+9.查看所有oracle用户的进程有那些。
+10.列出目录/usr/lib下所有文件，包括子目录及子目录下文件。
+11.查找目录/var/adm下是否有文件messages，如果有的话同时列出文件大小，日期等
+属性。
+
+三、编程题
+1.一个字符串中可能包含a-z中的多个字符，字符也可能重复，例如：
+String data=“aabcexmkduyruieiopxzkkkasdfjxjdsds”；
+写一个程序，对于给定一个这样的字符串求出字符串出现次数最多的那个字母以及出现的次
+数（若次数最多的字母有多个，则全部求出）。
+2.输入一个正整数，若该数能用几个连续正整数之和表示，则输出所有可能的正整数序列。
+3有两个字符串str1和str2，写一个函数实现在str1中查找str2的初始位置。要求
+不区分大小写。
+
+四，编程题
+
+1.	公司工资查询系统正待开发，现有状况是：使用OurSQL数据库（假想），已建立了数据库employees_system,其中的一个表salary_table的结构如下：
+SSN char(10)	Em_name char(10)	Age int(4)	Em_salary float(8)
+1	Wangli	32	3500.80
+……	……	……	……
+数据库的驱动也已经装入，它的jdbc驱动程序类为gov.edu.oo.oursql.Driver,创建连接的字符串为“jdbc:oursql://”+serverName+”/”+databaseName,数据库服务器OurSQL驻留在本地。
+要求用Java语言编写一个应用程序，能够实现如下功能：
+（1）使用JDBC API建立到OurSQL数据库的连接。
+（2）执行查询操作，打印出工资大于2000元的员工的名字和工资，并按工资多少排序。
+（3）给年龄大于20的员工加薪，没人加200元。
+五，智力题
+1.	有一位警长，抓了三个逃犯。现警长决定给它们一次机会。他拿出3顶黑帽子，两顶白帽子，然后往这三个逃犯头上每人戴一顶帽子，每个逃犯只能看到另外两个逃犯的颜色，不能看到自己帽子的颜色，而且不能进行通讯，不能进行讨论，只能靠自己的推理推出来，如果猜出来，放一条生路，否则处死。
+警长先问第一逃犯，结果第一逃犯猜错了，被杀掉了。
+警长问第二个逃犯，结果还是猜错了，同样被杀掉了。
+警长再问第三个逃犯，结果第三个逃犯猜对了。
+说明一下，每个逃犯再回答问题时，其他逃犯是听不到的。
+为什么第三个一定能猜中，请你给出答案。
+
+
+
+北京恩世教育投资有限责任公司  地址：朝阳区夏家园半岛国际公寓底商二层  电话： 84411199 网址 : http://www.cnnuage.com   
+路线：城铁十号线太阳宫站C出口斜对面 
+
+方标电信笔试题
+1．	Java有几种内存？每一种内存有什么功能？哪一种内存速度快？
+2．	对java5.0范型的新特性
+3．	怎样手动的调用垃圾回收器
+4．	线程有几种方式
+5．	Java INO的工作过程
+6．	Java开源的软件，使用过什么版本。。在你的项目中你用到了哪些。你的项目能达到什么级别（大概意思）
+
+大概意思
+1.	spring有几部分组成
+2.	依赖注入和范型的区别
+3.	hibernate中对几个主流的数据库（oracle,mysql,sqlserver）的分页的实现
+
+
+三个任选一题
+1．	将一个二位的字符转换为十六进制数
+2．	用线程实现一个计数器
+3．	实现一个服务器。。。。。。。。。。。。。。。记不好了
+
+
+
+
+
+1，Java体系中有哪几种内存结构，分别用来存取什么？谁的速度块？
+2，Java的垃圾回收机制，手动回收的方法有哪几种？
+3，Java5.0 后引入了泛型，谈谈你对它的理解？
+4，谈谈你对Java4.2后的NIO的理解。
+5，线程的新技术。
+6，spring的几大模块？
+7，spring中的DI与泛型的区别和相似之处？
+8，Hibernate 在oracle Mysql数据库分页中所用到的几个关键词？
+9，把一个2位字符转换成一个16进制数，并打印出。
+10，写出一个非阻塞的计数器。
+11，把windows任务管理器中的CPU曲线图变成一条直线。
+
+方正笔试题
+
+1、java中普遍运用了类和对象的概念，谈一下你对对象的认识
+
+2、关系型数据库中的3nf、4nf、5nf、bcnf哪个在实际开发中更常用,说一下你的认识
+
+(这道题我不会，都没听说过，题目大概是这个意思)
+
+3、解释一下瀑布模型、迭代极限模式
+(这个也不会 。。)
+
+4、写一个电话号码的正则表达式，按照 区号--座机号--分机号的格式写
+
+5、假如让你设计一个查询的方法public  string [] chaxun(Object obj) 
+如果查询不到的话你觉得返回一个什么值合适 A、String[0]  B、null
+
+(这道题后来项目经理给我讲了、应该选A，说是一种设计模式的体现)
+
+6、比较以下两种算法 谁优谁略
+    A、 for(Iterator i=a.iterator();i.hasnext();){dosomething(i.next())}
+    B、
+   while(i.hasnext())
+{
+   dosomething(i.next());
+}
+
+(这道题我也答错了 应该是选A ,因为A产生的i是临时变量，出了for循环就没有了 不会占用过多内存....我想到临时变量的问题了，但是内存的问题没有想到)
+
+
+7、写代码运行结果的题
+class a
+{
+    public void say()
+    {
+      System.out.print("hello  ");
+    }
+
+    public void name()
+    {
+      System.out.print("jerry");
+    }
+}
+
+class b extends a
+{
+    public void say()
+    {
+      System.out.print("byebye  ");
+    }
+
+    public void name()
+    {
+      System.out.print("tom");
+    }
+}
+
+
+public class mym{
+  
+    public static void main(String [] args)
+    {
+       a aa=new b();
+       b.say();
+       b.name();
+    }
+
+}
+
+写出运行后的结果
+
+
+8、给你几个表 然后让你根据条件写sql语句，是关于银行账户的，sql语句都不难，都是做一些表之间相互关联的查询操作，但是给出的表比较多，给了6、7个表，乍一看比较乱
+
+给出的表包括 ：
+银行表--（字段）分行名称，分行地址
+客户表--(字段)客户姓名，客户住址
+账户表--(字段)账户号,金额。。
+还有一些表 都是相关的 实在记不清了
+
+题目是:1、查询所有在北京分行有账户的客户姓名
+       2、查询所有在北京的分行名称
+       3、查询所有在北京有业务的客户
+
+
+9、List a=new Vector()；
+   List a=new Vector()；
+哪个更好 请说明原因
+
+
+10、本公司用的是struts+hibernate的框架，结合本公司的框架结构，说说struts在请求响应的全过程（可以用图表示）
+
+11、结合自己的开发经验 谈谈你认为开发时应该编写什么样的代码
+
+就这些了 还有一些c语言的题，题目代码很多，里面涵盖了指针，时间有限我也没有细看
+         另外还有一些网络的题 关于协议什么的
+
+
+
+
+方正简答题
+1.不用new怎么创建对象？
+
+2、java中的引用和C#中的指针最大的区别是什么？
+
+3、你在什么时候用到xml的文件，说说你的实现方法？
+
+4、简述什么是ajax？
+
+飞速康盛笔试题
+1.
+写一个方法，入参为一个字符串，判断该字符串中是否有大于3的个数字，大于3个返回True,否则False,如"1a2b3c4d"返回Ture，"1a2b3ccc"返回False。
+
+
+2.
+还有一些理论题
+1》PreparedStatement和Statement的区别
+
+3.
+题库里的题，基础的没多少，好像有后面的框架里提到的EJB方面的题，可以多留意一下。
+4.
+写一个方法：将作为入参传入的字符串进行分析，验证其中是否有非法字符（非法字符串固定的，中间用，号分割比如"!,@,#,$"）
+5.
+选择题： 全是关于数据库的 给你一些SQL语句  从其中选择出  SQL 语句 执行效率最高的 以及 最浪费资源的 和 最慢的 
+6.简答题： 
+1）  一个类 被finaly修饰  代表这个类怎么样了？
+2 ）谈谈struts 框架的优缺点？
+3） 页面间如何传递数据？
+4） 优化代码：  for(i=0;i<v.size();i++){}
+其中  v 代表 一个 vector
+7.编程题： 
+1） 写一个javabean出来
+2）设计一个方法 入参是2个字符串 第一个代表 用户名   第2个代表 非法字符  
+ 如果用户名中包含 非法字符 就返回 false 否则返回 true
+工商银行2008年笔试试题
+一、50道公务员类型题单选（50分）
+（总体感觉比公务员题简单）
+　　几道实事题、 几道工行背景题（考你：工行电话银行号码95588，工行引进三家国际战略投资高盛集团、安联集团、美国运通公司）  
+　　几道法律题（很简单，不用复习）) 
+几道经济题（都特基本，不会的知识点可以用排除法搞定） 
+二、两篇英文阅读10个单选（10分） ,
+　　难度相当于四级考试前两篇阅读难度（比较简单） 
+（监考很松，见到不少同学在考场内偷用文曲星查单词） 
+三、案例分析（20分）
+　　英国巴林银行倒闭案 .
+　　两个问题：巴林银行内控管理哪里有漏洞？给予我们什么启示？（大概意思吧）
+四、命题作文（20分）  
+　　《如何打造有核心竞争力的银行》 800字以上
+光声世纪信息科技笔试题
+值传递和引用传递的区别
+解释方法的重载
+列举常见的集合类并加以说明
+用new关键字创建对象，然后构造方法抛出异常，请问
+该类对象是否创建，为什么？
+反射机制有什么作用？
+JavaScript对表格进行排序
+编程
+判断某一天是否为周末，以2008为例子
+格式为20080212
+显示输出结果
+Servlet 的生命周期
+ArrayList ,LinkList的区别
+怎么在javaScrip模拟一个java中的类
+Try()
+{
+Return;
+}
+Catch()
+Finally{
+}
+上面return 会执行吗？
+如果执行是在 finally 之前还是 之后
+用数组实现一个栈，当溢出时栈的大小自动加倍
+说出常用xml文件解析常用的工具 
+hashMap 和 hashTable 的区别
+
+人民币大小写的转换（耿老师讲过）
+抽象类的用法（是耿老师讲的例子圆面积和矩形面积）
+ArcGis实现地图的放大和缩小
+
+【GIS 的技术题】
+
+北京光声世纪信息科技发展有限公司	地址：北京市海淀区复兴路甲38号嘉德公寓1301-1306 	招聘苗小姐电话：88212485-1801 	网址：www.topgis.com.cn 
+16日上午9点半
+
+
+北京广聚福企业商务服务有限公司笔试题
+1.Arralist,Vector,LinkedList的区别
+2.java中的GC指的是什么，有什么作用
+3.抽象类与接口有什么区别
+4.两个对象值相同，但却可以有不同的hashcode，这句话对不对？
+5.String string = new String("xyz") 创建了几个StringObject？
+6.写一个单例模式出来
+7.Hibernate中Session是如何工作的
+8.ajax的应用在那些方面？
+广通信达笔试题
+1.请你分别画出OSI的七层网络结构图和TCP/IP的四层结构图。
+
+2.请问什么是IP地址？按照网络规模的大小，一般把网络地址分成向类？子网掩码的作用是什么？
+
+3.请你简述VPN和使用的协议。
+
+4.请问什么是SNMP？
+
+5.请用SQL语句创建一个数据库用户并加以说明，数据库可以为ORACLE/MYSQL/SQLSERVER。
+
+6.有如下三张表
+表名：student（学生表）
+编号	sno	varchar
+姓名	name	varchar
+		
+表名：course（课程表）
+编号	cno	varchar
+名称	name	varchar
+表名：course-selection（选课表）
+课程编号	cno	varchar
+学生编号	sno	varchar
+1）针对student表，写出典型的插入，更新，删除SQL语句。
+2） 请用SQL语句查出没有选择课程名为“大学物理”的所有学生信息。
+
+7.请说明在linux中如何打开和关闭Telent服务。
+
+8.你是root系统管理员一个Unix程序的属性如下：
+ -rwxr-xr-x 1 svradm users 43505 Jul 26 17：43 socketserver这个socket服务器需要绑定810 tcp端口，如果要让svradm用户运行这个程序，如何进行设置？
+
+9.一个J2EE标准的WEB应用中，在应用发布的根目录下一定要存在的目录名是___________,当前应用所用到的类文件必须放到_____________目录下，所用到的类库文件（一般为.jar文件）必须放到________________ 目录下。、
+10.有如下的类定义：
+public class Parent{
+	int change(){......}
+}
+class Child extends Parent{
+	①
+}
+以下语句那些可以填在①处？
+public int change(){......}
+int change (int i){......}
+private int change(){......}
+abstract ubt change(){......]
+String change(){......}
+String change(int i){......}
+
+11.var a=10;var b=20;var c=10;alert(a=b);alert(a==b);alert(a==c)结果是什么？
+
+12.有如下的HTML定义：
+<form name="a">
+	<select name="a" size="1" onchange="_sel(this)">
+		<option value="a">1</option>
+		<option value="b">2</option>
+		<option value="c">3</option>
+	</select>
+</form>
+请问，如何通过Javascript脚本获取表单<select>域的选择部分的文本并输出？
+
+13.现在有一个用户软件系统需要你来升级，在升级操作中你需要注意那些问题？如果在升级过程中发生的错误，你该如何处理？
+
+15.请说明在一个软件开发项目中，如果合同里开发要求界定不够清晰，导致客户不断在项目进行过程中提出需求变更，你的能任项目经理对比一直妥协，并作了大量变更开发，你接手该项目的时候，用户的继续这样要求你，项目验收项目已经滞后，你作为项目负责人将怎么面对？同时提出你的建议？
+国富商通面试题
+尹传辉总结：
+
+1.J2EE是什么？有那些标准？J2EE分层。
+2.JAVA服务器的核心是什么？
+3.写一段JDBC连接数据库的代码，CONNECTION最后要关闭。
+4.数据库表之间有那些关系？写出两表之间的等值连接代码？
+5.只有一个JSP页面，要求查询数据库的表，并且把显示结果显示在JSP页面上，要用到STRUTS和HIBERNATE。
+6.写一个STRUTS和HIBERNATE都需要生成什么文件，都起什么作用？
+7.如何把数据库中的表生成一个XML文件？
+8.说一下STRUTS的工作原理。
+9.HIBERNATE需要多复习一下，面试中问的比较多
+10.SVN版本控制问题。
+
+
+尹俊总结：
+
+1 介绍一下j2ee技术
+2 struts是如何实现web层开发的
+3 ajax的主要作用,及其特点
+4 struts是如何处理*.do的
+5 hibernate是如何实现对持久层管理的
+
+其它的都是由这几个主要问题引出来的,不一定问到什么.
+
+
+王光明总结：
+
+没问其他知识，全部都是三大框架以及展开的知识
+给一个用户查询功能，将查询结果在同一个页面现实并将查询结果排序。
+要求用到三大框架SSH，口述三大框架在实现这个功能时候所取的作用，工作流程以及相关配置信息，如果实现这个功能并口述主要的代码。
+主要知识点有SQL查询语句，HQL，框架的配置信息，如何相互配合使用。问题比较深刻。
+
+
+
+吴琼总结：
+
+首先是了解一下个人信息，然后问工作经验和项目经验。（顺便提一下，项目经验很重要，几乎所有的面试都会问项目经验。）
+接着问了一道大题：说说使用ssh框架的好处。在我回答完了之后他接着追问Hibernate中的实体类的配置文件以及以部门和员工为例怎么配置一对多的映射。
+然后还问了一下在项目中怎么样调用Hibernate。（答案就是先拿sessionfactory,再拿session,后面的。。。。。。）
+最后问了一下HQL语句。
+
+
+
+                                                 
+国富通信息技术有限公司  
+地址：北京市经济技术开发区荣华中路11号  中国国际电子商务大厦5层  电话： 67800300  网址：http://www.cofortune.com.cn/
+
+路线：坐地铁5号线到刘家窑下，坐公交652到万源街西口（亦庄管委会）下车即是 
+
+1.	简答jsp和servlet的联系和区别
+2.	web service 名词解释：
+3.	SOAP,UDDI,WSDL解释
+4.	EJB规范规定EJB中禁用的操作有哪些？（答出三道四点即可的满分）
+答案：答：1.不能操作线程和线程API(线程API指非线程对象的方法如notify,wait等)，2.不能操作awt，3.不能实现服务器功能，4.不能对静态属生存取，5.不能使用IO操作直接存取文件系统，6.不能加载本地库.，7.不能将this作为变量和返回，8.不能循环调用。
+5.	Oracle分页查询语句，假设表名为table，查处21到40页的数据
+6.	在weblogic中如何制定内存的大小，如何进行ssl的配置与客户端的认证配置？
+7.	说明servlet的生命周期
+8.	java中RMI和CORBA的区别
+答案：1、定义接口：
+rmi自己定义接口（interface）
+corba生成idl代码，然后使用idlj -fall name.idl生成接口和几个类文件
+
+2、启动服务：
+rmi启动的是rmiregistry (port)默认1099
+corba启动的是tnameserv
+
+3、实现的继承类：
+rmi extends UnicastRemoteObject
+corba extends 运行idlj时 生成的_NameImplBase 
+
+4、实现类的rebind
+rmi可以直接rebind 如：Naming.rebind("rmi://localhost/meeting",meetingserver);
+corba需要先调用init（）如：
+ORB orb=ORB.init(avgs,null);
+MOTDImpl impl=new MOTDImpl(motdFile); 
+orb.connect(impl); 
+org.omg.CORBA.Object objRef=
+orb.resolve_initial_references("NameService");
+NamingContext ncRef=NamingContextHelper.narrow(objRef);
+NameComponent nc=new NameComponent(motdService,"");
+NameComponent[] path=new NameComponent[]{nc}; 
+ncRef.rebind(path,impl);
+
+这里corba就要麻烦很多了
+
+5、客户端调用corba的调用跟实现类的绑定差不多如：
+ORB orb=ORB.init(avgs,null); 
+org.omg.CORBA.Object objRef=
+orb.resolve_initial_references("NameService");
+NamingContext ncRef=NamingContextHelper.narrow(objRef); 
+NameComponent nc=new NameComponent("MessageOfTheDay","");
+NameComponent path[]=new NameComponent[]{nc} ;
+org.omg.CORBA.Object motdObj=ncRef.resolve(path);
+MOTD motdRef=MOTDHelper.narrow(motdObj);
+System.out.println(motdRef.getMOTD());
+rmi只要lookup就可以了 
+
+总的来说其实rmi和corba都差不多，都是桩和框架，两者相互竞争，但是在java中都可以相互调用。这归功于rmi_iiop.
+海辉集团Sql数据库笔试题
+1.	触发器的作用
+2.	什么是存储过程？用什么来调用？
+3.	索引的作用？他的优缺点是什么？
+4.	什么是内存泄露？
+5.	维护数据库的完整性和一致性，你喜欢用存储过程还是喜欢自写业务逻辑你？为什么？
+6.	什么是事务？什么是锁？
+7.	什么叫视图？游标是什么？
+8.	为管理业务信息建立3个表：
+S(S#,SN,SD,SA)S#,SN,SD,SA分别代表学号，学员姓名，所属单位，学院年龄
+C(C#,CN) C#,CN分别代表课程编号，课程名称
+SC(S#,G#,G) S#,G#,G分别代表学号，所选课程编号，成绩
+（1）	使用标准sql嵌套语句查询所选课程名称为“税收基础”的学员姓名和学员学号
+（2）	使用标准sql嵌套语句查询选修课程编号为“C2”的学员姓名和所属单位
+（3）	使用标准sql嵌套语句查询选修不课程编号为“C5”的学员姓名和所属单位
+（4）	查询选修了课程的学员人数
+（5）	查询选修课程超过5们的学员学号和所属单位
+
+中国航空综合技术研究所笔试题目
+1.	简单介绍一下XMLHTTP,WEBSERVICE的特点和作用。
+2.	接口和抽象类的区别
+3.	简述面向对象的概念以及他的特征
+4.	介绍页面传值的几种方法及其优缺点
+5.	软件开发及其作用
+6.	简述一下反射
+7.	介绍一下对sqlserver，oracle和mysql的熟练程度。
+8.	简单介绍一下设计模式
+9.	都有什么持久层技术，你最擅长的是那一种？
+10.	什么是依赖注入、反转控制和AOP；
+11.	struts1.2和struts2.0的区别
+12.	简单介绍一下你使用tomcat。Websphere和weblogic的心得
+13.	简述一下工作流开发的使用经验
+14.	简单介绍一下J2EE体系架构下的软件快速开发平台的认识
+15.	描述一下你所用到的SOA
+16.	描述一下已在开发和实施项目过程中所掌握的业务。
+17.	简述一下eclipse插件开发心得.
+好帮手在线笔试题
+一．5道选择题  读程序写运行结果（863题库类似）
+例如 对try catch语句的掌握
+finally语句
+
+二．5道程序改错题
+1.
+abstract?class?Name?{
+???private?String?name;
+???public?abstract?boolean?isStupidName(String?name)?{}
+}
+大侠们，这有何错误?
+答案:?错。abstract?method必须以分号结尾，且不带花括号。
+2.
+public?class?Something?{
+???void?doSomething?()?{
+???????private?String?s?=?"";
+???????int?l?=?s.length();
+???}
+}
+有错吗?
+答案:?错。局部变量前不能放置任何访问修饰符?(private，public，和protected)。final可以用来修饰局部变量
+(final如同abstract和strictfp，都是非访问修饰符，strictfp只能修饰class和method而非variable)。
+3.
+abstract?class?Something?{
+???private?abstract?String?doSomething?();
+}
+这好像没什么错吧?
+答案:?错。abstract的methods不能以private修饰。abstract的methods就是让子类implement(实现)具体细节的，怎么可以用private把abstract
+method封锁起来呢??(同理，abstract?method前不能加final)。
+4.
+public?class?Something?{
+???public?int?addOne(final?int?x)?{
+???????return?++x;
+???}
+}
+这个比较明显。
+答案:?错。int?x被修饰成final，意味着x不能在addOne?method中被修改。
+5.
+public?class?Something?{
+???public?static?void?main(String[]?args)?{
+???????Other?o?=?new?Other();
+???????new?Something().addOne(o);
+???}
+???public?void?addOne(final?Other?o)?{
+???????o.i++;
+???}
+}
+class?Other?{
+???public?int?i;
+}
+和上面的很相似，都是关于final的问题，这有错吗?
+答案:?正确。在addOne?method中，参数o被修饰成final。如果在addOne?method里我们修改了o的reference
+(比如:?o?=?new?Other();)，那么如同上例这题也是错的。但这里修改的是o的member?vairable
+(成员变量)，而o的reference并没有改变。
+6.
+class?Something?{
+????int?i;
+????public?void?doSomething()?{
+????????System.out.println("i?=?"?+?i);
+????}
+}?
+有什么错呢??看不出来啊。
+答案:?正确。输出的是"i?=?0"。int?i属於instant?variable?(实例变量，或叫成员变量)。instant?variable有default?value。int的default?value是0。
+7.
+class?Something?{
+????final?int?i;
+????public?void?doSomething()?{
+????????System.out.println("i?=?"?+?i);
+????}
+}
+和上面一题只有一个地方不同，就是多了一个final。这难道就错了吗?
+答案:?错。final?int?i是个final的instant?variable?(实例变量，或叫成员变量)。final的instant?variable没有default?value，必须在constructor?(构造器)结束之前被赋予一个明确的值。可以修改为"final?int?i?=?0;"。
+8.
+public?class?Something?{
+?????public?static?void?main(String[]?args)?{
+????????Something?s?=?new?Something();
+????????System.out.println("s.doSomething()?returns?"?+?doSomething());
+????}
+????public?String?doSomething()?{
+????????return?"Do?something?...";
+????}
+}
+?看上去很完美。
+答案:?错。看上去在main里call?doSomething没有什么问题，毕竟两个methods都在同一个class里。但仔细看，main是static的。static?method不能直接call?non-static?methods。可改成"System.out.println("s.doSomething()?returns?"?+?s.doSomething());"。同理，static?method不能访问non-static?instant?variable。
+9.
+此处，Something类的文件名叫OtherThing.java
+class?Something?{
+????private?static?void?main(String[]?something_to_do)?{????????
+????????System.out.println("Do?something?...");
+????}
+}
+?这个好像很明显。
+答案:?正确。从来没有人说过Java的Class名字必须和其文件名相同。但public?class的名字必须和文件名相同。
+10．
+interface??A{
+???int?x?=?0;
+}
+class?B{
+???int?x?=1;
+}
+class?C?extends?B?implements?A?{
+???public?void?pX(){
+??????System.out.println(x);
+???}
+???public?static?void?main(String[]?args)?{
+??????new?C().pX();
+???}
+}
+答案：错误。在编译时会发生错误(错误描述不同的JVM有不同的信息，意思就是未明确的x调用，两个x都匹配（就象在同时import?java.util和java.sql两个包时直接声明Date一样）。对于父类的变量,可以用super.x来明确，而接口的属性默认隐含为?public?static?final.所以可以通过A.x来明确。
+
+三．6道填空题
+  1.面向对象的特征：
+  2.MVC的三个核心核心部件：
+  3.XML文档的解析方法：
+  4.写出在实际开发中经常运用到哪些设计模式，写出三个：
+  5.一道关于UML的图形举例
+  6.JSP的9个内置对象，写出其中的四个
+
+四．5个问答题
+  1.作用域public private protected，及其不写时候的区别？
+
+  2.JSP中静态include和动态include的区别？
+
+  3.类变量和局部变量的区别？
+ 
+  4.一道JavaScript程序题，要求能够弹出对话框提示当前多选的是那个对话框
+
+  5.应用服务器有哪些？
+六．2道程序题
+  1.SQL语句，两个表一个用户表，一个用户所对应的订单表
+  两个表以申请单号相互关联
+
+  写出4个SQL语句
+  问题是对两个表的同时操作，增删改查的操作
+
+  2.用循环语句打印
+  *      * 
+  **     *
+  ***    *
+  ****   * 
+  *****  * 
+  ****** *
+  ********
+北京华路时代信息技术有限公司
+——JAVA测试题目——
+Section A:JavaScript HTML试题:
+1，	使用javascript脚本函数init初始化表单（formCustomize）中的一个单选下拉列表（language），language是下拉菜单的内容，以及设置缺省被选择项目（值）。
+//javascript代码
+var  lanages = {};
+languages[“ cn ”] = {value : “Chinese” , text : “中文” };
+languages[“ en ”] = {value : “English” , text : “英文” };
+languages[“ fr ”] = {value : “Fence” , text : “法文” };
+/**
+  Select是下拉菜单的文档对象
+  defaultValue是缺省被选择值
+*/
+function setup(select,defaultValue){
+		//清空下拉菜单内容
+		for(var i = select .options .lengths – 1 ; i>=0 ; i--)
+		//删除下拉菜单内容
+     ①_____________________________________
+     for( var i in languages)
+		//获取下拉菜单项目内容数据
+		②______________________________________
+     //建立下拉菜单项文档对象
+     ③______________________________________
+		//将下拉菜单项文档对象加入下拉菜单里面
+		④_______________________________________
+}
+for( var i = 0 ;i<select.options.length){
+		//设置下拉菜单缺省值
+		if(defaultValue == select.options[i].value){
+			⑤_______________________________________
+			break;	
+}
+}
+//初始化设置下拉菜单language
+function init(){
+		//获取下拉菜单language文档对象
+		var select = ⑥_____________________________________
+//下拉菜单的缺省值
+var defaultValue = “Chinese”;
+setup(select,defaultValue);
+}   
+//HTML  代码
+<body onload=”init()”>
+<form name=”formCustomize”>
+A.
+select.remove(i);                                            
+B.
+select.options.remove(i);                                      
+C.
+var option=new Option(text , value);                            
+D.
+var option =document.createElement(“OPTION”,text,value);         
+E.
+var option = document.createElement(“OPTION”);
+opton.value=value;
+option.text =text;
+F.
+var text =languages[i].text;
+var value=languages[i].value;
+G.
+var text =i.text;
+var value= i.value;
+H.
+select.add(option);                                           
+I.
+select.options.add(option);                                    
+J.
+select.selectedIndex = i;                                      
+K.
+select.options[i].checked=true;                                 
+L.
+document.getElementById(“language”);                         
+M.
+document.forms[“formCustomize”].elements[“language”];          
+2,能够判断data的文本内容是否是有效数值的脚本语句是下面那一个？
+var data = …；
+A.	Math.isNaN(data);
+B.	isNaN(data);
+C.	data !=NaN;
+D.	Math.isNumber(data);
+E.	IsNumber(data).
+答案：______________
+3,下面那一个是HTML代码，能够完成文件的上传?
+A. <form captype=”upload/file-data”/>
+B. <form enctype=”upload/file-data”/>
+C. <form captype=”multipart/form-file”/>
+D. <form enctype =” multipart/form-file”/>
+E. <form enctype =” multipart/form-file”/>
+F. <form captype=” multipart/form-file”/>
+答案：______________
+Section B:Java程序设计
+4.在空白处填写相应的代码完成数据类型的转换。
+String cobeText = “2.735”
+Double codeNum=_______________
+A.(double)codeText;
+B.Double.valueOf(codeText);
+C.Double.parseDouble(codeText);
+D.new Double(codeText).doubleValue();
+5.将下面的字符串从”Shifr-JIS”编码转换成”UTF-8”的编码。
+String txt=”阿斯蒂，丰富的”;
+String utf=______________________
+A.	new String(txt,”Shift-JIS”,”UTF-8”);
+B.	new String(txt,”UTF-8”);
+C.	new String(txt.getBytes(“Shift-JIS”),”UTF-8”);
+D.	txt.setEncoding(“UTF-8”);
+6.判断线面那些行的语句是正确的?
+Float a=…;
+Double b=…;
+Number c=null;
+1.	c=b;
+2.	b=(Double)a;
+3.	a=(Float)b;
+   正确的是：______________
+   错误的是：______________
+Section C:理论(可选)
+7,写出所了解的若干设计模式
+  A.创建模式:_________________________________________________________
+  B.结构模式:_________________________________________________________
+  C.行为模式:_________________________________________________________
+8.J2EE由那些服务，应用程序接口和协议组成？
+9.事务隔离级别由那些？
+10.JTA事务比JDBC事务由那些优势？
+11.使用JDBC API进行事务应用实现，请在空白处填写相应的代码。
+//获取数据源
+DataSource ds=…;
+Connection connection=ds.getConnection();
+//设定事务提交模式为手动提交
+①_______________________
+//保存数据
+stmt = connection.prepareStatement(“UPDATE MOVIES…”);
+stmt.setString(I,”Superman Returns”);
+stmt.executeUpate();
+//事务提交
+②_________________________________
+//…
+A.	stmt.setAutoCommit(false);
+B.	stmt.commit();
+C.	connection.setAutoCommit(false);
+D.	connection.commit();
+E.	Transaction tx=connection.getTransaction();
+F.	tx.commit().
+答案：______________
+12.使用JTA的事务应用实现                                
+//…
+InitialContext ctx= new InitialContext();
+//获取UserTransaction
+UserTransaction tx=①_________________
+//开始事务
+   ②________________
+   //获取数据源
+DataSource ds=…;
+Connection connection ds.getConnection();
+//保存数据
+stmt = connection.prepareStatement(“UPDATE MOVIES…”);
+stmt.setString(I,”Transformer”);
+stmt.executeUpate();
+//事务提交
+③_________________________________
+//…
+A.	connection.getTransaction();
+B.	new UserTransaction();
+C.	ctx.lookup(“java:comp/UserTransaction”);
+D.	connection.setAutoCommit(false);
+E.	connection.commit();
+F.	stmt.setAutoCommit(false);
+G.	stmt.commit();
+H.	tx.begin();
+I.	tx.commit();
+答案：______________
+13. 获得来自浏览器提交过来的数据，填写空白处的代码。
+HttpServletRequest req=….;
+//获取从浏览器提交过来参数名字为“name”的数据
+String name=_____________________
+String[] names=_____________________
+//获取从浏览器提交过来多个参数名称为“multi_name”的数据
+A.	req.getParameter(“name”);
+B.	req.getAttribute(“name”);
+C.	(String[])req.getAttribute(“muli_name”);
+D.	req.getProperty(“name”);
+E.	req.getParameterValues(“muli_name”);
+F.	(String[])req.getProperty(“ulti_name”);
+答案：______________
+14.实现下面那一个接口能够得到HttpSession的生命周期变化的消息？
+A.HttpSessionBindingEvent;
+B.HttpSessionEventListener;
+C.HttpSessionBindingListener;
+D.HttpSessionListener;
+E.EventListener;
+答案：______________
+Section D:Struts程序设计
+15.在JSP中使用Struts、JSTL等标签编写（初始化）一个下拉菜单，所需要的数据放在request中的下拉菜单的内容存名称为“countries”，放在request中的被选择的值名称为“country”。
+答案：__________________________________________________________________
+_________________________________________________________________________
+____________________________________________
+注：用LableValue存放下拉菜单项的数据，并存放在“countries”集合中，LableValue主要方法如下。
+public class LabelValue{
+   private String label;
+   private String value;
+   public LabelValue(String label,String value){
+   this.label=label;
+   this.label=value;
+}
+public String getLabel(){return label;}
+public String getVlaue(){return value;}
+};
+public class ExamSelectAction extends org.apache.struts.action.Action{
+   public ActionForward perform(
+   ActionMapping mapping,
+ActionForm actionform,
+HttpServletRequest request,
+HttpServletResponse response){
+List countries =new Vector();
+countries.add(new LabelValue(“CHINA”,”中国”));
+countries.add(new LabelValue(“FRANCE”,”法国”));
+
+request.setAttribute(“countries”,countries);
+request.setAttribute(“country”,”CHINA”);
+……
+};
+}
+16.struts框架中，关于formbean，下列说法正确的是：
+A．Formbean是一种数据bean，主要用来封装表单提交上来得数据，并把这些数据传递给Action
+B．在Formbean中可以对页面上传递来的参数进行一下格式上的验证，这种验证是一种客户端的验证
+C.用户每次提交表单，都产生一个新的Formbean实例
+D.动态Fombean不能进行验证操作
+答案：______________
+17.Struts框架中，在一个Action得配置信息中，name属性指的是
+A．当前action实例的名字
+B．当前action所在类的名字
+C．该action中调用的Frombean的实例名字
+D．该action中调用的Frombean的类所在包名字
+答案：______________
+18.下列那些说法是正确的？
+A．struts中无法完成上传功能
+B．struts框架基于mvc模式
+C．struts框架容易引起流程复杂，结构不清晰等问题
+D．struts可以有效的降低项目的类文件数目
+答案：______________
+19.根据下面内容，要向sunway服务器发出的请求，请选择空白处的内容，能够完成AccessoriesAction中得download方法调用实现。
+//向sunway服务器发出的请求
+http://sunway/cms/accessories? ①________&filename=....
+
+Struts-config-cms.xml
+<action path=”/accessories”
+      Type=”orh.apache.struts.actions.AccessoriesAction”
+      Name=”AccessoriesForm”
+      Scope=”request”
+      Input=”/cms/accessories.jsp”
+② _________
+/>
+
+AcessoriesAction.java
+Import org.apache.struts.action.*
+Public class AccessoriesAction extends ___{
+  Public ActionForward upload(ActionMapping mapping,ActionForm form,HttpServletRequest request,HttpServletResponse response)throws Exception{
+…….
+}
+Public ActionForward download(ActionMapping mapping,ActionForm form,HttpServletRequest request,HttpServletResponse response)throws Exception{
+…….
+}
+}
+A．method=download;
+B．command=download;
+C．parameter=”method”;
+D．parameter=”command”;
+E.Action;
+F.DispatchAtion;
+G.LookupingAction;
+答案：______________
+20.对于以下代码。LoginAction，要求把请求转发给login.jsp，在LoginAction的execute（）方法中可以使用那些代码能够实现（多选）？
+LoginAction.java
+Public loginAction extends org.apache.struts,action.Action{
+   Public ActionForward execute(ActionMapping mapping,ActionForm form,HttpServletRequest request,HttpServletResponse response)throws Exception{
+…….
+}
+
+};
+
+Struts-config.xml
+
+<action path=”/login” type=”com.vgc.loginAction” name=”loginform”  scope=”request”  validate=”true” input=”/login.jsp”>
+  <forward name=”login” path=”/login.jsp”/>
+  < forward name=”sucess” path=”/index.jsp”/>
+</action>
+A．return(new ActionForward(mapping.getInput()));
+B．return(mapping.findForward(“login”));
+C．return(mapping.findForward(“index”));
+D．return(mapping.findForward(“login.jsp”));
+E. return(mapping.findForward(“index.jsp”));
+答案：_____________
+21.spring框架得有哪些模块（或组件）组成？
+22.在下面的spring配置文件（路径为“fse.xml”）填写出相应得配置内容，其中defaultRemindDAOImpl的getEmployees方法只读，而方法markRemind则不是。
+注：这里没用使用到hibernate
+<bean id=”datasource” class=”org.springframework.jndi.jndiObjectFactoryBean”>
+….
+</bean>
+
+<bean id=”transactionManager”
+ Class=”org.springframework.jdbc.datasource.DataSourceTransactionManager”>
+①__________
+</bean>
+……….
+
+
+<bean id=”remindBean”
+ Class=”org.springframework..transaction.interceptor.TransactionProxyFactoryBean”>
+②__________
+③__________
+  <property name=”transactionAttributes”>
+   <pros>
+      <pro key=”getemployees”>④______</pro>
+<pro key=”markRemind”>⑤______</pro>
+</pros>   
+</property>
+</bean>
+
+A．<property name=”target” ref=”remindDaoImpl”/>
+B．<property name=”transactionManager” ref=” transactionManager”/>
+C．<property name=”dataSource” ref=” dataSource”/>
+D．PROPAGATION_REQUIRED
+E.PROPAGATION_REQUIRED,readOnly
+F.PROPAGATION_REQUIRED,writeOnly
+答案：_____________
+23.根据上面的spring配置文件内容，请写出相应的调用“remindBean”的方法“getEmployees”。
+24.使用hibernate完成数据得持久化保存到数据库中的方法有哪些？
+A．org.hibernate.Session.save(…);
+B．org.hibernate.Session.load(…)
+C．org.hibernate.Session.store(…)
+D．org.hibernate.Session.update(…)
+E. org.hibernate.Session.saveOrUpdate(…)
+F. org.hibernate.Session.refresh(…)
+G. org.hibernate.Session.flush(…)
+答案：_____________
+25.使用Hibernate实现查询的分页，可以用下面哪个类和其相应的方法？
+A．Criteria
+B．Query
+C．scroll
+D．ScrollableResults
+E.setRowNumber
+F.setFirstResult
+G.setMaxResults
+H.setFetchSize
+答案：_____________
+26.下面哪句话对Session beans是真的，而对于EntityBeans却不是？
+A．Bean被用做模型在MVC设计模式中使用
+B．能够持久化保存状态导数据库中的表一行上
+C．Bean能够使用数据访问对象容易的迁移到CMP
+D．能够保持一个会话状态为一个具体客户
+答案：_____________
+27.关于无状态会话Bean错误的是：
+A．不保存客户的状态信息
+B．包括主接口，远程接口，bean类和部署描述文件
+C．部署时，EJB容器会为这个Bean分配几个实例到组件池中，并有组件池动态管理组件数量
+D．生命状态有四种，存在，不存在，钝化，激活
+答案：_____________
+28. 关于状态会话Bean错误的是：
+A．在客户端程序引用期间维护Bean中所有实例数据的状态值
+B．多个客户不会同时共享同一个有状态SessionBean实例
+C．钝化过程就是容器调用EJBremove删除多余EJB实例的过程
+D．有状态会话Bean得生命状态包括不存在，准备好和钝化
+答案：_____________
+答案：_______________
+29、填写调用一个SessionBean（JNDI 为”GhibliiStudio”）的方法“getMovies”的步骤（写出步骤的说明或者代码都可以）。
+Context ctx=new InitialContext()；
+_____________________________
+_____________________________
+_____________________________
+30, Web Services 标准和规范有那些？请从下面的答案中选择。
+A,  ARP、SNMP、TCP/IP、UDP;
+B,  COBRA、RMI、UDDI、WS;
+C,  FTP、HTTP、SNMP、SOAP;
+D,  SOAP、WDSL、UDDI、WS-Security。
+答案：________
+
+
+
+Session G:数据库程序设计
+   这里有三张表，请根据相应的要求，编写SQL语句。下面是部门表department和员工表staff物理模型。
+
+         部门
+部门标识   int <pk>
+部门名称   varchar(50)
+部门编码   varchar(40)
+
+
+         员工
+员工标识  int <pk>
+部门标识  int <fk>
+员工编号  varchar(50)
+员工姓名  varchar(40)
+
+            
+
+
+
+
+
+表：department          
+Name	Code	Data Type	Primary	Is Null
+部门标识	department_id	int	TRUE	TRUE
+部门名称	department_name	Varchar2(50)	FALSE	TRUE
+
+表：staff
+Name	Code	Data_Type	Primary	Foreign Table	Foreign Column
+员工标识	staff_id	int	TRUE		
+部门标识	department_id	int	FALSE	department	department_id
+13/14
+员工编号	staff_no	Varchar(60)	FALSE		
+员工姓名	staff_name	varchar（60）	FALSE		
+
+表：staff_backup
+Name
+	Code	Data_Type	Primary	Foreign
+Table	Foreign
+Column
+员工标识	staff_id	int	TRUE		
+部门标识	department_id	int	FALSE	department	department_id
+员工编号	staff_no	Varchar(60)	FALSE		
+员工姓名	staff_name	Varchar(60)	FALSE		
+备份时间	Back_date	Datetime	FALSE		
+
+a)	在表department和staff对应的Hibernate的配置文件中，只写出两张表的一对多和多对一关系的配置就可以；
+注：表department对应类为Department，staff对应类为Staff。
+b)	写一SQL语句统计出每个部门的员工人数，统计结果数据要有部门名称和人数；
+c)	将在staff表中存在并且也在staff_backup表中存在的员工记录从staff表中删除。
+d)	用一条插入语句将staff表中部门名称为“dept_1”的员工记录全部插入到staff_backup表中，同时将“备份时间”设置为数据库当前时间；
+e)	用一条查询语句检索出staff表中部门名称为”dept_1”的前10条记录；
+
+Session H 口述题：
+1，	Hibernate的session有两个这样的方法“update”和“save”，他们区别在那里？
+2，	在前面的数据库试题中有两个表“员工”“部门”，当取到一个员工信息后，关闭Hibernate的Session然后从员工信息中取部门信息。
+问题是：
+   如何保证在关闭hibernat的session之后，仍然能保证从员工信息中取部门信息？
+                                 
+
+
+
+华瑞实创信息技术有限公司笔试题
+
+1
+Public Class Test (){
+	{
+		System.out.println(“b”);
+}
+static{
+	System.out.println(“a”);
+}
+Test(){
+	System.out.println(“c”);
+}
+
+public String getOut(){
+	try{
+      return “1”;
+}catch(Exception e){
+  Return “2”
+}finally{
+  Return “3”;
+}
+}
+	public static void main(String[] args){
+		System.out.println(getOut());
+	}
+}
+问题是 1怎么修改程序让他正确，用尽可能多的方法，并写出执行结果
+       2只修改main函数，打出abc。能打出bac呢？为什么
+如果只修改main函数不能打出abc，也不打出bac，因为程序无法编译过去，也就无法运。
+2
+写一个单例的例子
+3
+String str=”WeeciolGmmcc”
+分别用for, switch3, while种循环写出程序,使程序能打印出WelcomeGmcic，一个打印语句只能打印出一个字符
+
+4
+有员工表,字段id ,name,managerid，还有个啥字段，记不清楚了，没用到，然后查姓名，领导的姓名，如果没领导的话则显示无
+Id	name	managerid
+1	张三	2
+2	李四	4
+3	王五	4
+4	赵六	
+5
+写一个你最熟悉的JAVA技术，详细说明，不要用大量的书面语，要用自己的语言
+
+6
+一个益智题，2个人，一个说实话， 一个说谎话，有一个岔路口，2个人分别站在2个路口上，让你问2个人一样的一个问题，来判断出哪条路通往说谎国，哪个通往实话国
+这是通往实话国吗？或者这是通往说谎国吗？
+
+这是必做题，还有一份选做，是有关CSS HTML和javascript的。没记住，但不难。
+这个笔试题只给一个小时的时间，过了时间就会被淘汰。
+汇科协同笔试题
+1 培训的几大框架
+2 三大框架整合 做过的实际开发项目
+3 页面开发技术，模块技术 Struts  Tiles
+4 数据库编程 哪些数据库比较熟悉 重点是多层关联，多表查询
+5 Hibernate的关联配置 一对一，一对多，多对多
+  接触Java 多久了，当时为什么选择培训  J2SE 面向对象，接口技术，编程基础
+6 设计模式
+7 MVC开发 用过Spring的MVC（集成Struts1）
+火山动力笔试题
+基础题
+1.你是否有过与其他团队成员发生冲突的经历？你是如何解决的？
+2.你uzi喜欢的工作是什么？为什么？请谈谈你在选择工作时都考虑哪些因素？如何看待待遇和工作条件？
+3.你如何看待超市和周末休息日加班？
+第二部分
+1.谈谈你对java显示发展情况的了解。你认为业界今后的发展如何？
+2.springmvc和struts有什么区别？
+3.什么是OOP？OOP相对于面向过程编程有哪些优点？
+4.请分别写java5个常用类，接口，包和异常
+5.请问抽象类和接口有什么区别
+6.请描述以下ajax在web服务器中的优点和缺点
+7.try{}中有一个return语句，那么紧跟在这个try后的finally中的code会不会执行，在return前还是后
+8.两个对象值相同（x.equals（y）==true），但是hashcode不同，这句话对么？
+9.请减速forward和redirect的区别
+10.请减速string和stringbuffer的区别
+极地银河（北京）信息科技有限公司笔试题
+
+1、java中的基本类型和高级类型
+2、编程：将a.txt文件写入到b.txt文件中
+3、异常处理机制
+4、phone下有type＝text
+编写一程序，如果输入的字符为空或大于12个字符，给予相应的提示
+5、struts实现了mvc中的什么？jsp、javabean、servlet、ejb属于mvc中的什么？
+这些是我昨天的面试题，都是学过的。
+最后一题是写一sql语句
+6. 最后一题是有四个表根据用户名查询到他拥有的权限和所有能查到的信息。
+建龙钢铁集团复试总结
+2008-07-29(完结+体检)
+面试总结:
+说明:都在聊天记录中,所以考过来记录这样看起来比较有意境,呵呵.
+
+菲姐(291808436) 22:32:59
+我是王菲菲,好像没人在了呢
+菲姐(291808436) 22:33:32
+我上线我上线,没人和我说话泥
+菲姐(291808436) 22:34:21
+我有可能去不上建龙
+菲姐(291808436) 22:35:25
+今天体检没通过,心电图异常,以前照心电图没事,累得
+菲姐(291808436) 22:36:09
+老总已经签字,还有n多手续要办,再说没有你们想像的那样简单
+菲姐(291808436) 22:36:41
+心电图是在慈铭医院做得,跟剑龙没关系
+菲姐(291808436) 22:37:17
+但是也要我能通过才行啊
+菲姐(291808436) 22:37:52
+原来的公司已经被我回绝了,掌上明珠
+菲姐(291808436) 22:38:36
+所以,可能还要重新找工作,最近休息,心脏累出事了
+菲姐(291808436) 22:38:57
+请假?我还没入职呢
+菲姐(291808436) 22:39:49
+主动脉瓣膜返流,总之要注意休息,不能受刺激
+菲姐(291808436) 22:40:00
+是的就在蓝点的对面
+张海涛(454000485) 22:40:41
+不影响找工作把
+菲姐(291808436) 22:42:19
+体检时是仪器出结果,心电图医生没法改,没办法我现让我家寄钱,又做了心脏彩超,想证明没病,其实不是心脏病,只是不健康了要注意,但是不知建龙的要求是否严格
+菲姐(291808436) 22:43:33
+但是建龙和慈铭体检有业务关系,我已经说是入职了,这个工作对我很重要,千辛万苦得来的,要养家,可是没办法
+菲姐(291808436) 22:43:53
+结果是寄到公司的,不过我的手
+菲姐(291808436) 22:45:13
+总之,我真地尽力,所有能想的能做的能忍的都做了,如果进不了我也不后悔,大不了重新找
+菲姐(291808436) 22:45:37
+好多人哦
+菲姐(291808436) 22:46:41
+你们不知道我是怎么过的面试,九死一生,4轮技术面试后我死的心都有
+菲姐(291808436) 22:48:08
+没事,是我的跑不了,不是我的也强求不来,我尽力了,尽全力了,无怨无悔了
+菲姐(291808436) 22:48:39
+我现在在等消息
+菲姐(291808436) 22:48:59
+其实我只是实习生
+菲姐(291808436) 22:50:15
+使用三个月,要每天加班,周末有作业,要把某书的某章运行,熟悉,要有作业要实现
+菲姐(291808436) 22:51:28
+从我过了到现在都没有开心过,因为不知道能不能过试用期,因为我的水平差的不是一点半点
+菲姐(291808436) 22:53:31
+第四轮面试是一个做了8 年程序员的台湾人,对我的态度就一个字:鄙视!
+菲姐(291808436) 22:54:30
+果老师曾说过模拟面试可以把人问哭,我领教了,但是我都忘了怎么哭!
+菲姐(291808436) 22:55:30
+第一轮人事面试,我把建龙公司的简介背下来了,得到评语:加入意念强烈
+菲姐(291808436) 23:00:38
+部长面试:基本没有会的,他问三个框架解决什么问题,为什么要用.我一直忙面试,都没时间看书,只是前一天晚上1点睡,早上5点起现看的,能知道怎么用不错了
+菲姐(291808436) 23:01:01
+他说:不要告诉我怎么用,我问为什么
+菲姐(291808436) 23:01:12
+我想了半天也没打上来
+菲姐(291808436) 23:02:53
+又问了N多,我都尽量答,但自己都不是很满意
+菲姐(291808436) 23:04:07
+当我马上觉得没戏的时候,他不问了,他问的这段时间长,但还不是最难过的.不问了,开始介绍公司和软件部门了
+菲姐(291808436) 23:04:21
+我心想,可能这一关又过了
+菲姐(291808436) 23:05:22
+我以为可以见最后老总了,没想到还有一轮技术面试,这才是真正的高手,而在这一轮,我被问得连自尊都没有了
+菲姐(291808436) 23:07:11
+这个人问,请你说一下jdk1.5分页用的api,我说您是说有类专门用于分页?他说你不知道吗?!我说对不起我做过分页,但不是您说的,我不知道
+菲姐(291808436) 23:09:10
+他问:说一下jdbc应用步骤,我答:connection,statement,然后处理resultset,这是唯一他问我答得像样的问题,马上问:你说一下jdbc的集合api
+菲姐(291808436) 23:11:08
+我答:您是说resultset结果集吗?不是,还有很多set,你不知道吗!!很诧异.....
+我说:对不起我只知道resultset,他开始皱眉,我的自尊心啊
+菲姐(291808436) 23:12:48
+他可能觉得再问下去我也不会什么了,看简历,惊愕,你没有计算机经验!!不是计算机专业!!开始摇头.项目只有一个星期,是项目吗?
+菲姐(291808436) 23:19:00
+我的简历是实话实说的,我说这两个项目是蓝点以前接触的,只是练习用得.他已经无语.
+菲姐(291808436) 23:19:38
+终于,他说:好吧给我一个理由,只要你能说服我.
+菲姐(291808436) 23:21:36
+我说无论如何一定要做这一行,之类,我都忘了怎么说得了,总之就是要编程
+菲姐(291808436) 23:22:46
+他说:我会给你机会,因为你之前有一个有两年工作经验的人,答得结果居然和你一样(菜),所以我给你机会.
+菲姐(291808436) 23:23:22
+我说:那我前面这位没有借口了,而我有
+菲姐(291808436) 23:24:56
+他说,他是台湾人,其实不是计算机专业也没有关系,他也是在台湾的一个类似蓝点的学校学出来的(我现在还记得他说这句话时的腔调,和台湾电视剧一模一样)
+菲姐(291808436) 23:26:28
+但是他很努力,他和同学比赛,看谁先做出题来,有事是他,有时是另一个人,而最后全班只有他们两个人编程,其他全都放弃
+菲姐(291808436) 23:28:26
+他问:如果说周末要给你一本书,把某章或某几章代码全实现,并会有作业,要把作业实现,你愿意吗,每周末都加班,也可能每天都加班,我想都没想,愿意
+菲姐(291808436) 23:29:09
+他问:你真的能吃的了这个苦吗?
+我说:我能!(当时我已经不能说不了)
+菲姐(291808436) 23:29:41
+他说:好,我的面试结束,你再做一下.
+我想:过
+菲姐(291808436) 23:32:23
+说明一下,这时过了1点,因为没打算成功,准备完事去医院体检,因为掌上明珠也要体检,所以一点水没喝还超饿,我的饭量大家相信也是知道的,口干舌燥,最后一轮,老总面试!最重要的是,他一边吃饭一边面试,我饿!!
+菲姐(291808436) 23:33:24
+其实老总的面试最轻松,胖胖一老头,也不是太老,很和蔼,很好玩,一点压力没有,而且是校友(虽然这点没用)
+菲姐(291808436) 23:34:39
+问我以前的经历,我说做过机械公司的统计,然后喜欢漂亮衣服,就走到一个服装店说我想当服务员,老总说:你很有个性!
+菲姐(291808436) 23:35:41
+老总问,为什么做java,销售也很好,我说我是学理的,要有一门实实在在的技术,而且我觉得我能行
+菲姐(291808436) 23:37:11
+老总问,有什么规划,我说三年内技术扎实一些,然后走管理的道路带领团队,我是瞎说的,因为国内没有一辈子的程序员,只能走这条路,可惜我错了,这家公司不是
+菲姐(291808436) 23:38:22
+老总开始测试我是否有管理才能,问了很多问题,不是技术,是反应,因为当时又困又饿没太记住,总之不是太好,答得不太满意
+菲姐(291808436) 23:38:49
+我是东北大学毕业,果老师是,这位老总也是
+菲姐(291808436) 23:39:23
+这家公司技术部门很专业,可以有一辈子程序员
+菲姐(291808436) 23:40:27
+老总说:这样吧,我和部长再商量一下(就是第二轮技术面试的人),我以为ok,没戏了,但是,他没有让我走,我的戏剧性开始出现了
+菲姐(291808436) 23:41:30
+有人敲门,提示他主持一个会议,他真的超忙,没有让我走,说你在这里等我一下,我说好,结果等了两个小时
+菲姐(291808436) 23:44:00
+在这两个小时里,有人给了我一杯水,我看着还不能喝,空调冷也不能动,困的快睡着了,给我的玫琳凯督导发短信,因为进了建龙就没有任何休息时间了,给袁征发了个短信,说最后一关需要支持.然后,最后的时刻到来了,老总开完会了,之后这段最好玩
+菲姐(291808436) 23:45:26
+这两个小时我已经想放弃了,觉得自己可能是真的入错了行,真的不知道能不能坚持下来,不如就去掌上明珠算了,周末还可以卖卖化妆品.我决定退缩
+菲姐(291808436) 23:48:18
+老总和部长都进了屋,准备签字,老总已经签了,但是他停了一下,其实他要写一段话,后来我才知道,但是我想放弃,于是我说:要不您和部长再商量商量吧,我想过了,我虽然执着,但是我不强求
+那一刻,老总和部长都楞住了,一秒中,可能他们没见过面试者在最后关头说这句话
+菲姐(291808436) 23:49:03
+最最戏剧性的时刻出现,我的话他们没想到,老总的话我更没想到,我本是要退缩的
+菲姐(291808436) 23:50:50
+老总说:啊,强求,不强求啊,你要是强求我才不会签字呢!你以为只有你有个性啊,我也很有啊!!
+说完,狂写了几句不知道什么话,说有事和方部长说吧,然后走了!
+菲姐(291808436) 23:58:19
+就这样我就过了,部长把我交给了人事部阴经理,女性,之前已被我的执着打动过,还问我怎么面试这么久啊,是久,从9点到3点,我饿的说不出话了.然后说我是实习生,但也有工资,3420,试用期扣不扣我忘了,没听.试用期三个月,签三年合同(新劳动法规定,试用期一个月就要签1年合同,三个月签3年,就是为了试用期三个月而已,因为我不确定我会不会辞职),分公司会上交1%的利润给总部200个人,所以会发20个月的工资,但多出的部分会有三分之一在年底发(怕人跑,因为只要辞职至少损失三个月工资,这点我领教过),回去体检,等通知,因为手续还是比较麻烦地.然后让我走了,今天体检,心电图不合格,崩溃中.....
+
+
+菲姐(291808436) 23:58:27
+完毕
+
+菲姐(291808436) 00:01:59
+我的面试血泪史,也有很戏剧性的地方,但是确实没有开心过,因为其实我真地不知道能不能挺过三个月,我的力气已经用尽了,最近太拼心脏也出问题,之前没有事的,不知道这对我来说意味着什么,总之,啥也不知道了,掌上明珠今天我去一次说不去了,如果建龙不行,这几天我歇了,下周再找.
+菲姐(291808436) 00:02:27
+我说了很久啊,大家该睡了,真能唠叨,呵呵
+菲姐(291808436) 00:04:42
+心电图不合格,不是因为饿或没休息好,后来我不死心又做的心脏彩超,也说明开始有问题,还不是心脏病,不能过度劳累,就素这样了
+菲姐(291808436) 00:05:58
+而且最后我真地觉得是求来的,而不是我很强技术合格过的,总觉得不爽,是超郁闷
+菲姐(291808436) 00:07:43
+其实你们只知道结果,而不知真相,所以会羡慕我
+菲姐(291808436) 00:08:50
+只要你们坚持,像我一样,那就无论如何也能找到工作
+菲姐(291808436) 00:09:18
+如果你们和我一样坚持,一定找到比这更好的工作!
+菲姐(291808436) 00:10:42
+我说完了,其实有一点不想进了,太难了,对我来说
+菲姐(291808436) 00:11:41
+而且有朝一日我过了试用期,一定辞职,到时老总一定要说:你很有个性!
+菲姐(291808436) 00:16:32
+总结:找工作是一次成长的经历,经过这么多关,成长了一些,至少坚强,执着,执着到我都不到的地方,现在成败对我来说已经不重要了,就算不行,也未尝不是坏事,因为还会有其他的活法.比如,周五下午轩辕互动复试,我又要去见老外了,呵呵,只要努力一定会成功,你们没有找到工作一定是什么没有做到,尽全力,就够了,一定找的到好工作!
+
+
+
+2008年7月23日:	建龙钢铁集团
+公司网站:	http://www.ejianlong.com/jlWeb/index.do?action=enter
+
+1.前序遍历 , 中序遍历 , 后序遍历
+答: 前序遍历:根>>左树>>右树;
+中序遍历:左树>>根>>右树;
+后序遍历:左树>>右树>>根; 		也就是说以根遍历的位置取名.
+来源:	http://zhidao.baidu.com/question/28435209.html;
+来源:	http://zhidao.baidu.com/question/55024808.html?fr=qrl&fr2=query;
+
+2.冒泡排序----BubbleSort:
+
+基本概念
+冒泡排序的基本概念是：依次比较相邻的两个数，将大数放在前面，小数放在后面。即首先比较第1个和第2个数，将大数放前，小数放后。然后比较第2个数和第3个数，将大数放前，小数放后，如此继续，直至比较最后两个数，将大数放前，小数放后，此时第一趟结束，在最后的数必是所有数中的最小数。重复以上过程，仍从第一对数开始比较（因为可能由于第2个数和第3个数的交换，使得第1个数不再大于第2个数），将大数放前，小数放后，一直比较到最小数前的一对相邻数，将大数放前，小数放后，第二趟结束，在倒数第二个数中得到一个新的最小数。如此下去，直至最终完成排序。
+由于在排序过程中总是大数往前放，小数往后放，相当于气泡往上升，所以称作冒泡排序。
+用二重循环实现，外循环变量设为i，内循环变量设为j。外循环重复9次，内循环依次重复9，8，...，1次。每次进行比较的两个元素都是与内循环j有关的，它们可以分别用a[j]和a[j+1]标识，i的值依次为1,2,...,9，对于每一个i, j的值依次为1,2,...10-i。
+ 
+来源:	http://baike.baidu.com/view/254413.htm
+图片:	http://imgsrc.baidu.com/baike/pic/item/9319cf09e47fa691d1581b91.jpg
+
+
+快速排序 : (项目经理给过,今天上网查,说得很清楚,但是没看懂,也许用得到)
+
+算法过程 [编辑本段]
+设要排序的数组是A[1]……A[N]，首先任意选取一个数据（通常选用第一个数据）作为关键数据，然后将所有比它小的数都放到它前面，所有比它大的数都放到它后面，这个过程称为一躺快速排序。一躺快速排序的算法是： 
+1）、设置两个变量I、J，排序开始的时候I：=1，J：=N； 
+2）以第一个数组元素作为关键数据，赋值给X，即X：=A[1]； 
+3）、从J开始向前搜索，即由后开始向前搜索（J：=J-1），找到第一个小于X的值，两者交换； 
+4）、从I开始向后搜索，即由前开始向后搜索（I：=I+1），找到第一个大于X的值，两者交换； 
+5）、重复第3、4步，直到I=J； 
+例如：待排序的数组A的值分别是：（初始关键数据X：=49） 
+A[1] A[2] A[3] A[4] A[5] A[6] A[7]： 
+49    38    65    97  76  13  27 
+进行第一次交换后： 27 38 65 97 76 13 49 
+( 按照算法的第三步从后面开始找)
+进行第二次交换后： 27 38 49 97 76 13 65 
+( 按照算法的第四步从前面开始找>X的值，65>49,两者交换，此时I：=3 ) 
+进行第三次交换后： 27 38 13 97 76 49 65 
+( 按照算法的第五步将又一次执行算法的第三步从后开始找 
+进行第四次交换后： 27 38 13 49 76 97 65 
+( 按照算法的第四步从前面开始找大于X的值，97>49,两者交换，此时J：=4 ) 
+此时再执行第三步的时候就发现I=J，从而结束一躺快速排序，那么经过一躺快速排序之后的结果是：27 38 13 49 76 97 65，即所以大于49的数全部在49的后面，所以小于49的数全部在49的前面。 
+快速排序就是递归调用此过程——在以49为中点分割这个数据序列，分别对前面一部分和后面一部分进行类似的快速排序，从而完成全部数据序列的快速排序，最后把此数据序列变成一个有序的序列，根据这种思想对于上述数组A的快速排序的全过程如图6所示： 
+初始状态 {49 38 65 97 76 13 27} 
+进行一次快速排序之后划分为 {27 38 13} 49 {76 97 65} 
+分别对前后两部分进行快速排序 {27 38 13} 经第三步和第四步交换后变成 {13 27 38} 完成排序
+{76 97 65} 经第三步和第四步交换后变成 {65 76 97} 完成排序 
+
+Jave中的Qsort [编辑本段]
+public class QuickSort { 
+  public static void sort(int[] number) {
+      sort(number, 0, number.length-1);
+  }
+      private static void sort(int[] number,
+                    int left, int right) {
+      if(left < right) {
+        int s = number[(left+right)/2];
+        int i = left - 1;
+        int j = right + 1;
+        while(true) {
+            // 向右找
+          while(number[++i] < s) ;
+          // 向左找
+          while(number[--j] > s) ;
+            if(i >= j)
+              break;
+            swap(number, i, j);
+        }
+        sort(number, left, i-1);  // 对左边进行递回
+        sort(number, j+1, right);  // 对右边进行递回
+      }
+  } 
+    private static void swap(int[] number, int i, int j) {
+      int t;
+      t = number;
+      number = number[j];
+      number[j] = t;
+  }
+}
+来源:	http://baike.baidu.com/view/19016.htm#2
+
+3.子查询中的in和exsists什么时候使用?
+答:	关于EXISTS与IN的区别：
+EXISTS检查是否有结果，判断是否有记录，返回的是一个布尔型（TRUE/FALSE）。
+IN是对结果值进行比较，判断一个字段是否存在于几个值的范围中，所以 EXISTS 比 IN 快。
+主要区别是:
+exists主要用于片面的,有满足一个条件的即可,
+in主要用于具体的集合操作,有多少满足条件. 
+exists是判断是否存在这样的记录，
+In是判断某个字段是否在指定的某个范围内。
+exists快一些吧 。
+in适合内外表都很大的情况，exists适合外表结果集很小的情况。
+来源:		http://hi.baidu.com/xinhuijun/blog/item/af6081187e0aabb54aedbc8f.html
+
+EXISTS与IN的区别：
+IN:	确定给定的值是否与子查询或列表中的值相匹配。
+EXISTS:	指定一个子查询，检测行的存在。
+
+    下面从具体的语句来看：
+select * from 表A where exists(select * from 表B where 表B.id=表A.id)
+这句相当于:	select * from 表A where id in (select id from 表B)
+对于表A的每一条数据,都执行select * from 表B where 表B.id=表A.id的存在性判断,如果表B中存在表A当前行相同的id,则exists为真,该行显示,否则不显示
+
+来源:		http://www.cnitblog.com/youyou/archive/2007/09/07/33132.html
+
+11.数据库查询(题不记得了)
+12.数据库查询(题不记得了)
+13.TCP三次握手
+答:	TCP 三次握手
+TCP 连接是通过三次握手进行初始化的。三次握手的目的是同步连接双方的序列号和确认号并交换 TCP 窗口大小信息。以下步骤概述了通常情况下客户端计算机联系服务器计算机的过程：
+1. 客户端向服务器发送一个SYN置位的TCP报文，其中包含连接的初始序列号x和一个窗口大小（表示客户端上用来存储从服务器发送来的传入段的缓冲区的大小）。
+2. 服务器收到客户端发送过来的SYN报文后，向客户端发送一个SYN和ACK都置位的TCP报文，其中包含它选择的初始序列号y、对客户端的序列号的确认x+1和一个窗口大小（表示服务器上用来存储从客户端发送来的传入段的缓冲区的大小）。
+3. .客户端接收到服务器端返回的SYN+ACK报文后，向服务器端返回一个确认号y+1和序号x+1的ACK报文，一个标准的TCP连接完成。
+TCP 使用类似的握手过程来结束连接。这可确保两个主机均能完成传输并确保所有的数据均得以接收
+TCP Client	Flags	TCP Server
+1 Send SYN (seq=x)	----SYN--->	SYN Received
+2 SYN/ACK Received 	<---SYN/ACK----	Send SYN (seq=y)， ACK (x+1) 
+3 Send ACK (y+1)	----ACK--->	ACK Received， Connection Established 
+w: ISN (Initial Sequence Number) of the Client
+
+x: ISN of the Server 
+
+来源:		http://hi.baidu.com/it_hawk/blog/item/d053ab346830783e5ab5f54e.html
+
+14.OOP,三种什么什么(英文没看懂)
+答:	面向对象编程（Object Oriented Programming，OOP，面向对象程序设计）是一种计算机编程架构。
+OOP 的一条基本原则是计算机程序是由单个能够起到子程序作用的单元或对象组合而成。OOP 达到了软件工程的三个主要目标：重用性、灵活性和扩展性。为了实现整体运算，每个对象都能够接收信息、处理数据和向其它对象发送信息。OOP 主要有以下的概念和组件： 
+     组件 － 数据和功能一起在运行着的计算机程序中形成的单元，组件在 OOP 计算机程序中是模块和结构化的基础。 
+     抽象性 － 程序有能力忽略正在处理中信息的某些方面，即对信息主要方面关注的能力。 
+     封装 － 也叫做信息封装：确保组件不会以不可预期的方式改变其它组件的内部状态；只有在那些提供了内部状态改变方法的组件中，才可以访问其内部状态。每类组件都提供了一个与其它组件联系的接口，并规定了其它组件进行调用的方法。 
+     多态性 － 组件的引用和类集会涉及到其它许多不同类型的组件，而且引用组件所产生的结果得依据实际调用的类型。 
+     继承性 － 允许在现存的组件基础上创建子类组件，这统一并增强了多态性和封装性。典型地来说就是用类来对组件进行分组，而且还可以定义新类为现存的类的扩展，这样就可以将类组织成树形或网状结构，这体现了动作的通用性。 
+　　由于抽象性、封装性、重用性以及便于使用等方面的原因，以组件为基础的编程在脚本语言中已经变得特别流行。Python 和 Ruby 是最近才出现的语言，在开发时完全采用了 OOP 的思想，而流行的 Perl 脚本语言从版本5开始也慢慢地加入了新的面向对象的功能组件。用组件代替“现实”上的实体成为 JavaScript（ECMAScript） 得以流行的原因，有论证表明对组件进行适当的组合就可以在英特网上代替 HTML 和 XML 的文档对象模型（DOM）。  
+来源:		http://www.itisedu.com/phrase/200604240956125.html
+
+15.   四个人站在桥的一侧黑天过桥,一个手电筒照明,桥上一次只能过一个人或两个人,并且手电筒要有人返回给原来的一侧,就是说人来回过桥都要有人拿手电筒.只有17分钟四个人都要过去.每个人的速度不同,两个人走过桥,时间和速度以慢的人为准.四个人单独过桥的时间分别为:	man1 : 1分钟,	man2 : 2分钟,	man3 : 5分钟,	man4 : 10分钟,		请问你能想到的最快的过桥方式?
+例如:man1和man4一起过桥,要10分钟,如果man4返回送手电筒,又要10分钟,总计20分钟.但是失败了.
+
+16.UML翻译题(没想起来 ,原来是建模语言 )
+17.描述一下你觉得做得最好的项目(	没时间答)
+
+总结:	复习有很多漏洞,	但是通过面试复习这些知识点,	下次出现同样的问题不要错!(告诉自己).	总之,用我的玫琳凯督导的话说我, 死活都要做IT!!
+建龙钢铁面试总结
+
+笔试题目不少，一部分是以前见过的题，我只记得几道以前没见过的题。
+1，http中的四个方法作用分别是什么
+2，具体记不清了，里面有一个静态变量和一个非静态变量，两次赋值（远程和本地），写出RMI调用后的输出结果
+3，有关JPA的题
+4，写代码实现comparable接口
+5，两种方法写代码实现单例模式
+6，调用方法时的参数传递方式问题
+编程题：
+自己编程产生一个无序整数数列，排序，打印出排序后的数列及每个数字在原无序数列中的序号。
+
+经典时空面试总结
+笔试大多数题都比较简单，全是基础语法题。只有一道题以前没见过：
+Java中如何进行文件（及文件夹）的新建，移动，删除等？最好写出实现代码，如果不能，文字说明实现方案。
+上机题：
+1,html页面中有一组单选框，选中一个后点击按钮弹出你选的是第几个按钮。
+2，将html页面中两个文本框中的内容对换。
+3，用json作为数据传递格式实现浏览器和服务器的异步交互。
+4，打印从1到n的所有排列。(n为整数，运行时键盘输入)
+北京捷通华声语音技术有限公司笔试题
+这个公司的笔试分为两个部分，包括技术部分和测试部分：
+第一部分：
+1.	作用域public,private,protected,以及不写时的区别
+Public是公共的作用域，对当前类，同一个包及子孙类，其他包都包括
+Protected  作用域为 当前包的范围  包括子送类
+Friendly 作用与 同包下   不包括子送类
+Private 只作用与当前类
+不写默认为 private 作用域
+
+2请写出每种基本类型的默认值？取值范围？分别给出一个定义的例子
+
+3.安全线程
+4一个线程的英文选择题(好像是选e)记不好了
+5.重写和重载的区别 
+答：方法的重写Overriding和重载Overloading是java多态的不同表现，重写Overriding是父类与子类之间多态的一种表现，Overloading是一个类中多态的一种表现，如果在子类中定义某种方法与其父类有相同的名称和参数，我们说该方法被重写（Overriding）.子类的对象使用这个方法时，将调用子类中的定义，对他而言，父类中的定义如同被屏蔽了。如果在一个类中定义了多个同名的方法，他们或有不同的参数个数或有不同的参数类型，则称为方法的重载（Overloading）。Overload的方法是可以改变返回值的类型。
+6.编程 一个多态的(一个蝙蝠和动物和兽类和鸟类的)写个动物的接口 剩下的写三个类实现接口重写方法就行了 
+Class Animal
+{
+Public  void 
+}
+7.编程题  :自动洗扑克牌(给传进去一个数组 产生一个随即数 把数组内的
+249992885 2009-02-11 16:25:45
+顺序打乱)
+8.编程:一个类似迷宫的编程题 根据给的游戏图编程(手机游戏 有左转右转 前进 ) 
+9.脑筋题: 有六个职位  3个人  每个人有两个职位  根据即句话判断每个人的职位
+答案是  第一个人:艺术家   律师
+        第二个人:建筑师  教师
+        第三个人:作家    医生(答案记得大概是这样 要是当时实在想不出来就用这个嘿嘿)
+10.数组有没有length()这个方法? String有没有length()这个方法
+11.位运算题
+具体题想不起来了 
+类似于 : 
+ -5>>3=-1;
+-5<<3=-40;
+5&3=1;
+5|3=7;
+-5|3=-5;
+~5=-6;
+-5^3=-8;
+-5>>>3=53687091
+就记得这些了
+还有个公司出的类似面试的题 就是问情况的(就两个需要注意的)1.里面一个让估算长江每年流入大海的水是多少吨    2.还有一个工作经验需要留一个证明人的电话
+(考完才知道 他们没有时间限制 一上午坐完就行)
+
+
+第二部分：
+一、 你如何选择自己的职业？
+二、 在高薪、表彰和晋升之间，你认为哪种形式最有价值？ 
+三、 你有什么业余爱好？ 
+四、 你为什么要来我们公司工作？ 
+五、 我们为什么要录用你？ 
+六、 我们和另一个公司都聘用你，你会如何选择？ 
+七、 最基础的工作你也会愿意干么？ 
+八、 你有哪些主要的优点？ 
+九、 你有哪些主要的缺点？ 
+十、 你以前的经验和我们现在的工作有哪些联系？ 
+十一、 你对以后有什么打算
+十二、 在学校你最不喜欢的课程是什么？为什么？
+十三、 你认为你在学校属于好学生吗？
+十四、 你是应届毕业生，缺乏经验，如何能胜任这项工作？
+十五、 对这项工作，你有哪些可预见的困难？
+十六、 你和其他求职者有什么不同？ 
+十七、 你希望与什么样的上级共事？ 
+十八、 你因为工作过失与同事产生了矛盾，你怎样去做？ 
+十九、 你对公司有什么问题要问的？
+二十、 你对工资有什么期望？
+
+
+
+最新补充：  （三月二十三）
+
+第一部分加的新题，
+String  s1 = new Sting (“hello”);
+String  s2 = new String (“hello”)
+
+System.out.println(“s1==s2”);
+结果是什么？  为什么是这样的结果？
+
+
+1你知道相对论吗？请简单介绍下。
+2假如把你放在一个孤岛上一年，让你选三本书和两张CD ，你选什么？
+3你家水龙头坏了（水量很大），你怎么处理？
+4长江每年流入海洋的水有多少？
+5你和你的朋友开餐馆，给 总经理，前台经理，厨房管理，广告宣传，融资，财务管理，及购买原料，你会选择做什么？
+6假如你被捷通录用，你想从事哪方面的工作，你擅长什么？
+7你在捷通工作一年了 ，描述一下你对自己的职业生涯和职业规划。
+8你期望的主管应该怎么做？
+9建议一下公司应该为员工做哪方面的培训？
+10你能为企业做出什么贡献？
+11对员工的考核应该从哪些方面？
+11你原来要有工作经验，写下主管或同事的姓名，职位，联系方式；要是应届生，写老师的联系方式。
+12你期望的月薪是多少？
+
+
+
+
+金鑫耀笔试题
+
+1.面向对象的特点
+2.java的基础数据类型
+3.jsp的9大内置对象
+4.网页中<input type="text" id="text1">如何获得这个元素
+5.线程中的关键字是什么？实现线程有哪两种方法
+6.编程实现4个线程，2个是对数字j加1，另外2个是对数字j减1.
+经典时空面试总结
+
+笔试大多数题都比较简单，全是基础语法题。只有一道题以前没见过：
+Java中如何进行文件（及文件夹）的新建，移动，删除等？最好写出实现代码，如果不能，文字说明实现方案。
+上机题：
+1,html页面中有一组单选框，选中一个后点击按钮弹出你选的是第几个按钮。
+2，将html页面中两个文本框中的内容对换。
+3，用json作为数据传递格式实现浏览器和服务器的异步交互。
+4，打印从1到n的所有排列。(n为整数，运行时键盘输入)
+
+九州传奇的上机题
+
+用java和sql server2000或oracle或mysql实现:
+
+servlet，struts，webwork，struts2实现均可
+
+用户管理信息:
+	     主界面要求有姓名,密码输入框和两个按扭"确定"和"用户管理",
+	     当点击第二个按纽时出来一个对话框包括:增加,删除,修改3个按纽
+	     (可批量删除，批量删除后，弹出对话框显示被删除的用户名字。
+             如：被批量删除的用户有[张三，李四，等等]),
+             实现对应的数据库操作。
+	     
+久其面试题（研发类）
+1.常用的开源框架
+
+2.Eclipse开发中用到的插件
+
+3.项目开发中，遇到问题如何解决，举例说明
+
+4.MVC控制层的作用
+
+5.开发中用到的工具
+
+6.谈谈数据库的内外连接
+
+7.你用过哪些数据库
+
+8.学习了哪些课程
+
+9.举例说明快速学习的成果
+
+10.在大学期间所获的奖励
+
+11.谈谈数据结构
+
+12.说说struts框架
+
+在前台会先让填一张表，正面是自己的基本信息，反面是心理测试题，就是让你选出符合描述自己的名词。
+之后是做一套题，内容涉及到操作系统、数据结构、计算机网络、计算机组成原理、数据库。
+题目类型分别是：30道单选、10道多项（多数有5-7个备选项）、填空题、3个程序设计题。
+先说程序设计题：
+1、	给出打保龄球计算得分的规则，然后给出程序设计流程图（N-S图），让根据给出的规则将流程图补充完整。（网上好像有）
+2、	补充程序题，让就一个问题给出其递归算法和相应的递推算法（while）
+
+
+综合的回忆一下其他题目：
+1数据结构中的图，用广义表给出，要求从A点出发，给出广度优先搜索，深度优先搜索以及最优路径
+2关于测试的试题，有语句覆盖、路径覆盖、选择覆盖等，然后给出测试用例，让选出需要哪些用例才能实现以上覆盖
+以上两个题就占了30各选择题当中的10个
+3问链路层的协议是什么
+4关于数据库的题很简单
+5填空题中有关于uml的概念题要懂得一些概念及相关作用
+
+酷讯网笔试题
+1.	将"C:/win/kuxun/*.*"目录下所有的文件打印到控制台，用笔写
+2.	面试的时候问了一些基础概念，比如什么是类、方法、函数。
+联创题目
+
+
+选择题：（总共20道）
+1 关于类的描述
+2 JAVA关键字的相关题目
+3 JAVA的垃圾回收机制
+4 一个INT 型数据，让它的值翻倍
+5 基本全是问程序的执行结果，想不起来了（有关于赋值，异常等很多，部份653考试题中的选择题）
+
+简答题：
+1 struts中关于共享资源区作用域的问题，以及转发跟重定向的主要区别
+2 struts中formbean、validator的相关内容。(我觉得这个题如果出现似乎应该是在编程题中)
+3 JSP中有三种独立的向页面添加代码段的技术，写出其中的两种
+4 结合你所做项目中用到的一个框架，谈谈它的特点，利弊，主要结合业务描述
+(简述JAVA的垃圾回收机制优点和原理，并考虑2种回收机制。有可能在简答中考)
+
+
+编程题
+1写一个JSP中关于error-page 404错误的配置，让其指向error404.jsp的页面，或者描述其配置的原理
+2 将一个int型数组写到一个temp.dat文件中，再从temp.dat中读出，并在控制台上逆序打印数组元素
+3 帮一个业务操作运营平台写一个用户登录页面
+
+
+
+智力题
+爱因斯坦所出的一道推理题（ 他说世界上有98％的人答不出来。 ）
+求解:"谁养鱼"
+1、在一条街上，有5座房子，喷了5种颜色。
+2、每个房里住着不同国籍的人
+3、每个人喝不同的饮料，抽不同品牌的香烟，养不同的宠物
+问题是：谁养鱼？
+提示：
+1、英国人住红色房子
+2、瑞典人养狗
+3、丹麦人喝茶
+4、绿色房子在白色房子左面
+5、绿色房子主人喝咖啡
+6、抽Pall Mall 香烟的人养鸟
+7、黄色房子主人抽Dunhill 香烟
+8、住在中间房子的人喝牛奶
+9、 挪威人住第一间房
+10、抽Blends香烟的人住在养猫的人隔壁
+11、养马的人住抽Dunhill 香烟的人隔壁
+12、抽Blue Master的人喝啤酒
+13、德国人抽Prince香烟
+14、挪威人住蓝色房子隔壁
+15、抽Blends香烟的人有一
+答案：德国人
+
+
+
+
+联创集团北京项目组  地址：北京市大郊亭桥东200米电信大厦8层联创办公室 
+   
+乘车路线：乘1号地铁大望路下车B口出，转乘11路公交车，东石门下车，对面既是
+联系人： 马鹭 手机：13581830976   
+
+联创题目
+
+
+选择题：（总共20道）
+1 关于类的描述
+2 JAVA关键字的相关题目
+3 JAVA的垃圾回收机制
+4 一个INT 型数据，让它的值翻倍
+5 基本全是问程序的执行结果，想不起来了（有关于赋值，异常等很多，部份653考试题中的选择题）
+
+简答题：（好像是选做三个）
+1 struts中关于共享资源区作用域的问题，以及转发跟重定向的主要区别
+转发跟重定向的主要区别在于：1.请求转发的时候，请求中所带的参数是放在数据包的包体当中，而重定向的时候请求所带的参数是放在包头当中的。2.转发的时候可以传参传的是对象，而重定向的时候所带的参数只能是字符串。3.使用转发的时候地址栏无变化，而使用重定向的时候地址栏会发生变化。4.请求范围不同，转发属于同一个请求范围而重定向属于两个不同的请求范围。
+2 struts中formbean、validator的相关内容。(我觉得这个题如果出现似乎应该是在编程题中)
+3 JSP中有三种独立的向页面添加代码段的技术，写出其中的两种
+ 在<%%>中加入Java脚本；jstl 、el表达式。
+4 结合你所做项目中用到的一个框架，谈谈它的特点，利弊，主要结合业务描述
+Hibernate框架：其主要优点在于：1. 对JDBC访问数据库的代码做了封装，大大简化了数据访问层繁琐的重复性代码。2. Hibernate是一个基于JDBC的主流持久化框架，是一个优秀的ORM实现。他很大程度的简化DAO层的编码工作3. hibernate使用Java反射机制，而不是字节码增强程序来实现透明性。4. hibernate的性能非常好，因为它是个轻量级框架。映射的灵活性很出色。它支持各种关系数据库，从一对一到多对多的各种复杂关系。5. 当Hibernate在查询数据的时候，数据并没有存在与内存中，当程序真正对数据的操作时，对象才存在与内存中，就实现了延迟加载，他节省了服务器的内存开销，从而提高了服务器的性能。6.hibernate中加入了一、二级缓存，ehcache提升了服务器的性能。
+其主要缺点在于：1.虽然使用hibernate减少了大量重复代码的编写，提升了程序以及服务器的性能但是对于初学者而言配置文件太多而且太繁杂，不能很好的应用他的优势。2.使用hibernate的时候他的底层对于我们而言是透明的，出现问题的时候调试不是很方便。
+(简述JAVA的垃圾回收机制优点和原理，并考虑2种回收机制。有可能在简答中考)
+Java语言中一个显著的特点就是引入了垃圾回收机制，使c++程序员最头疼的内存管理的问题迎刃而解，它使得Java程序员在编写程序的时候不再需要考虑内存管理。由于有个垃圾回收机制，Java中的对象不再有"作用域"的概念，只有对象的引用才有"作用域"。垃圾回收可以有效的防止内存泄露，有效的使用可以使用的内存。垃圾回收器通常是作为一个单独的低级别的线程运行，不可预知的情况下对内存堆中已经死亡的或者长时间没有使用的对象进行清楚和回收，程序员不能实时的调用垃圾回收器对某个对象或所有对象进行垃圾回收。回收机制有分代复制垃圾回收和标记垃圾回收，增量垃圾回收。
+编程题
+1写一个JSP中关于error-page 404错误的配置，让其指向error404.jsp的页面，
+或者描述其配置的原理
+<error-page>
+<error-code>404</error-code>
+<location>error404.jsp</location>
+</error_page>
+2 将一个int型数组写到一个temp.dat文件中，再从temp.dat中读出，并在控制台上逆序打印数组元素(包自己导)
+public class Test {
+	public static void main(String[] args) {
+		int[] num = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 0 };
+		PrintWriter os = null;
+		try {
+			os = new PrintWriter(new FileOutputStream("d:/tmp.dat"));
+			for (int b : num) {
+				os.print(b);
+			}
+			os.flush();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				os.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		InputStream is = null;
+		try {
+			List list = new ArrayList();
+			is = new FileInputStream("d:/tmp.dat");
+			int i;
+			while ((i = is.read()) > 0) {
+				list.add(i);
+			}
+			for (int n = list.size(); n >= 0; n--) {
+				System.out.println(n);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				is.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+}
+3 帮一个业务操作运营平台写一个用户登录页面
+这个仅仅是一个页面~没有什么！
+
+
+
+联创集团北京项目组  地址：北京市大郊亭桥东200米电信大厦8层联创办公室 
+   
+乘车路线：乘1号地铁大望路下车B口出，转乘11路公交车，东石门下车，对面既是
+联系人： 马鹭 手机：13581830976
+
+联众世界初试
+笔试（英文+中文）
+一，	解释
+1.Javax.naming.context
+2.log4j
+3.vector
+4.sequnce
+二，二分查找法，写出方法代码
+三，	将一个string字符，反转输出的代码
+四，	SQL代码，给出一个person表
+1，	找出员工生日在1976年上半年以前的
+2，	找出姓王的员工
+3，	按部门划分求部门总工资并按降序排序
+四，写出如何保存一个文件到Oracle中的语言描述
+五，	你认为自己的JAVA水平如何，ORACLE水平如何？(10满)
+六，	STRATS中MVC用什么技术实现？ 如何实现？
+面试
+如何知道一个会员是否登录
+用什么方法防止注入	
+前台用什么方法校验脚本
+用什么方法校验：正则，Ajax等
+
+共九道题，我只记住了六道
+灵泰克JAVA程序员应聘测试题
+姓名：               联系方式：                           
+一、阅读下面的代码，回答：（1）写出这段代码所表示的数学表达试；（2）找出这段代码存在的问题。
+double d=0;
+for(int i=1;i<=10000;i=i+1){
+	d=d+1/(i*(i+1)*(i+2));
+	if(i==100)
+		System.out.println("i=100时："+d*4);
+	else if(i==1000)
+		System.out.println("i=1000时："+d*4);
+}
+System.out.println("i=10000时："+d*4);    
+二、编写一个JSP文件，要求用JSTL的循环标签将“1，2，3，4；5，6，7，8”显示成如下效果，写出主要的代码。
+第一列	第二列	第三列	第四列
+1	2	3	4
+5	6	7	8
+三、写出符合MYSQL要求的查询语句：查出某一个班级一次考试中成绩排前10名的学生。
+
+四、某一培训学校要做一个网站，其中有一个招生报名功能模块，这件事情安排给你做，你描述一下工作如何开展，具体的实施步骤。
+
+五、从软件设计人员的角度，你认为：“无他，唯手熟尔！”这句话蕴涵了什么哲理
+
+
+
+北京灵泰克基础教育服务中心  地址：北京市丰台区西南四环花乡桥南200米，波峰商务楼2楼   网址：http://www.lingtek.com 
+乘车线路：四环沿线公交车（下车后向南200米路东） 657(东湖-丰北桥)花乡桥 736(灵秀山庄东站-玉泉路口南)花乡桥 740(十八里店村-十八里店村)花乡桥 996(平西王府-肖村桥西)花乡桥特3(燕莎桥南-造甲村东)花乡桥特9(黄土岗村-黄土岗村)花乡桥运通115(金庄-泰河一街西口)花乡桥 直达公交车 689(花乡驾校-惠新东桥西)花乡桥南 937专(南礼士路-羊坊村)花乡桥南
+
+JAVA程序员应聘测试题
+姓名：               联系方式：                           
+一、阅读下面的代码，回答：（1）写出这段代码所表示的数学表达试；（2）找出这段代码存在的问题。
+double d=0;
+for(int i=1;i<=10000;i=i+1){
+	d=d+1/(i*(i+1)*(i+2));
+	if(i==100)
+		System.out.println("i=100时："+d*4);
+	else if(i==1000)
+		System.out.println("i=1000时："+d*4);
+}
+System.out.println("i=10000时："+d*4);    
+
+
+第一种方法：double d=0;
+		for(int i=1;i<=10000;i=i+1){
+			d=d+(double)1/(i*(i+1)*(i+2));//----修改
+			if(i==100)
+				System.out.println("i=100时："+d*4);
+			else if(i==1000)
+				System.out.println("i=1000时："+d*4);
+		}
+		System.out.println("i=10000时："+d*4);
+		System.out.println(d);
+
+     
+               10000 
+第二种方法： 问题一：d= ∑ 1/(i*(i+1)*(i+2))
+               i=1    
+     问题二：此程序是为了对1/(i*(i+1)*(i+2))求和，但是此表达式分母和分子都是整型，
+             根据java的数据类型隐式转换规则，1/(i*(i+1)*(i+2)) 计算的结果的是0，这样是达
+             不到程序的目的。所以应该把for(int i=1;i<=10000;i=i+1) 这句中的i 定义成double
+             型，修改后应为for(double i=1;i<=10000;i=i+1)。
+二、编写一个JSP文件，要求用JSTL的循环标签将“1，2，3，4；5，6，7，8”显示成如下效果，写出主要的代码。
+第一列	第二列	第三列	第四列
+1	2	3	4
+5	6	7	8
+    <table>
+<tr>
+    <th>第一列</th>
+    <th>第二列</th>
+    <th>第三列</th>
+    <th>第四列</th>
+</tr>
+<tr>
+<c:forEach var="i" begin="1" end="8" step="1">
+  <td><c:out value="${i}"/></td>
+      <c:if test="${i==4}">
+     </tr><tr>
+     </c:if>
+</c:forEach>
+</tr>
+</table>
+三、写出符合MYSQL要求的查询语句：查出某一个班级一次考试中成绩排前10名的学生。
+selet top 10 * from 学生表 order by 成绩 desc
+四、某一培训学校要做一个网站，其中有一个招生报名功能模块，这件事情安排给你做，你描述一下工作如何开展，具体的实施步骤。
+首先需要了解的有：
+1、网站的建站目的；（招生）
+2、客户以及网站功能需求；（学习内容与招生的流程）
+3、制定项目执行计划；
+4、需求分析后根据实际情况设定功能属性（数据库表建立）；
+5、根据计划完成编码、测试（其中包含反馈实际执行进度）；
+五、从软件设计人员的角度，你认为：“无他，唯手熟尔！”这句话蕴涵了什么哲理
+我觉得做软件设计首先思路要清晰，然后就是去熟悉业务，要做到不仅仅是思路成熟，还有手熟，就像做一件事情，知道应该怎么去做，并且能那样做，就是一定去执行。
+
+北京灵泰克基础教育服务中心  地址：北京市丰台区西南四环花乡桥南200米，波峰商务楼2楼   网址：http://www.lingtek.com 
+乘车线路：四环沿线公交车（下车后向南200米路东） 657(东湖-丰北桥)花乡桥 736(灵秀山庄东站-玉泉路口南)花乡桥 740(十八里店村-十八里店村)花乡桥 996(平西王府-肖村桥西)花乡桥特3(燕莎桥南-造甲村东)花乡桥特9(黄土岗村-黄土岗村)花乡桥运通115(金庄-泰河一街西口)花乡桥 直达公交车 689(花乡驾校-惠新东桥西)花乡桥南 937专(南礼士路-羊坊村)花乡桥南
+
+领时科技笔试题
+一、基础题
+1.	谈谈final, finally, finalize的区别。
+2.	error和exception有什么区别?
+3.	abstract class(抽象类)和interface有什么区别?
+4.	switch是否能作用在byte上，是否能作用在long上，是否能作用在String上?
+5.	try {}里有一个return语句，那么紧跟在这个try后的finally {}里的code会不会被执行，在什么时候被执行，return前还是后?
+6.	谈谈&与&&，equals()与= =之间的区别。
+7.	谈谈int 和 Integer 有什么区别。
+二、分析题
+1.	如果要向服务器上传或下载100M或更大的文件，你有什么好的处理办法？
+2.	如果客户端正向服务器发送请求时，服务器突然崩溃，你认为可能出现问题的原因是什么?
+3.	你觉得Hibernate3.0在处理复杂的多表之间的关联关系，有什么优势？它的略施是什么？除了Hibernate以外，你还接触过哪些O/R映射框架？
+
+苗栗强面试题总结：
+1.你是怎么理解oa,od,op这三个概念的。他们之间的联系。
+2.soap是什么，请你列举出三种常用的例子。
+3.请你说说java(j2ee)三层架构体系。
+4.请你从（orcal,mysql,ms sql,db2）任意选一个数据库回答它是如何进行数据库管理？
+5.请你如何构架erp企业网络系统一个总部和异地的网络拓扑图, 会议视频系统，oa系统。ERP系统。把他们分布图画出来。
+6.请你说出两种常用的建模语言工具。
+7.还有一道就是数据库题，我觉得用全连接查询。
+8.请你Strut框架写一个登录程序。
+民航中天笔试题
+
+1.  抽象类的定义，在定义的四个选项中选择一个可以通过编译的抽象类。
+2.  A 继承 B ，B 中有个final的构造方法，A 的构造方法与 B不同，能编译通过吗？
+3.  A 继承 B ，A、B各有一个不同的构造方法（里面都有打印），通过A的构造方法NEW A，问打印那个？
+4.  写一个类的重载。
+5.  使一个对象符合java虚拟机的垃圾回收条件，写两个方法。
+6.  简单描述一下两种异常。
+7.  try catch finally 的嵌套，输出打印结果
+8.  注意StringBuffer的删除CAHR,插入CHAR的方法即可。
+9.  将1、1、2、3、4的英文单词存放到一个treeset中，便利打印，写出结果
+10. （SELECT COL1,COL2 FROM TABLENAME WHERE COL1='TEST'）
+     写一个方法实现上述语句所对应的功能。
+整套题目，考的比较基础，有好多地方迷惑性比较强，需要小心。
+铭万公司笔试题
+一.IQ题
+1.62-63=1 答案是2的6次方减63
+怎样移动一位数字使上面等式成立，只能移动数字。
+2.根据图形变化填写图形  答案是两个8连着写
+二、写书sql语句(有三个表  学生表 {学生id 学生姓名} 课程表{课程名  课程id} 成绩表{课程id   学生id  成绩表id   成绩 } )
+一 查所有学生的姓名 课程   成就 (等值连接用where 判断 )
+二 查所有缺课的学生姓名  就是课程id和学生id在成绩表中没有的 (等值连接用where 判断 )
+三、将数据库中表中重复的数据删除掉，只保留ID号最小的那条记录
+delete fromT
+where (a,b,c,d) in   (select a,b,c,d from T group by a,d,c,d having count(*) > 1)
+and rowid not in (select min(rowid) from T group by a,b,c,d having count(*)>1)
+四、语句查出A、B表中全部的数据，并且删除掉重复的数据
+Select from a union select from b
+五、java基础题
+1.final、finally、finaliz的区别
+答：final?修饰符（关键字）如果一个类被声明为final，意味着它不能再派生出新的子类，不能作为父类被继承。因此一个类不能既被声明为 abstract的，又被声明为final的。将变量或方法声明为final，可以保证它们在使用中不被改变。被声明为final的变量必须在声明时给定初值，而在以后的引用中只能读取，不可修改。被声明为final的方法也同样只能使用，不能重载
+finally?再异常处理时提供 finally 块来执行任何清除操作。如果抛出一个异常，那么相匹配的 catch 子句就会执行，然后控制就会进入 finally 块（如果有的话）
+finalize?方法名。Java 技术允许使用 finalize() 方法在垃圾收集器将对象从内存中清除出去之前做必要的清理工作。这个方法是由垃圾收集器在确定这个对象没有被引用时对这个对象调用的。它是在 Object 类中定义的，因此所有的类都继承了它。子类覆盖 finalize() 方法以整理系统资源或者执行其他清理工作。finalize() 方法是在垃圾收集器删除对象之前对这个对象调用的
+
+2.&和&&的区别，==和equals的区别
+：&是位运算符，表示按位与运算，&&是逻辑运算符，表示逻辑与（and）
+equals方法比较的是对象的值
+    = =:比较的是对象值的内存地址，对基本数据类型来说＝＝比较的也是值
+
+
+3.静态类和内部类的区别
+和普通的类一样，内部类也可以有静态的。不过和非静态内部类相比，区别就在于静态内部类没有了指向外部的引用。这实际上和C++中的嵌套类很相像了，Java内部类与C++嵌套类最大的不同就在于是否有指向外部的引用这一点上，当然从设计的角度以及以它一些细节来讲还有区别。 
+Nested Class （一般是C++的说法），Inner Class (一般是JAVA的说法)。Java内部类与C++嵌套类最大的不同就在于是否有指向外部的引用上。注： 静态内部类（Inner Class）意味着1创建一个static内部类的对象，不需要一个外部类对象，2不能从一个static内部类的一个对象访问一个外部类对象
+
+除此之外，在任何非静态内部类中，都不能有静态数据，静态方法或者又一个静态内部类（内部类的嵌套可以不止一层）。不过静态内部类中却可以拥有这一切。
+4.匿名内部类是否可以extends其他类，是否可以实现接口
+答：匿名的内部类是没有名字的内部类。不能extends(继承) 其它类，但一个内部类可以作为一个接口，由另一个内部类实现
+5 表a的外键id 是表b的外键id 要删除表a的id应该怎么做
+先删外键的再删主键的  
+六、写出执行语句
+第一个题是怎样调用父类代码
+答案 super.(父类的方法名 )
+第二个题是内部类的执行语句
+答案 先输出内部类的再输出外类的 
+七编程：编写一个截取字符串的函数，输入为一个字符串和字节数，输出为按字节截取的字符串。 但是要保证汉字不被截半个，如“我ABC”4，应该截为“我AB”，输入“我ABC汉DEF”，6，应该输出为“我ABC”而不是“我ABC+汉的半个”。 
+答：代码如下：
+package test; 
+class  SplitString
+{
+ String SplitStr;
+ int SplitByte;
+ public SplitString(String str,int bytes)
+ {
+  SplitStr=str;
+  SplitByte=bytes;
+  
+ }
+ public void SplitIt()
+ {
+  int loopCount;
+   
+loopCount=(SplitStr.length()%SplitByte==0)?(SplitStr.length()/SplitByte):(SplitStr.length()/Split 
+Byte+1);
+ 
+  for (int i=1;i<=loopCount ;i++ )
+  {
+   if (i==loopCount){
+     
+System.out.println(SplitStr.substring((i-1)*SplitByte,SplitStr.length()));
+   } else {
+     
+System.out.println(SplitStr.substring((i-1)*SplitByte,(i*SplitByte)));
+   }
+  }
+ }
+ public static void main(String[] args) 
+ {
+  SplitString ss = new SplitString("我ABC汉DEF",6);
+  ss.SplitIt();
+ }
+}
+
+
+铭万信息技术有限公司  总部：北京市朝阳区安苑路15号铭万信息大厦  网址：http://corp.mainone.com/
+乘车路线：公交：车站站名安苑路  409、18即可到达
+          地铁：地铁5好线惠新西街北口站下，A出口安徽大厦南第一个红绿灯右拐100米白色九层大楼即是
+
+南北软件笔试题
+
+孙文中总结：
+1 有一个方法，传进一个字符串和拆分符，根据拆分符返回一个String[]，不能用split()
+	(如传入String s = “abc-eee-ppp” 返回[“abc”,” eee”,” ppp”])
+	Public statie String[] getArray(String s,char mark) {
+		//写出具体实现
+}
+答案：public static void main(String[] args) {
+		String s = "abc-eee-ppp";
+		String[] strs  = getArray(s,"-");
+		for(String ss :strs){
+			System.out.println(ss);
+		}
+	}
+
+	public static String[] getArray(String s,String mark) {
+		StringTokenizer st = new StringTokenizer(s,mark);
+		int count =  st.countTokens();
+		String[] strs = new String[count];	
+		int i = 0;
+		while(st.hasMoreElements()){
+			strs[i] = (String)st.nextElement();
+			i ++;
+		}
+		return strs;
+	}
+2 根据几个表，数据库7道题：
+	Employee表：
+	ename 员工名字，主键
+	street 员工街道
+	city 员工家城市
+	
+	Works表：
+	ename 员工名字，外键，引用Employee的name
+	cname 公司所在城市名，外键，引用Company的cname
+	salary 员工的年薪
+
+	Company表：
+	cname公司所在城市名，主键
+	city 公司所在城市
+
+	Manager表：
+	ename员工名字，外键，引用Employee
+	mname 经理名字
+
+	1 查询与经理同街道同城市的雇员的名字
+	2 First Bank的雇员姓名
+	（都是基于多表的链接，还有子查询，内建视图和分组）
+
+3
+class A
+class B extends A
+class C extends B
+
+class D extends A
+class E extends D
+
+有几个静态方法
+Public statie void f1(A a,B b) {System.out.println(1)};
+Public statie void f1(D d,C c) {System.out.println(2)};
+Public statie void f1(C c,B b) {System.out.println(3)};
+(好像是这样，考得是多态和继承，基础)
+
+给几个方法，判断可否执行，可以写结果，不可以写原因s
+F1(new A(),new C());  (类似于这样的)
+F2(new A(),new C());
+(画出继承图就行，参数要超类给子类的没问题，要子类给超类的不行)
+
+4 class A extends Thread implements Runnable {
+	Public void run() {
+		Sysout(“1”);
+}
+}
+有没有错误，有是编译期还是执行期，原因
+
+5 一道内部类的题，内部类的声明方式，内部类里方法的声明方式，给了选项几个选择。
+
+6 一道选择题，没见过的就是Boolean boo = Boolean.FALSE;是否正确，别的都简单。
+
+7 基础
+public static void f1(String s) {sysout(s + “ world”)}
+public static String f2(String s) {return s + “ world”}
+
+public static void main() {
+	String s = “hello”;
+f1(s);
+sysout(s);
+String s2 = “hello”;
+f2(s2);
+sysout(s2);
+}
+
+有几个忘了，最后还有一道翻译，大概有一篇四级文章大小
+
+做完还有一套类似于公务员行政能力考试的题，(从出的题看，估计考察一下对数字的敏感程度，数字推理，还有找不同什么的)
+
+规定用时两个半小时，数据库好像他们挺看重，多表，子查询，内建视图，分组都用到了，没有特别难的好像
+
+
+
+
+韩岳峰总结：
+
+1.	一个公司人员值班表 赵比孙晚一天 李比吴晚两天 钱比王早三天 郑在钱和孙之间  有几个选项没记住 看选项谁对  就是吧这几个人排好就可以
+2.	指出正确的表达式
+3.	给一段程序看是否正确
+4.	class super{
+public fcoat getnum(){return 3.0f}
+}
+public class sub extends super{
+//insert code here 处加入一个方法 错误的是
+}
+选项没记住
+5.	找出程序中的错误的
+6.	同上
+7.	public static void main……..(){
+static int arr[ ] [ ] = new int [10][ ] ;
+int x=3;
+int y=1;
+if(x==y)
+sysout(“1”)
+else
+sysout(“2”)
+}
+问结果
+8.	也是以个读结果题
+第二题
+1.	int和intager区别
+2.	string和stringB区别
+3.	线程的实现方式有几种 分别是什么 STOP()和SUSPEND()为何不推荐
+4.	XML几种技术的区别
+第三题就是数据库的有4到查询语句 和上次题基本一样
+第四题 是 英文翻译 一段英文翻译 不好翻译
+																	
+
