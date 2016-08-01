@@ -7,3 +7,10 @@
  12  *
  13  *   综上所述：Comparable是内部比较器，而Comparator是外部比较器。
  14  *   一个类本身实现了Comparable比较器，就意味着它本身支持排序；若它本身没实现Comparable，也可以通过外部比较器Comparator进行排序。
+
+
+
+nlog(n)
+归并排序
+稳定
+小的放前面。
