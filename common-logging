@@ -1,0 +1,10 @@
+做日志的时候一般是两者一起用，commons-logging工作原理做接口，log4j做实现，应用起来比单独的使用log4j要简单
+
+commons-logging工作原理:
+1. 首先在classpath下寻找自己的配置文件commons-logging.properties,如果找到,则使用其中定义的Log实现类
+2. 如果找不到commons-logging.properties文件,则在查找是否已定义系统环境变量org.apache.commons.logging.Log,找到则使用其定义的Log实现类
+3. 查看classpath中是否有Log4j的包,如果发现,则自动使用Log4j作为日志实现类
+4. 使用JDK自身的日志实现类(JDK1.4以后才有日志实现类)
+5. 使用commons-logging自己提供的一个简单的日志实现类SimpleLog
+(以上顺序不保证完全准确,请参考官方文档)
+commons-logging总是能找到一个日志实现类,并且尽可能找到一个"最合适"的日志实现类. 
