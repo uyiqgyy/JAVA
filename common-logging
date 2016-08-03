@@ -8,3 +8,9 @@ commons-logging工作原理:
 5. 使用commons-logging自己提供的一个简单的日志实现类SimpleLog
 (以上顺序不保证完全准确,请参考官方文档)
 commons-logging总是能找到一个日志实现类,并且尽可能找到一个"最合适"的日志实现类. 
+
+.
+
+在 用 maven 一起时， 配置的properties文件的路径要与pom.xml里resource的规定路径一致。
+
+或是 用基本的属性配置 BasicConfigurator.configure();//org.apache.log4j.BasicConfigurator;
