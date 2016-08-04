@@ -11,3 +11,7 @@ http://www.cnblogs.com/xingege/p/4110089.html
 static 放在常量池  也就是 方法区 也就是堆
 
 final不管，该在哪就在哪
+
+
+常量池和永久代（permgen）以及元空间
+http://www.cnblogs.com/paddix/p/5309550.html
