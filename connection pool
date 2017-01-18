@@ -1,0 +1,10 @@
+question: 
+    1.使用spring的封装的jdbcTemplate是不是没有解耦？换句话如何替代整个spring 框架 ，在将来？
+    2,connection pool 的使用，缘由，——）transaction management,
+    3. 现有的connection pool 实现有哪些？主要解决了哪一类问题？
+    4. 基于什么来设计connetion pool? spring? 还有其他的吗？
+MiniConnectionPoolManager http://www.source-code.biz/miniconnectionpoolmanager/
+https://github.com/vladmihalcea/flexy-pool
+https://github.com/swaldman/c3p0
+https://github.com/DanielYWoo/fast-object-pool
+光**https://github.com/brettwooldridge/HikariCP
