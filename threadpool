@@ -1,0 +1,31 @@
+public class SomethingThatShouldHappenInAThread {
+     private TaskExecutor taskExecutor;
+     private ClassWithMethodToFire classWithMethodToFire;
+
+     public SomethingThatShouldHappenInAThread(TaskExecutor taskExecutor,
+                                               ClassWithMethodToFire classWithMethodToFire) {
+          this.taskExecutor = taskExecutor;
+          this.classWithMethodToFire = classWithMethodToFire;
+     }
+
+     public void fire(final SomeParameterClass parameter) {
+          taskExecutor.execute( new Runnable() {
+               public void run() {
+                    classWithMethodToFire.doSomething( parameter );
+               }
+          });
+     }
+}
+
+And here are the Spring beans:
+
+<bean name="somethingThatShouldHappenInAThread" class="package.name.SomethingThatShouldHappenInAThread">
+     <constructor-arg type="org.springframework.core.task.TaskExecutor" ref="taskExecutor" />
+     <constructor-arg type="package.name.ClassWithMethodToFire" ref="classWithMethodToFireBean"/>
+</bean>
+
+<bean id="taskExecutor" class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor">
+     <property name="corePoolSize" value="5" />
+     <property name="maxPoolSize" value="10" />
+     <property name="queueCapacity" value="25" />
+</bean>
