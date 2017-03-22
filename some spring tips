@@ -1,0 +1,20 @@
+1.<bean id="propertyPlaceholderConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>classpath:com/citi/pmc/embargo/configuration.properties</value>
+            </list>
+        </property>
+    </bean>;
+
+2.destroy-method="close";
+
+3.<bean id="embargoIdIncrementer" class="org.springframework.jdbc.support.incrementer.OracleSequenceMaxValueIncrementer">
+        <property name="dataSource" ref="defaultDataSource" />
+        <property name="incrementerName" value="*" />
+ </bean>;
+ 
+ 4.<bean id="priceMoveTaskQueue" class="java.util.concurrent.LinkedBlockingQueue" scope="singleton">
+        <constructor-arg index="0">
+            <value>${queue.default.capability}</value>
+        </constructor-arg>
+    </bean>
