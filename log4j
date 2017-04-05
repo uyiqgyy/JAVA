@@ -1,0 +1,28 @@
+log4j:WARN No appenders could be found for logger (org.springframework.jdbc.core.JdbcTemplate).
+log4j:WARN Please initialize the log4j system properly.
+log4j:WARN See http://logging.apache.org/log4j/1.2/faq.html#noconfig for more info.
+
+1. add this sentence to VM
+-Dlog4j.configuration=file:src/test/resources/log4j.xml
+2. maven 
+
+<plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.19.1</version>
+                <configuration>
+                    <systemPropertyVariables>
+                        <log4j.configuration>file:${project.build.testOutputDirectory}/log4j.properties</log4j.configuration>
+                        <dbunit.driverClass>oracle.jdbc.driver.OracleDriver</dbunit.driverClass>
+                        <dbunit.connectionUrl>....</dbunit.connectionUrl>
+                        <dbunit.username>...</dbunit.username>
+                        <dbunit.password>...</dbunit.password>
+                    </systemPropertyVariables>
+                    <properties>
+                        <property>
+                            <name>listener</name>
+                            <value>org.sonar.java.jacoco.JUnitListener</value>
+                        </property>
+                    </properties>
+                </configuration>
+            </plugin>
