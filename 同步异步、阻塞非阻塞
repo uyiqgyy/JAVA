@@ -1,3 +1,15 @@
 http://www.jianshu.com/p/aed6067eeac9
 
 Linux 5种IO模式 http://www.jianshu.com/p/486b0965c296
+
+IO有两步：
+第一阶段：等待数据准备 (Waiting for the data to be ready)。
+第二阶段：将数据从内核拷贝到进程中 (Copying the data from the kernel to the process)。
+
+同步vs异步：主动等待，轮询等都是同步；消息通知是异步。
+阻塞vs非阻塞：在等待过程中做其他的事情就是非阻塞，反之为同步。
+
+多路复用IO http://xuding.blog.51cto.com/4890434/1739649
+一般被叫做异步阻塞。异步是因为用户线程注册事件处理器之后可以继续执行做其他的工作（异步），而Reactor线程负责调用内核的select函数检查socket状态。
+阻塞是因为，select读取是否有数据是阻塞。【从内核到工作线程也是阻塞】
+所以，如果对于reactor线程是同步阻塞，对于用户线程可以执行多个IO操作是异步阻塞。
