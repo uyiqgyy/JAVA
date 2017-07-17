@@ -1,49 +1,62 @@
-* Java的Exception和Error面试题10问10答
+* Java的Exception和Error面试题10问10答:
 http://www.oschina.net/translate/10-java-exception-and-error-interview-questions-answers-programming?lang=eng
 
-异常处理
+* 异常处理:
 http://wiki.jikexueyuan.com/project/java-interview-bible/exception.html
 
-1.Throwable 类是 Java 语言中所有错误或异常的超类。它的两个子类是Error和Exception；
+1. Throwable 类是 Java 语言中所有错误或异常的超类。它的两个子类是Error和Exception；
 
 
-2.Error 是 Throwable 的子类，用于指示合理的应用程序不应该试图捕获的严重问题。大多数这样的错误都是异常条件。虽然 ThreadDeath 错误是一个“正规”的条件，但它也是 Error 的子类，因为大多数应用程序都不应该试图捕获它。在执行该方法期间，无需在其 throws 子句中声明可能抛出但是未能捕获的 Error 的任何子类，因为这些错误可能是再也不会发生的异常条件。
+2. Error 是 Throwable 的子类，用于指示合理的应用程序不应该试图捕获的严重问题。大多数这样的错误都是异常条件。虽然 ThreadDeath 错误是一个“正规”的条件，但它也是 Error 的子类，因为大多数应用程序都不应该试图捕获它。在执行该方法期间，无需在其 throws 子句中声明可能抛出但是未能捕获的 Error 的任何子类，因为这些错误可能是再也不会发生的异常条件。
 
 
-3.Exception 类及其子类是 Throwable 的一种形式，它指出了合理的应用程序想要捕获的条件。
+3. Exception 类及其子类是 Throwable 的一种形式，它指出了合理的应用程序想要捕获的条件。
 
 
-4.RuntimeException 是那些可能在 Java 虚拟机正常运行期间抛出的异常的超类。可能在执行方法期间抛出但未被捕获的RuntimeException 的任何子类都无需在 throws 子句中进行声明。它是Exception的子类。
+4. RuntimeException 是那些可能在 Java 虚拟机正常运行期间抛出的异常的超类。可能在执行方法期间抛出但未被捕获的RuntimeException 的任何子类都无需在 throws 子句中进行声明。它是Exception的子类。
 
 
-5.方法重写时：在子类中一个重写的方法可能只抛出父类中声明过的异常或者异常的子类
+5. 方法重写时：在子类中一个重写的方法可能只抛出父类中声明过的异常或者异常的子类
 
-Error与Exception有什么区别？
+#### Error与Exception有什么区别？
 
-
+1. 
 Error类和Exception类都继承自Throwable类。
 Error的继承关系：
-java.lang.Object 
- java.lang.Throwable
-      java.lang.Error
+* java.lang.Object 
+  * java.lang.Throwable
+     * java.lang.Error
  
 Exception的继承关系：
-java.lang.Object
-java.lang.Throwable
-     java.lang.Exception
+* java.lang.Object
+  * java.lang.Throwable
+    * java.lang.Exception
  
  
-二者的不同之处：
+2. 二者的不同之处：
  
-Exception：
+> Exception：
 
 1．可以是可被控制(checked) 或不可控制的(unchecked) 
+* checked: 
+  * IOException
+  * SQLException
+  * DataAccessException
+  * ClassNotFoundException
+  * FileNotFoundException
+  * InvocationTargetException
+  * MalformedURLException
+* unchecked: 
+  * NullPointerException
+  * ArrayIndexOutOfBound
+  * IllegalArgumentException
+  * IllegalStateException
 
 2．表示一个由程序员导致的错误 
 
 3．应该在应用程序级被处理
  
-Error：
+> Error：
 
 1．总是不可控制的(unchecked) 
 
@@ -53,21 +66,21 @@ Error：
  
  
  
-Java 中定义了两类异常： 
+#### Java 中定义了两类异常： 
 
 　　1) Checked exception: 这类异常都是Exception的子类 。异常的向上抛出机制进行处理，假如子类可能产生A异常，那么在父类中也必须throws A异常。可能导致的问题：代码效率低，耦合度过高。
 　　
 　　2) Unchecked exception: 这类异常都是RuntimeException的子类，虽然RuntimeException同样也是Exception的子类，但是它们是非凡的，它们不能通过client code来试图解决，所以称为Unchecked exception 。
  
  
-Java 中异常类的继承关系图：
+* Java 中异常类的继承关系图：
 
 
  
 
 
 
-Checked Exception与Runtime Exception 的区别
+* Checked Exception与Runtime Exception 的区别
 Java里有个很重要的特色是Exception ，也就是说允许程序产生例外状况。而在学Java 的时候，我们也只知道Exception 的写法，却未必真能了解不同种类的Exception 的区别。
 
 　　首先，您应该知道的是Java 提供了两种Exception 的模式，一种是执行的时候所产生的Exception (Runtime Exception)，另外一种则是受控制的Exception (Checked Exception)。
@@ -77,8 +90,8 @@ Java里有个很重要的特色是Exception ，也就是说允许程序产生例
 　　当我们撰写程序的时候，我们很可能会对选择某种形式的Exception 感到困扰，到底我应该选择Runtime Exception 还是Checked Exception ？
 
 　　其实，在运作上，我们可以通过Class 的Method 如何产生某个Exception以及某个程序如何处理这个被产生来的Exception 来了解它们之间的差异。
-首先我们先建立一个Exception
-
+首先我们先建立一个Exception"
+''' java
 public class CException extends Exception {
 	public CException() {
 	}
@@ -87,8 +100,10 @@ public class CException extends Exception {
 		super(message);
 	}
 }
+'''
 
 然后我们撰写一个可能产生 CException 的 Class
+''' java
 public class TestException {
 	public void method1() throws CException {
 		throw new CException("Test Exception");
@@ -107,10 +122,12 @@ public class TestException {
 	// 以下省略
 	// ...
 }
+'''
 
 　在这三个method 中，我们看到了method1 和method2 的程序码内都会产生Exception，但method3 的程序码中(大括号内)，并没产生Exception，但在method3 的定义中，暗示了这个method 可能产生CException。
 
 　　呼叫method1() 的程序，必须将method1() 包含在try 与catch 中，如：
+''' java
 public class Runtest {
 	// ....
 	public static void main(String argv[]) {
@@ -124,10 +141,12 @@ public class Runtest {
 	}
 	// ...
 }
+'''
 
 虽然包含在try 与catch 中，并不表示这段程序码一定会收到CException，但它的用意在于提醒呼叫者，执行这个method 可能产生的意外，而使用者也必须要能针对这个意外做出相对应的处理方式。
 
 　　当使用者呼叫method2() 时，并不需要使用try 和catch 将程序码包起来，因为method2 的定义中，并没有throws 任何的Exception ，如：
+''' java
 public class Runtest
 {
 // ....
@@ -144,6 +163,7 @@ te.method2(null);
 }
 // ...
 }
+'''
 程序在执行的时候，也不见得会真的产生NullPointerException ，这种Exception 叫做runtime exception 也有人称为unchecked exception ，产生Runtime Exception 的method (在这个范例中是method2) 并不需要在宣告method 的时候定义它将会产生哪一种Exception 。
 
 　　在testException 的method3() 中，我们看到了另外一种状况，也就是method3里呼叫了method1() ，但却没有将method1 包在try 和catch 之间。相反，在method3() 的定义中，它定义了CException，实际上就是如果method3 收到了CException ，它将不处理这个CException ，而将它往外丢。当然，由于method3 的定义中有throws CException ，因此呼叫method3 的程序码也需要有try catch 才行。
@@ -155,9 +175,10 @@ te.method2(null);
 　　而Runtime Exception 通常会暗示着程序上的错误，这种错误会导致程序设计者无法处理，而造成程序无法继续执行下去。
 
 看看下面的例子：
-
+''' java
 String message[] = {"message1", "message2","message3"};
 System.out.println(message[3]);
+'''
 
 　　这段程序码在Compile 时并没问题，但在执行时则会出现ArrayIndexOutOfBoundException 的例外，在这种状况下，我们亦无法针对这个Runtime Exception 做出有意义的动作，这就像是我们呼叫了testException 中的method2 ，却引发了它的NullPointerException 一样，在这种状况下，我们必须对程序码进行修改，从而避免这个问题。
 
@@ -165,6 +186,7 @@ System.out.println(message[3]);
 
 　　然而对于Runtime Exception ，有些人建议将它catch 住，然后导向其它地方，让程序继续执行下去，这种作法并非不好，但它会让我们在某些测试工具下认为我们的程序码没有问题，因为我们将Runtime Exception "处理"掉了，事实却不然！譬如很多人的习惯是在程序的进入点后用个大大的try catch 包起来，如：
 
+''' java
 public class Runtest1 {
 	public static void main(String argv[]) {
 		try {
@@ -173,10 +195,20 @@ public class Runtest1 {
 		}
 	}
 }
-
-
-
+'''
 
 在这种情况下，我们很可能会不知道发生了什么Exception 或是从哪一行发出的，因此在面对不同的Checked Exception时，我们可已分别去try catch它。而在测试阶段时，如果碰到Runtime Exception ，我们可以让它就这样发生，接着再去修改我们的程序码，让它避免Runtime Exception，否则，我们就应该仔细追究每一个Exception ，直到我们可以确定它不会有Runtime Exception 为止！
 
 　　对于Checked Exception 与Runtime Exception ，我想应该有不少人会有不同的观点，无论如何，程序先要能执行，这些Exception 才有机会产生。因此，我们可以把这些Exception 当成是Bug ，也可以当成是不同的状况(Checked Exception)，或当成是帮助我们除错的工具(Runtime Exception)，但前提是我们需要处理这些Exception ，如果不处理，那么问题或状况就会永远留在那里。
+  
+#### difference between ClassNotFoundException and NoClassDefFoundError
+
+ClassNotFoundException|NoClassDefFoundError
+---|---
+It is an exception. It is of type java.lang.Exception.|It is an error. It is of type java.lang.Error.
+
+It occurs when an application tries to load a class at run time which is not updated in the classpath.|It occurs when java runtime system doesn’t find a class definition, which is present at compile time, but missing at run time.
+It is thrown by the application itself. It is thrown by the methods like Class.forName(), loadClass() and findSystemClass().|It is thrown by the Java Runtime System.
+It occurs when classpath is not updated with required JAR files.|It occurs when required class definition is missing at runtime.
+ 
+
