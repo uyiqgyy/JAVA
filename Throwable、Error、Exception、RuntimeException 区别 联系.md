@@ -92,7 +92,7 @@ Java里有个很重要的特色是Exception ，也就是说允许程序产生例
 　　其实，在运作上，我们可以通过Class 的Method 如何产生某个Exception以及某个程序如何处理这个被产生来的Exception 来了解它们之间的差异。
 首先我们先建立一个Exception"
 
-'''java
+```java
 public class CException extends Exception {
 	public CException() {
 	}
@@ -101,11 +101,11 @@ public class CException extends Exception {
 		super(message);
 	}
 }
-'''
+```
 
 然后我们撰写一个可能产生 CException 的 Class
 
-'''java
+```java
 public class TestException {
 	public void method1() throws CException {
 		throw new CException("Test Exception");
@@ -124,13 +124,13 @@ public class TestException {
 	// 以下省略
 	// ...
 }
-'''
+```
 
 　在这三个method 中，我们看到了method1 和method2 的程序码内都会产生Exception，但method3 的程序码中(大括号内)，并没产生Exception，但在method3 的定义中，暗示了这个method 可能产生CException。
 
 　　呼叫method1() 的程序，必须将method1() 包含在try 与catch 中，如：
   
-'''java
+```java
 public class Runtest {
 	// ....
 	public static void main(String argv[]) {
@@ -144,13 +144,13 @@ public class Runtest {
 	}
 	// ...
 }
-'''
+```
 
 虽然包含在try 与catch 中，并不表示这段程序码一定会收到CException，但它的用意在于提醒呼叫者，执行这个method 可能产生的意外，而使用者也必须要能针对这个意外做出相对应的处理方式。
 
 　　当使用者呼叫method2() 时，并不需要使用try 和catch 将程序码包起来，因为method2 的定义中，并没有throws 任何的Exception ，如：
   
-'''java
+```java
 public class Runtest
 {
 // ....
@@ -167,7 +167,7 @@ te.method2(null);
 }
 // ...
 }
-'''
+```
 程序在执行的时候，也不见得会真的产生NullPointerException ，这种Exception 叫做runtime exception 也有人称为unchecked exception ，产生Runtime Exception 的method (在这个范例中是method2) 并不需要在宣告method 的时候定义它将会产生哪一种Exception 。
 
 　　在testException 的method3() 中，我们看到了另外一种状况，也就是method3里呼叫了method1() ，但却没有将method1 包在try 和catch 之间。相反，在method3() 的定义中，它定义了CException，实际上就是如果method3 收到了CException ，它将不处理这个CException ，而将它往外丢。当然，由于method3 的定义中有throws CException ，因此呼叫method3 的程序码也需要有try catch 才行。
@@ -180,10 +180,10 @@ te.method2(null);
 
 看看下面的例子：
 
-'''java
+```java
 String message[] = {"message1", "message2","message3"};
 System.out.println(message[3]);
-'''
+```
 
 　　这段程序码在Compile 时并没问题，但在执行时则会出现ArrayIndexOutOfBoundException 的例外，在这种状况下，我们亦无法针对这个Runtime Exception 做出有意义的动作，这就像是我们呼叫了testException 中的method2 ，却引发了它的NullPointerException 一样，在这种状况下，我们必须对程序码进行修改，从而避免这个问题。
 
@@ -191,7 +191,7 @@ System.out.println(message[3]);
 
 　　然而对于Runtime Exception ，有些人建议将它catch 住，然后导向其它地方，让程序继续执行下去，这种作法并非不好，但它会让我们在某些测试工具下认为我们的程序码没有问题，因为我们将Runtime Exception "处理"掉了，事实却不然！譬如很多人的习惯是在程序的进入点后用个大大的try catch 包起来，如：
 
-'''java
+```java
 public class Runtest1 {
 	public static void main(String argv[]) {
 		try {
@@ -200,7 +200,7 @@ public class Runtest1 {
 		}
 	}
 }
-'''
+```
 
 在这种情况下，我们很可能会不知道发生了什么Exception 或是从哪一行发出的，因此在面对不同的Checked Exception时，我们可已分别去try catch它。而在测试阶段时，如果碰到Runtime Exception ，我们可以让它就这样发生，接着再去修改我们的程序码，让它避免Runtime Exception，否则，我们就应该仔细追究每一个Exception ，直到我们可以确定它不会有Runtime Exception 为止！
 
