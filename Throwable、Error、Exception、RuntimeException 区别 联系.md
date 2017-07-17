@@ -1,4 +1,4 @@
-Java的Exception和Error面试题10问10答
+* Java的Exception和Error面试题10问10答
 http://www.oschina.net/translate/10-java-exception-and-error-interview-questions-answers-programming?lang=eng
 
 异常处理
