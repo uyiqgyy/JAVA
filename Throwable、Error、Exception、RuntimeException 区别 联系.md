@@ -92,7 +92,7 @@ Java里有个很重要的特色是Exception ，也就是说允许程序产生例
 　　其实，在运作上，我们可以通过Class 的Method 如何产生某个Exception以及某个程序如何处理这个被产生来的Exception 来了解它们之间的差异。
 首先我们先建立一个Exception"
 
-''' java
+'''java
 public class CException extends Exception {
 	public CException() {
 	}
@@ -105,7 +105,7 @@ public class CException extends Exception {
 
 然后我们撰写一个可能产生 CException 的 Class
 
-''' java
+'''java
 public class TestException {
 	public void method1() throws CException {
 		throw new CException("Test Exception");
@@ -130,7 +130,7 @@ public class TestException {
 
 　　呼叫method1() 的程序，必须将method1() 包含在try 与catch 中，如：
   
-''' java
+'''java
 public class Runtest {
 	// ....
 	public static void main(String argv[]) {
@@ -150,7 +150,7 @@ public class Runtest {
 
 　　当使用者呼叫method2() 时，并不需要使用try 和catch 将程序码包起来，因为method2 的定义中，并没有throws 任何的Exception ，如：
   
-''' java
+'''java
 public class Runtest
 {
 // ....
@@ -180,7 +180,7 @@ te.method2(null);
 
 看看下面的例子：
 
-''' java
+'''java
 String message[] = {"message1", "message2","message3"};
 System.out.println(message[3]);
 '''
@@ -191,7 +191,7 @@ System.out.println(message[3]);
 
 　　然而对于Runtime Exception ，有些人建议将它catch 住，然后导向其它地方，让程序继续执行下去，这种作法并非不好，但它会让我们在某些测试工具下认为我们的程序码没有问题，因为我们将Runtime Exception "处理"掉了，事实却不然！譬如很多人的习惯是在程序的进入点后用个大大的try catch 包起来，如：
 
-''' java
+'''java
 public class Runtest1 {
 	public static void main(String argv[]) {
 		try {
