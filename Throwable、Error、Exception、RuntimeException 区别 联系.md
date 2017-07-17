@@ -91,6 +91,7 @@ Java里有个很重要的特色是Exception ，也就是说允许程序产生例
 
 　　其实，在运作上，我们可以通过Class 的Method 如何产生某个Exception以及某个程序如何处理这个被产生来的Exception 来了解它们之间的差异。
 首先我们先建立一个Exception"
+
 ''' java
 public class CException extends Exception {
 	public CException() {
@@ -103,6 +104,7 @@ public class CException extends Exception {
 '''
 
 然后我们撰写一个可能产生 CException 的 Class
+
 ''' java
 public class TestException {
 	public void method1() throws CException {
@@ -127,6 +129,7 @@ public class TestException {
 　在这三个method 中，我们看到了method1 和method2 的程序码内都会产生Exception，但method3 的程序码中(大括号内)，并没产生Exception，但在method3 的定义中，暗示了这个method 可能产生CException。
 
 　　呼叫method1() 的程序，必须将method1() 包含在try 与catch 中，如：
+  
 ''' java
 public class Runtest {
 	// ....
@@ -146,6 +149,7 @@ public class Runtest {
 虽然包含在try 与catch 中，并不表示这段程序码一定会收到CException，但它的用意在于提醒呼叫者，执行这个method 可能产生的意外，而使用者也必须要能针对这个意外做出相对应的处理方式。
 
 　　当使用者呼叫method2() 时，并不需要使用try 和catch 将程序码包起来，因为method2 的定义中，并没有throws 任何的Exception ，如：
+  
 ''' java
 public class Runtest
 {
@@ -175,6 +179,7 @@ te.method2(null);
 　　而Runtime Exception 通常会暗示着程序上的错误，这种错误会导致程序设计者无法处理，而造成程序无法继续执行下去。
 
 看看下面的例子：
+
 ''' java
 String message[] = {"message1", "message2","message3"};
 System.out.println(message[3]);
@@ -206,7 +211,6 @@ public class Runtest1 {
 ClassNotFoundException|NoClassDefFoundError
 ---|---
 It is an exception. It is of type java.lang.Exception.|It is an error. It is of type java.lang.Error.
-
 It occurs when an application tries to load a class at run time which is not updated in the classpath.|It occurs when java runtime system doesn’t find a class definition, which is present at compile time, but missing at run time.
 It is thrown by the application itself. It is thrown by the methods like Class.forName(), loadClass() and findSystemClass().|It is thrown by the Java Runtime System.
 It occurs when classpath is not updated with required JAR files.|It occurs when required class definition is missing at runtime.
