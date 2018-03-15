@@ -2,15 +2,17 @@
 
 ### JPA
 * 持久化技术
- * JDO 模式
- * Active Records
- * CMP 模式
- * ORM - JPA
+  * JDO 模式
+  * Active Records
+  * CMP 模式
+  * ORM - JPA
+ 
 * JPA
- * 官方文档 
+  * 官方文档 
+ 
 * what is JPA 
- * JPA 规范
- * JPA 实现方案
+  * JPA 规范
+  * JPA 实现方案
  
 > JPA(Java Persistence API) 是Sun官方提出的Java持久化规范。它为Java开发人员提供了一种对象/关联映射工具来管理Java应用中的关系数据。他的出现主要是为了简化现有的持久化开发工作和整合ORM技术，结束现在Hibernate，TopLink，JDO等ORM框架各自为营的局面。值得注意的是，JPA是在充分吸收了现有Hibernate，TopLink，JDO等ORM框架的基础上发展而来的，具有易于使用，伸缩性强等优点。
  
