@@ -47,7 +47,7 @@ HotSpot虚拟机的对象头(Object Header)包括两部分信息，第一部分�
 ![对象头Mark Word](https://wx3.sinaimg.cn/mw690/7968cbf7gy1ftvsr5kd9jj20rr09nq5z.jpg)
 
 
-### 3 `锁的升级和对比
+### 3 锁的升级和对比
 
 锁的升级关系：
 
