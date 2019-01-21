@@ -2,7 +2,7 @@
 **1. The Exception classifictiions**
 * **Throwable** is the supper class for all the errors and Exceptions in Java. 
 * **Error** is the subclass of Throwable, it means uncontrollable error, system/application can't handle it and it need manually checking.  
-  ex.OutOfMemoryError,StackOverflowError ...
+  like : OutOfMemoryError,StackOverflowError ...
 *  **Exception** is the subclass of Throwable too. It can be divided into two categories：  
    * Unchecked Exception:
     System/Application no need to try catch it.  
@@ -75,11 +75,11 @@
    }
  ```
     
-**2. Who should handle the exception**
+**3. Who should handle the exception**
 * Remote call across application - Exceptoin should be encapsulated in Objec like Result with status code. It can avoid NullPointException.
 * Inner call - Exception should be throw upper if current function can't handle it.
 
-**3. How to handle an exception**
+**4. How to handle an exception**
  * We should not catch exceptions but do nothing or only just print log
 
    ``` java
