@@ -167,12 +167,13 @@
  * Days of preservation - 15day ， then backup
  * Log Details
   Time + thread + log level + bacis info + exception , e call stack
-2. Log Level
-* DEBUG
-* INFO
-* WARN
-* ERROR
-* FATAL
+2. Log Level   
+Debug < Info < Warn < Error < Fatal
+* DEBUG – The DEBUG Level designates fine-grained informational events that are most useful to debug an application. 
+* INFO - The INFO level designates informational messages that highlight the progress of the application at coarse-grained level. 
+* WARN – The WARN level designates potentially harmful situations. 
+* ERROR – The ERROR level designates error events that might still allow the application to continue running.
+* FATAL – The FATAL level designates very severe error events that will presumably lead the application to abort. 
 
 3.tips
 1.save resources
@@ -186,3 +187,15 @@ logger.error("xxx" + e.getMesseage(),e);
 4. Object override toString();
 
 5.LOG Framework
+* Log Implementation  
+  log4j,logback,log-jdk,others
+* Log Facade  
+  slf4j,commons-logging
+* Log Facade Adaptor
+slf4j-jdk,slf4j-jcl,slf4j-log4j12
+* Log Adaptor
+jul-to-slf4j,log4j-over-slf4j,jcl-over-slf4j
+
+![pic1](https://cnblogpic.oss-cn-qingdao.aliyuncs.com/blogpic/java_log/slf4j-concrete-bindings1.png)
+
+![pic2](https://cnblogpic.oss-cn-qingdao.aliyuncs.com/blogpic/java_log/slf4j_brige.png)
