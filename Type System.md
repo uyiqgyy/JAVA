@@ -1,4 +1,5 @@
 ## Type System
 
 1. Pics
-![https://images2018.cnblogs.com/blog/1001479/201806/1001479-20180604192457869-659587591.png]()
+
+![](https://pic4.zhimg.com/80/b0aeb7ffd1667b9162e5329154d43777_hd.jpg)
